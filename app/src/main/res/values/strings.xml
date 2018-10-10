@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">SchoolApp</string>
     <string name="get_started">GET STARTED</string>
+    <string name="user_name">User Name</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="forgotpassword">Forgot Password</string>
+    <string name="signup">Sign Up</string>
 </resources>
