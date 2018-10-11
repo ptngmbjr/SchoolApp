@@ -6,4 +6,9 @@
     <string name="login">Login</string>
     <string name="forgotpassword">Forgot Password</string>
     <string name="signup">Sign Up</string>
+
+    <string name="regmobno">Your Registered Mobile Number</string>
+    <string name="sign_up_getstarted">Get Started</string>
+    <string name="already_have_an_account">Already you have an Account</string>
+
 </resources>

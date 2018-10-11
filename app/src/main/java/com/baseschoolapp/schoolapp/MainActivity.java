@@ -1,6 +1,7 @@
 package com.baseschoolapp.schoolapp;
 
 import android.content.Intent;
+import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,6 +35,7 @@ import java.util.HashMap;
 public class MainActivity extends AppCompatActivity implements BaseSliderView.OnSliderClickListener {
 
     private SliderLayout mDemoSlider;
+    private Button btnGetStarted;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,11 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
         setContentView(R.layout.activity_main);
 
         mDemoSlider = (SliderLayout) findViewById(R.id.slider);
+        btnGetStarted = (Button) findViewById(R.id.btngetstarted);
+
+
+        GradientDrawable background = (GradientDrawable) btnGetStarted.getBackground();
+        background.setColor(getResources().getColor(R.color.getstartedwhite));
 
         mDemoSlider.setCustomIndicator((PagerIndicator) findViewById(R.id.custom_indicator));
 
