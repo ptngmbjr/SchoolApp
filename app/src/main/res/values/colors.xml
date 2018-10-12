@@ -9,4 +9,6 @@
 
     <color name="getstartedwhite">#ffffff</color>
 
+    <color name="disabled">#dddddd</color>
+
 </resources>

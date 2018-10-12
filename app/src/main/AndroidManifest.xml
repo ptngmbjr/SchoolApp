@@ -26,7 +26,8 @@
             android:value="73ab6bf0bc0b3760a1fd1ac9ff9fc4ba35c3106a" />
 
         <activity android:name=".Login" />
-        <activity android:name=".Signup"></activity>
+        <activity android:name=".Signup" />
+        <activity android:name=".Otp"></activity>
     </application>
 
 </manifest>

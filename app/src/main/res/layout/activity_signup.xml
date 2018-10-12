@@ -61,10 +61,21 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/round_button"
             android:text="@string/sign_up_getstarted"
+            android:onClick="getStartedWithMobile"
             android:textColor="#ffffff"
             android:textAllCaps="false"
             android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/txt_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:text="SAMPLE TEXT"
+                android:textColor="@android:color/holo_red_light"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:textSize="15dp" />
 
         </LinearLayout>
 
@@ -88,6 +99,7 @@
             android:background="@drawable/round_button"
             android:textAllCaps="false"
             android:text="@string/login"
+            android:onClick="login"
             android:textColor="#ffffff"
             android:textStyle="bold" />
 

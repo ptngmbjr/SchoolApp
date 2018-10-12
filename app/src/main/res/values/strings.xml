@@ -11,4 +11,9 @@
     <string name="sign_up_getstarted">Get Started</string>
     <string name="already_have_an_account">Already you have an Account</string>
 
+    <string name="otp_text">Enter One Time Password(OTP)\nSent to your Mobile Number\n%1$s</string>
+    <string name="resend_otp">Re-Send OTP</string>
+    <string name="submit_otp">Submit OTP</string>
+    <string name="otp">Enter OTP here</string>
+
 </resources>
