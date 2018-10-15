@@ -1,6 +1,7 @@
 package com.baseschoolapp.schoolapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -35,6 +36,9 @@ public class Otp extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        setTheme(R.style.LoginTheme);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp);
 
@@ -122,4 +126,10 @@ public class Otp extends AppCompatActivity {
         else
             txt_resend_otp.setTextColor(ContextCompat.getColor(this, R.color.disabled));
     }
+
+    public void submitOTP(View view) {
+        Intent i = new Intent(this, Registration.class);
+        startActivity(i);
+    }
+
 }

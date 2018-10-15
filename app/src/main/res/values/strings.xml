@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">SchoolApp</string>
+
+    <string name="done">Done</string>
+
     <string name="get_started">GET STARTED</string>
     <string name="user_name">User Name</string>
     <string name="password">Password</string>
@@ -15,5 +18,14 @@
     <string name="resend_otp">Re-Send OTP</string>
     <string name="submit_otp">Submit OTP</string>
     <string name="otp">Enter OTP here</string>
+
+    <string name="get_reg_done">Get your Registration Done</string>
+    <string name="create_password">Create Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="reg_submit">Submit</string>
+
+    <string name="thank_you">Thank You</string>
+    <string name="sample_name">Mr. Jack Daniel</string>
+    <string name="track_study">Now you can Track your Children\'s Study Activities</string>
 
 </resources>

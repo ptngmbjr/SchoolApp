@@ -27,7 +27,9 @@
 
         <activity android:name=".Login" />
         <activity android:name=".Signup" />
-        <activity android:name=".Otp"></activity>
+        <activity android:name=".Otp" />
+        <activity android:name=".Registration" />
+        <activity android:name=".SuccessLogin"></activity>
     </application>
 
 </manifest>

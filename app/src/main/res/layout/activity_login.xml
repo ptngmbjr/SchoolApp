@@ -4,46 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
     android:orientation="vertical"
+    android:weightSum="3"
     tools:context=".Login">
 
+    <!--android:background="@android:color/white"-->
+
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:padding="10dp">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/logo" />
-
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.1">
 
     </LinearLayout>
-
     <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:gravity="center"-->
-        <!--android:padding="5dp">-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:padding="10dp">-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:visibility="gone"-->
+    <!--android:background="@drawable/logo" />-->
+
+
+    <!--</LinearLayout>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp">
+
 
         <EditText
             android:id="@+id/edtxt_username"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:layout_marginBottom="10dp"
             android:background="@drawable/round_edittext"
             android:hint="@string/user_name"
             android:textAlignment="center" />
 
 
-    <!--</LinearLayout>-->
+        <!--</LinearLayout>-->
 
-    <!--<LinearLayout-->
+        <!--<LinearLayout-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->
         <!--android:gravity="center"-->
@@ -53,16 +65,16 @@
             android:id="@+id/edtxt_password"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:layout_marginBottom="10dp"
             android:background="@drawable/round_edittext"
             android:hint="@string/password"
             android:textAlignment="center" />
 
-    <!--</LinearLayout>-->
+        <!--</LinearLayout>-->
 
-    <!--<LinearLayout-->
+        <!--<LinearLayout-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->
         <!--android:gravity="center"-->
@@ -72,38 +84,46 @@
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/round_button"
+            android:text="@string/login"
             android:textAllCaps="false"
             android:textColor="#ffffff"
-            android:background="@drawable/round_button"
-            android:text="@string/login" />
+            android:textStyle="bold" />
 
-    <!--</LinearLayout>-->
+        <!--</LinearLayout>-->
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="20dp">
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center"-->
+        <!--android:padding="20dp">-->
 
         <TextView
             android:id="@+id/txtForgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/forgotpassword"
             android:textColor="#C8C8C8"
-            android:text="@string/forgotpassword" />
+            android:textSize="15dp" />
 
     </LinearLayout>
     <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:gravity="center"-->
-        <!--android:padding="15dp">-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:gravity="center"-->
+    <!--android:padding="15dp">-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4"
+        android:gravity="center"
+        android:padding="5dp">
 
         <Button
             android:id="@+id/btnsignup"
@@ -111,15 +131,14 @@
             android:layout_height="50dp"
             android:layout_marginLeft="55dp"
             android:layout_marginRight="55dp"
-            android:layout_marginTop="15dp"
+            android:background="@drawable/round_button"
+            android:onClick="signUp"
+            android:text="@string/signup"
             android:textAllCaps="false"
             android:textColor="#ffffff"
-            android:textStyle="bold"
-            android:onClick="signUp"
-            android:background="@drawable/round_button"
-            android:text="@string/signup" />
+            android:textStyle="bold" />
 
-    <!--</LinearLayout>-->
+    </LinearLayout>
 
 
 </LinearLayout>

@@ -8,94 +8,81 @@
     android:weightSum="3"
     tools:context=".Login">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.1">
+        android:layout_weight="1.3">
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.3"
+        android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="5dp">
 
 
+        <TextView
+            android:id="@+id/txtvw_reg_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            android:text="@string/get_reg_done"
+            android:textSize="@dimen/font_size_large"
+            android:textStyle="bold" />
+
+
         <EditText
-            android:id="@+id/edtxt_regmobileno"
+            android:id="@+id/edtxt_create_password"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:background="@drawable/round_edittext"
-            android:hint="@string/regmobno"
+            android:hint="@string/create_password"
             android:textAlignment="center" />
 
-        <Button
-            android:id="@+id/btnsignupgetstarted"
+        <EditText
+            android:id="@+id/edtxt_confirm_password"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/round_button"
-            android:onClick="getStartedWithMobile"
-            android:text="@string/sign_up_getstarted"
-            android:textAllCaps="false"
-            android:textColor="#ffffff"
-            android:textStyle="bold" />
+            android:background="@drawable/round_edittext"
+            android:hint="@string/confirm_password"
+            android:textAlignment="center" />
 
-        <TextView
-            android:id="@+id/txt_error"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="SAMPLE TEXT"
-            android:textColor="@android:color/holo_red_light"
-            android:textSize="15dp"
-            android:visibility="gone" />
 
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.6"
-        android:orientation="vertical"
+        android:layout_weight="0.7"
         android:gravity="center"
         android:padding="5dp">
 
-        <TextView
-            android:id="@+id/txt_already_have_an_account"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:text="@string/already_have_an_account"
-            android:textColor="#C8C8C8"
-            android:textSize="15dp" />
-
-
         <Button
-            android:id="@+id/btn_sign_up_login"
+            android:id="@+id/btn_reg_submit"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginBottom="20dp"
             android:layout_marginLeft="55dp"
             android:layout_marginRight="55dp"
             android:background="@drawable/round_button"
-            android:onClick="login"
-            android:text="@string/login"
+            android:onClick="regSubmit"
+            android:text="@string/reg_submit"
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textStyle="bold" />
 
-
     </LinearLayout>
+
 
 </LinearLayout>
