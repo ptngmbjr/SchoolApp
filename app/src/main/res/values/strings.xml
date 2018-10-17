@@ -27,5 +27,21 @@
     <string name="thank_you">Thank You</string>
     <string name="sample_name">Mr. Jack Daniel</string>
     <string name="track_study">Now you can Track your Children\'s Study Activities</string>
+    <string name="title_activity_student_dash_board">Dashboard</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+
+    <array name="tab_name">
+        <item>Home</item>
+        <item>Attendance</item>
+        <item>Bus</item>
+        <item>Chat</item>
+        <item>More</item>
+    </array>
 
 </resources>

@@ -72,6 +72,7 @@
             android:layout_marginRight="55dp"
             android:background="@drawable/round_button"
             android:text="@string/done"
+            android:onClick="doneClick"
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textStyle="bold" />
