@@ -11,8 +11,7 @@ import com.baseschoolapp.schoolapp.StudentDashBoard;
 import butterknife.ButterKnife;
 
 
-public class ProfileFragment extends BaseFragment{
-
+public class AttendanceFragment extends BaseFragment{
 
 
 
@@ -26,16 +25,15 @@ public class ProfileFragment extends BaseFragment{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        View view = inflater.inflate(R.layout.fragment_attendance, container, false);
 
         ButterKnife.bind(this, view);
 
-        ( (StudentDashBoard)getActivity()).updateToolbarTitle("Profile");
+        ( (StudentDashBoard)getActivity()).updateToolbarTitle(getResources().getString(R.string.attendance_head_title));
 
 
         return view;
     }
-
 
 
 }

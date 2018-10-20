@@ -2,6 +2,12 @@
     <string name="app_name">SchoolApp</string>
 
     <string name="done">Done</string>
+    <string name="view_all">View All</string>
+    <string name="today_classes">Today Classes</string>
+    <string name="track_school_bus">Track school bus</string>
+    <string name="student_activities">Student Activities</string>
+    <string name="events">Events</string>
+    <string name="news_updates">News/Updates</string>
 
     <string name="get_started">GET STARTED</string>
     <string name="user_name">User Name</string>
@@ -43,5 +49,12 @@
         <item>Chat</item>
         <item>More</item>
     </array>
+
+    <string name="dashboard_head_title">Dashboard</string>
+    <string name="attendance_head_title">Attendance</string>
+    <string name="bus_head_title">Bus</string>
+    <string name="chat_head_title">Chat</string>
+    <string name="more_head_title">More</string>
+
 
 </resources>

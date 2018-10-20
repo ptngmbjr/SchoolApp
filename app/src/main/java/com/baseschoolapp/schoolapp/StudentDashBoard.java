@@ -1,17 +1,17 @@
 package com.baseschoolapp.schoolapp;
 
+import android.graphics.drawable.Drawable;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 
-import com.baseschoolapp.schoolapp.BaseActivity;
-import com.baseschoolapp.schoolapp.R;
 import com.baseschoolapp.schoolapp.fragments.BaseFragment;
-import com.baseschoolapp.schoolapp.fragments.HomeFragment;
-import com.baseschoolapp.schoolapp.fragments.NewsFragment;
-import com.baseschoolapp.schoolapp.fragments.ProfileFragment;
-import com.baseschoolapp.schoolapp.fragments.SearchFragment;
-import com.baseschoolapp.schoolapp.fragments.ShareFragment;
+import com.baseschoolapp.schoolapp.fragments.ChatFragment;
+import com.baseschoolapp.schoolapp.fragments.DashboardFragment;
+import com.baseschoolapp.schoolapp.fragments.MoreFragment;
+import com.baseschoolapp.schoolapp.fragments.AttendanceFragment;
+import com.baseschoolapp.schoolapp.fragments.BusFragment;
 import com.baseschoolapp.schoolapp.utils.FragmentHistory;
 import com.baseschoolapp.schoolapp.utils.Utils;
 import com.baseschoolapp.schoolapp.views.FragNavController;
@@ -82,6 +82,7 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
 
         ButterKnife.bind(this);
 
+        initToolbar();
 
         initTab();
 
@@ -124,7 +125,6 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
             }
         });
 
-        initToolbar();
 
     }
 
@@ -133,8 +133,12 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
+        changeOverflowIcon(R.drawable.ic_notification);
+    }
 
-
+    private void changeOverflowIcon(int res) {
+        Drawable drawable = ContextCompat.getDrawable(getApplicationContext(), res);
+        toolbar.setOverflowIcon(drawable);
     }
 
     private void initTab() {
@@ -323,15 +327,15 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
         switch (index) {
 
             case FragNavController.TAB1:
-                return new HomeFragment();
+                return new DashboardFragment();
             case FragNavController.TAB2:
-                return new SearchFragment();
+                return new AttendanceFragment();
             case FragNavController.TAB3:
-                return new ShareFragment();
+                return new BusFragment();
             case FragNavController.TAB4:
-                return new NewsFragment();
+                return new ChatFragment();
             case FragNavController.TAB5:
-                return new ProfileFragment();
+                return new MoreFragment();
 
 
         }

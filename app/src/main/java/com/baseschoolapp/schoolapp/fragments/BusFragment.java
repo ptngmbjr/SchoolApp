@@ -12,7 +12,7 @@ import com.baseschoolapp.schoolapp.StudentDashBoard;
 import butterknife.ButterKnife;
 
 
-public class ShareFragment extends BaseFragment {
+public class BusFragment extends BaseFragment {
 
 
     @Override
@@ -25,11 +25,11 @@ public class ShareFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_share, container, false);
+        View view = inflater.inflate(R.layout.fragment_bus, container, false);
 
         ButterKnife.bind(this, view);
 
-        ((StudentDashBoard) getActivity()).updateToolbarTitle("Share");
+        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.bus_head_title));
 
 
         return view;

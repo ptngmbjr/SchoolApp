@@ -11,7 +11,8 @@ import com.baseschoolapp.schoolapp.StudentDashBoard;
 import butterknife.ButterKnife;
 
 
-public class SearchFragment extends BaseFragment{
+public class MoreFragment extends BaseFragment{
+
 
 
 
@@ -25,15 +26,16 @@ public class SearchFragment extends BaseFragment{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_search, container, false);
+        View view = inflater.inflate(R.layout.fragment_more, container, false);
 
         ButterKnife.bind(this, view);
 
-        ( (StudentDashBoard)getActivity()).updateToolbarTitle("Search");
+        ( (StudentDashBoard)getActivity()).updateToolbarTitle(getResources().getString(R.string.more_head_title));
 
 
         return view;
     }
+
 
 
 }

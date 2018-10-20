@@ -1,0 +1,264 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:fillViewport="true"> <!--IMPORTANT otherwise backgrnd img. will not fill the whole screen -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/profile_image"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/ic_welcome01" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/first_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Laxmi"
+                        android:textColor="@color/loginblue"
+                        android:textSize="@dimen/font_size_extra_large"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/last_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Prasanna"
+                        android:textColor="@color/loginblue"
+                        android:textSize="@dimen/font_size_extra_large"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/student_class"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="3rd Standard"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_size_normal"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp">
+
+
+                    <include
+                        android:id="@+id/round_layout_attendance"
+                        layout="@layout/round_rectangle_two_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp" />
+
+                    <include
+                        android:id="@+id/round_layout_score"
+                        layout="@layout/round_rectangle_two_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp" />
+
+                    <include
+                        android:id="@+id/round_layout_fee"
+                        layout="@layout/round_rectangle_two_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp" />
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+        </LinearLayout>
+
+        <include
+            android:id="@+id/classes_header"
+            layout="@layout/header_with_view_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" />
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/layout_today_class"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <include
+                    android:id="@+id/subject1"
+                    layout="@layout/square_corner_rectangle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    android:id="@+id/subject2"
+                    layout="@layout/square_corner_rectangle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp" />
+
+                <include
+                    android:id="@+id/subject3"
+                    layout="@layout/square_corner_rectangle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp" />
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+        <include
+            android:id="@+id/school_bus_header"
+            layout="@layout/header_with_view_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp">
+
+            <com.baseschoolapp.schoolapp.utils.RoundedImageView
+                android:id="@+id/school_route_image"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/map_image" />
+
+        </LinearLayout>
+
+        <include
+            android:id="@+id/student_activities_header"
+            layout="@layout/header_with_view_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp" />
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:id="@+id/activity_layout"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <include
+                    android:id="@+id/activity1"
+                    layout="@layout/image_with_footer_text" />
+
+                <include
+                    android:id="@+id/activity2"
+                    layout="@layout/image_with_footer_text" />
+
+                <include
+                    android:id="@+id/activity3"
+                    layout="@layout/image_with_footer_text" />
+
+                <include
+                    android:id="@+id/activity4"
+                    layout="@layout/image_with_footer_text" />
+
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+        <include
+            android:id="@+id/events_header"
+            layout="@layout/header_with_view_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"
+            android:paddingRight="10dp"
+            android:paddingTop="20dp">
+
+            <com.baseschoolapp.schoolapp.utils.RoundedImageView
+                android:id="@+id/events_image"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/event_image" />
+
+        </LinearLayout>
+
+        <include
+            android:id="@+id/news_updates_header"
+            layout="@layout/header_with_view_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+                <ListView
+                    android:id="@+id/news_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
