@@ -4,6 +4,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.ViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class DashboardFragment extends BaseFragment {
@@ -94,23 +96,30 @@ public class DashboardFragment extends BaseFragment {
 
         ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.dashboard_head_title));
 
-        initialiseAboutStudent(view);
 
-        initialiseClasses(view);
-
-        initialiseSchoolBus(view);
-
-        initialiseStudentActivities(view);
+        initialiseNewsUpdates(view);
 
         initialiseEvents(view);
 
-        initialiseNewsUpdates(view);
+        initialiseStudentActivities(view);
+
+        initialiseSchoolBus(view);
+
+        initialiseClasses(view);
+
+        initialiseAboutStudent(view);
+
+
     }
 
     private void initialiseAboutStudent(View view) {
         View round_layout_attendance = view.findViewById(R.id.round_layout_attendance);
         View round_layout_score = view.findViewById(R.id.round_layout_score);
         View round_layout_fee = view.findViewById(R.id.round_layout_fee);
+        CircleImageView profile_image = view.findViewById(R.id.profile_image);
+        TextView first_name = (TextView) view.findViewById(R.id.first_name);
+        TextView last_name = (TextView) view.findViewById(R.id.last_name);
+        TextView standard = (TextView) view.findViewById(R.id.student_class);
 
 // geting the textview declared in header.xml
         TextView headerText_attendance = (TextView) round_layout_attendance.findViewById(R.id.header);
@@ -140,6 +149,32 @@ public class DashboardFragment extends BaseFragment {
         GradientDrawable background2 = (GradientDrawable) round_layout_fee.getBackground();
         background2.setColor(getResources().getColor(R.color.signuporange));
 
+        profile_image.setImageDrawable(getResources().getDrawable(R.drawable.ic_welcome01));
+        first_name.setText("Laxmi");
+        last_name.setText("Prasanna");
+        standard.setText("3rd Standard");
+
+        round_layout_fee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (mFragmentNavigation != null) {
+                    mFragmentNavigation.pushFragment(new FeeFragment());
+
+                }
+            }
+        });
+
+        round_layout_score.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (mFragmentNavigation != null) {
+                    mFragmentNavigation.pushFragment(new ExamsAndResultsFragment());
+
+                }
+            }
+        });
 
     }
 
@@ -291,9 +326,13 @@ public class DashboardFragment extends BaseFragment {
     }
 
     private void initialiseNewsUpdates(View view) {
+
         RelativeLayout header_title = (RelativeLayout) view.findViewById(R.id.news_updates_header);
+        ListView lv = (ListView) view.findViewById(R.id.news_list);
         TextView gruop_header_title_left = (TextView) header_title.findViewById(R.id.group_header_left);
         TextView gruop_header_title_right = (TextView) header_title.findViewById(R.id.group_header_right);
+
+        ViewCompat.setNestedScrollingEnabled(lv, true);
 
         gruop_header_title_left.setVisibility(View.VISIBLE);
         gruop_header_title_right.setVisibility(View.VISIBLE);
@@ -310,7 +349,7 @@ public class DashboardFragment extends BaseFragment {
 
     public void initialiseNewsWithData(View view) {
 
-        listView=(ListView)view.findViewById(R.id.news_list);
+        listView = (ListView) view.findViewById(R.id.news_list);
 
         dataModels = new ArrayList<>();
 

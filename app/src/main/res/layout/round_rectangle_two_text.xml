@@ -15,7 +15,7 @@
         android:layout_marginTop="5dp"
         android:text="Attendance"
         android:textColor="@color/white"
-        android:textSize="@dimen/font_size_small"
+        android:textSize="@dimen/font_size_extra_small"
         android:textStyle="bold" />
 
     <TextView
@@ -28,7 +28,7 @@
         android:layout_marginTop="1dp"
         android:text="90%"
         android:textColor="@color/white"
-        android:textSize="@dimen/font_size_large"
+        android:textSize="@dimen/font_size_normal"
         android:textStyle="bold" />
 
 </LinearLayout>

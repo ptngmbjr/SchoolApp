@@ -32,6 +32,7 @@
                         android:id="@+id/profile_image"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
+                        android:focusableInTouchMode="true"
                         android:src="@drawable/ic_welcome01" />
 
                 </LinearLayout>
@@ -40,7 +41,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="10dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -49,7 +50,7 @@
                         android:layout_height="wrap_content"
                         android:text="Laxmi"
                         android:textColor="@color/loginblue"
-                        android:textSize="@dimen/font_size_extra_large"
+                        android:textSize="@dimen/font_size_large"
                         android:textStyle="bold" />
 
                     <TextView
@@ -58,7 +59,7 @@
                         android:layout_height="wrap_content"
                         android:text="Prasanna"
                         android:textColor="@color/loginblue"
-                        android:textSize="@dimen/font_size_extra_large"
+                        android:textSize="@dimen/font_size_large"
                         android:textStyle="bold" />
 
                     <TextView
@@ -67,7 +68,7 @@
                         android:layout_height="wrap_content"
                         android:text="3rd Standard"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/font_size_normal"
+                        android:textSize="@dimen/font_size_medium"
                         android:textStyle="bold" />
 
 
@@ -81,8 +82,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="10dp">
+                    android:orientation="horizontal">
 
 
                     <include
@@ -117,10 +117,11 @@
             layout="@layout/header_with_view_all"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="5dp" />
 
         <HorizontalScrollView
             android:layout_width="wrap_content"
+            android:layout_marginTop="3dp"
             android:layout_height="wrap_content">
 
             <LinearLayout
@@ -128,7 +129,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <include
@@ -142,14 +142,14 @@
                     layout="@layout/square_corner_rectangle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp" />
+                    android:layout_marginLeft="10dp" />
 
                 <include
                     android:id="@+id/subject3"
                     layout="@layout/square_corner_rectangle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp" />
+                    android:layout_marginLeft="10dp" />
 
             </LinearLayout>
 
@@ -160,13 +160,13 @@
             layout="@layout/header_with_view_all"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp" />
+        />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingRight="10dp"
-            android:paddingTop="10dp">
+            android:layout_marginTop="3dp"
+            android:paddingRight="10dp">
 
             <com.baseschoolapp.schoolapp.utils.RoundedImageView
                 android:id="@+id/school_route_image"
@@ -182,7 +182,7 @@
             layout="@layout/header_with_view_all"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp" />
+            android:layout_marginTop="8dp" />
 
         <HorizontalScrollView
             android:layout_width="wrap_content"
@@ -192,8 +192,8 @@
             <LinearLayout
                 android:id="@+id/activity_layout"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:orientation="horizontal">
 
                 <include
@@ -222,21 +222,20 @@
             layout="@layout/header_with_view_all"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp" />
+            android:layout_marginTop="8dp" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="20dp"
-            android:paddingRight="10dp"
-            android:paddingTop="20dp">
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="3dp">
 
             <com.baseschoolapp.schoolapp.utils.RoundedImageView
                 android:id="@+id/events_image"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
                 android:scaleType="fitXY"
+                android:layout_height="50dp"
                 android:src="@drawable/event_image" />
 
         </LinearLayout>
@@ -246,19 +245,11 @@
             layout="@layout/header_with_view_all"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp" />
+            android:layout_marginTop="8dp" />
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-                <ListView
-                    android:id="@+id/news_list"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            
-        </LinearLayout>
+        <include layout="@layout/news_list_view"/>
 
     </LinearLayout>
 </ScrollView>

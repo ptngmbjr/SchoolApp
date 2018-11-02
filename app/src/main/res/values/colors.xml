@@ -51,5 +51,7 @@
 
     <color name="green">#70c050</color>
 
+    <color name="header_light_blue">#DDECFF</color>
+
 
 </resources>

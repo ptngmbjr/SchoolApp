@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_fee_history_row"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:orientation="horizontal"
+    android:weightSum="4">
+
+    <TextView
+        android:id="@+id/s_no"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="@dimen/s_no_weight"
+        android:text="#"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_size_normal"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/receipt_no"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="@dimen/receipt_weight"
+        android:text="@string/receipt_no"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_size_normal"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="@dimen/date_weight"
+        android:text="Date"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_size_normal"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/fee_history_amount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="@dimen/amount_weight"
+        android:text="Amount"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_size_normal"
+        android:textStyle="bold" />
+
+</LinearLayout>

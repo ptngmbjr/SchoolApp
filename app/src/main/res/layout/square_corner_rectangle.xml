@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginLeft="20dp"
     android:background="@drawable/square_button"
     android:orientation="vertical"
     android:weightSum="3">
@@ -20,8 +21,8 @@
 
         <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/subject_image"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:src="@drawable/ic_welcome01" />
 
         <include
@@ -30,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="8dp"
         />
 
         <include
@@ -39,8 +40,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="5dp" />
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="2dp" />
 
     </LinearLayout>
 
@@ -59,7 +60,7 @@
             android:layout_height="wrap_content"
             android:text="Biology"
             android:textColor="@color/white"
-            android:textSize="@dimen/font_size_normal"
+            android:textSize="@dimen/font_size_small"
             android:textStyle="bold" />
 
     </LinearLayout>

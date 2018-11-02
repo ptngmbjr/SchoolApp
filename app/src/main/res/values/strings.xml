@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">SchoolApp</string>
 
+    <string name="rupess">Rs.</string>
+    <string name="currency">$</string>
     <string name="done">Done</string>
     <string name="view_all">View All</string>
     <string name="today_classes">Today Classes</string>
@@ -55,6 +57,20 @@
     <string name="bus_head_title">Bus</string>
     <string name="chat_head_title">Chat</string>
     <string name="more_head_title">More</string>
+    <string name="fee_details">Fee Details</string>
+    <string name="exam_result">Exam and Results</string>
 
+    <string name="installment_text">Next Installment</string>
+    <string name="due_text">Due on</string>
+    <string name="fee_pay_histroy">Fee payment History</string>
+    <string name="pay_now">Pay Now</string>
+    <string name="fee_break_down">Fee Breakdown</string>
+    <string name="receipt_no">Receipt No.</string>
+    <string name="date">Date</string>
+    <string name="amount">Amount</string>
+    <string name="grand_total">Grand Total</string>
+
+    <string name="starts_from">Starts From</string>
+    <string name="grade">Grade</string>
 
 </resources>
