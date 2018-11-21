@@ -103,6 +103,7 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
 
 
                 // fragmentHistory.push(tab.getPosition());
+                mNavController.clearStack();
 
                 switchTab(tab.getPosition());
 
@@ -342,10 +343,24 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
         throw new IllegalStateException("Need to send an index that we know");
     }
 
+    public void hideToolBar() {
+
+
+        getSupportActionBar().hide();
+
+    }
+
+    public void showToolBar() {
+
+
+        getSupportActionBar().show();
+
+    }
+
     public void updateToolbarTitle(String title) {
 
-
         getSupportActionBar().setTitle(title);
+
 
     }
 

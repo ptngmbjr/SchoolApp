@@ -116,6 +116,8 @@ public class DashboardFragment extends BaseFragment {
         View round_layout_attendance = view.findViewById(R.id.round_layout_attendance);
         View round_layout_score = view.findViewById(R.id.round_layout_score);
         View round_layout_fee = view.findViewById(R.id.round_layout_fee);
+        View profile_image_layout= view.findViewById(R.id.profile_image_layout);
+
         CircleImageView profile_image = view.findViewById(R.id.profile_image);
         TextView first_name = (TextView) view.findViewById(R.id.first_name);
         TextView last_name = (TextView) view.findViewById(R.id.last_name);
@@ -154,6 +156,17 @@ public class DashboardFragment extends BaseFragment {
         last_name.setText("Prasanna");
         standard.setText("3rd Standard");
 
+        profile_image_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (mFragmentNavigation != null) {
+                    mFragmentNavigation.pushFragment(new ProfileFragment());
+
+                }
+            }
+        });
+
         round_layout_fee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -171,6 +184,18 @@ public class DashboardFragment extends BaseFragment {
 
                 if (mFragmentNavigation != null) {
                     mFragmentNavigation.pushFragment(new ExamsAndResultsFragment());
+
+                }
+            }
+        });
+
+
+        round_layout_attendance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (mFragmentNavigation != null) {
+                    mFragmentNavigation.pushFragment(new StudentGradeFragment());
 
                 }
             }

@@ -2,7 +2,9 @@ package com.baseschoolapp.schoolapp.Adapters;
 
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,6 +72,7 @@ public class ExamAndResultAdapter extends ArrayAdapter<ExamAndResultDataModel> i
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
 
+
             if (dataModel.isHeader()) {
                 convertView = inflater.inflate(R.layout.exams_results_header_row, parent, false);
                 viewHolder.unitTestName = (TextView) convertView.findViewById(R.id.test_name);
@@ -88,6 +91,12 @@ public class ExamAndResultAdapter extends ArrayAdapter<ExamAndResultDataModel> i
                 viewHolder.testTitle.setText(dataModel.getTestTitle());
                 viewHolder.testDetais.setText(dataModel.getTestDetails());
             }
+
+
+            GradientDrawable background = (GradientDrawable) convertView.getBackground();
+            int color = ContextCompat.getColor(getContext(), dataModel.getColorCode());
+            background.setColor(color);
+
             result = convertView;
 
             convertView.setTag(viewHolder);

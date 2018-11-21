@@ -8,6 +8,7 @@ public class ExamAndResultDataModel {
     String grade;
     String testTitle;
     String testDetails;
+    int colorCode;
 
     public boolean isHeader() {
         return isHeader;
@@ -19,14 +20,14 @@ public class ExamAndResultDataModel {
 
     boolean isHeader;
 
-    public ExamAndResultDataModel(String unitTestName,String unitTestStartDate, String grade, String testTitle, String testDetails,boolean isHeader) {
-        this.unitTestName=unitTestName;
+    public ExamAndResultDataModel(String unitTestName, String unitTestStartDate, String grade, String testTitle, String testDetails, boolean isHeader, int colorCode) {
+        this.unitTestName = unitTestName;
         this.unitTestStartDate = unitTestStartDate;
         this.grade = grade;
         this.testTitle = testTitle;
         this.testDetails = testDetails;
         this.isHeader = isHeader;
-
+        this.colorCode = colorCode;
     }
 
     public String getUnitTestName() {
@@ -67,6 +68,14 @@ public class ExamAndResultDataModel {
 
     public void setTestDetails(String testDetails) {
         this.testDetails = testDetails;
+    }
+
+    public int getColorCode() {
+        return colorCode;
+    }
+
+    public void setColorCode(int colorCode) {
+        this.colorCode = colorCode;
     }
 
 

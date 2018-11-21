@@ -59,6 +59,8 @@
     <string name="more_head_title">More</string>
     <string name="fee_details">Fee Details</string>
     <string name="exam_result">Exam and Results</string>
+    <string name="student_grade">Grade</string>
+    <string name="profile">Profile</string>
 
     <string name="installment_text">Next Installment</string>
     <string name="due_text">Due on</string>
@@ -72,5 +74,8 @@
 
     <string name="starts_from">Starts From</string>
     <string name="grade">Grade</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

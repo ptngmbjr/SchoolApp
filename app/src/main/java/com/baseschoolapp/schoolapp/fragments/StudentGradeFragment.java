@@ -19,19 +19,21 @@ import android.widget.TextView;
 import com.baseschoolapp.schoolapp.Adapters.ExamAndResultAdapter;
 import com.baseschoolapp.schoolapp.Adapters.ExamAndResultAdapter;
 import com.baseschoolapp.schoolapp.Adapters.FeeHistoryAdapter;
+import com.baseschoolapp.schoolapp.Adapters.MarksAdapter;
 import com.baseschoolapp.schoolapp.R;
 import com.baseschoolapp.schoolapp.StudentDashBoard;
 import com.baseschoolapp.schoolapp.models.ExamAndResultDataModel;
 import com.baseschoolapp.schoolapp.models.FeeHistoryDataModel;
+import com.baseschoolapp.schoolapp.models.MarksDataModel;
 
 import java.util.ArrayList;
 
-public class ExamsAndResultsFragment extends Fragment {
+public class StudentGradeFragment extends Fragment {
 
-    ArrayList<ExamAndResultDataModel> dataModels;
-    private static ExamAndResultAdapter adapter;
+    ArrayList<MarksDataModel> dataModels;
+    private static MarksAdapter adapter;
 
-    public ExamsAndResultsFragment() {
+    public StudentGradeFragment() {
         // Required empty public constructor
     }
 
@@ -44,41 +46,55 @@ public class ExamsAndResultsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_exam_results, container, false);
+        return inflater.inflate(R.layout.fragment_student_grade, container, false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.exam_result));
+        ((StudentDashBoard) getActivity()).hideToolBar();
 
-        initialiseExamAndResult(view);
+        initialiseMarks(view);
+
     }
 
 
-    public void initialiseExamAndResult(View view) {
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
 
-        ListView listView = (ListView) view.findViewById(R.id.exam_result_list);
+        ((StudentDashBoard) getActivity()).showToolBar();
+
+    }
+
+    public void initialiseMarks(View view) {
+
+        ListView listView = (ListView) view.findViewById(R.id.marks_result_list);
         ViewCompat.setNestedScrollingEnabled(listView, true);
 
         dataModels = new ArrayList<>();
 
-        dataModels.add(new ExamAndResultDataModel("2nd Unit Test", "08/10/2018", "", "", "", true, R.color.orange));
-        dataModels.add(new ExamAndResultDataModel("", "", "A+", "2nd Unit Test Result", "This is sample test which will be replaced later", false, R.color.green));
-        dataModels.add(new ExamAndResultDataModel("", "", "A+", "1st Unit Test Result", "This is sample test which will be replaced later", false, R.color.grey));
+        dataModels.add(new MarksDataModel("Subject", "Marks", R.dimen.font_size_normal, R.color.white));
+        dataModels.add(new MarksDataModel("Telugu", "80/100", R.dimen.font_size_medium, R.color.white));
+        dataModels.add(new MarksDataModel("Hindi", "80/100", R.dimen.font_size_medium, R.color.white));
+        dataModels.add(new MarksDataModel("English", "80/100", R.dimen.font_size_medium, R.color.white));
+        dataModels.add(new MarksDataModel("Maths", "80/100", R.dimen.font_size_medium, R.color.white));
+        dataModels.add(new MarksDataModel("Science", "80/100", R.dimen.font_size_medium, R.color.white));
+        dataModels.add(new MarksDataModel("Socail", "80/100", R.dimen.font_size_medium, R.color.white));
+        dataModels.add(new MarksDataModel("Total", "480/600", R.dimen.font_size_medium, R.color.yellow));
 
-        adapter = new ExamAndResultAdapter(dataModels, this.getContext());
+        adapter = new MarksAdapter(dataModels, this.getContext());
 
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                ExamAndResultDataModel dataModel = dataModels.get(position);
+                MarksDataModel dataModel = dataModels.get(position);
 
-                Snackbar.make(view, dataModel.getUnitTestName() + "\n" + dataModel.getUnitTestStartDate(), Snackbar.LENGTH_LONG)
-                        .setAction("No action", null).show();
+//                Snackbar.make(view, dataModel.getUnitTestName() + "\n" + dataModel.getUnitTestStartDate(), Snackbar.LENGTH_LONG)
+//                        .setAction("No action", null).show();
             }
         });
     }
