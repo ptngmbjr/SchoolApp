@@ -4,6 +4,10 @@
     <color name="loginblue">#009BDE</color>
     <color name="signuporange">#F0BD23</color>
 
+    <color name="blue">#0000ff</color>
+
+    <color name="blue_bg">#0280FF</color>
+
     <color name="getstartedwhite">#ffffff</color>
 
     <color name="disabled">#dddddd</color>

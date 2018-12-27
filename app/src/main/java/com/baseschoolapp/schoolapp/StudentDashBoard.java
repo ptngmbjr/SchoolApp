@@ -6,13 +6,14 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 
-import com.baseschoolapp.schoolapp.fragments.BaseFragment;
-import com.baseschoolapp.schoolapp.fragments.ChatFragment;
-import com.baseschoolapp.schoolapp.fragments.DashboardFragment;
-import com.baseschoolapp.schoolapp.fragments.MoreFragment;
-import com.baseschoolapp.schoolapp.fragments.AttendanceFragment;
-import com.baseschoolapp.schoolapp.fragments.BusFragment;
+import com.baseschoolapp.schoolapp.fragments.Student.BaseFragment;
+import com.baseschoolapp.schoolapp.fragments.Student.ChatFragment;
+import com.baseschoolapp.schoolapp.fragments.Student.DashboardFragment;
+import com.baseschoolapp.schoolapp.fragments.Student.MoreFragment;
+import com.baseschoolapp.schoolapp.fragments.Student.AttendanceFragment;
+import com.baseschoolapp.schoolapp.fragments.Student.BusFragment;
 import com.baseschoolapp.schoolapp.utils.FragmentHistory;
+import com.baseschoolapp.schoolapp.utils.USER;
 import com.baseschoolapp.schoolapp.utils.Utils;
 import com.baseschoolapp.schoolapp.views.FragNavController;
 
@@ -63,11 +64,14 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
     private FragmentHistory fragmentHistory;
     DrawerLayout drawer;
 
+    public static USER user = null;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_dash_board);
 
+        user = USER.valueOf(getIntent().getStringExtra("USER_TYPE"));
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -103,7 +107,7 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
 
 
                 // fragmentHistory.push(tab.getPosition());
-                mNavController.clearStack();
+                //   mNavController.clearStack();
 
                 switchTab(tab.getPosition());
 
@@ -325,18 +329,36 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
 
     @Override
     public Fragment getRootFragment(int index) {
-        switch (index) {
+        if (user == USER.STUDENT) {
+            switch (index) {
 
-            case FragNavController.TAB1:
-                return new DashboardFragment();
-            case FragNavController.TAB2:
-                return new AttendanceFragment();
-            case FragNavController.TAB3:
-                return new BusFragment();
-            case FragNavController.TAB4:
-                return new ChatFragment();
-            case FragNavController.TAB5:
-                return new MoreFragment();
+                case FragNavController.TAB1:
+                    return new DashboardFragment();
+                case FragNavController.TAB2:
+                    return new AttendanceFragment();
+                case FragNavController.TAB3:
+                    return new BusFragment();
+                case FragNavController.TAB4:
+                    return new ChatFragment();
+                case FragNavController.TAB5:
+                    return new MoreFragment();
+            }
+
+
+        } else if (user == USER.TEACHER) {
+            switch (index) {
+
+                case FragNavController.TAB1:
+                    return new DashboardFragment();
+                case FragNavController.TAB2:
+                    return new AttendanceFragment();
+                case FragNavController.TAB3:
+                    return new BusFragment();
+                case FragNavController.TAB4:
+                    return new ChatFragment();
+                case FragNavController.TAB5:
+                    return new MoreFragment();
+            }
 
 
         }

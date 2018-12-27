@@ -1,0 +1,74 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/syllabus_row_bg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:background="@drawable/square_button"
+    android:orientation="horizontal"
+    android:weightSum="3">
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="0.5">
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/syllabus_image"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:focusableInTouchMode="true"
+            android:src="@drawable/ic_timetable" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1.3"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/subject_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Biology"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_size_normal"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="2dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1.2"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/completionsStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="100% Completed"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_size_extra_small" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/navigate_next" />
+
+    </LinearLayout>
+</LinearLayout>

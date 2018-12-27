@@ -13,7 +13,7 @@
         android:background="@color/white"
         android:orientation="vertical"
         android:weightSum="2"
-        tools:context=".fragments.FeeFragment">
+        tools:context=".fragments.Student.FeeFragment">
 
         <include
             layout="@layout/installment_container"

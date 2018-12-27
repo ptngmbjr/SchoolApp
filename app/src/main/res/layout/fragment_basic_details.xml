@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".fragments.BasicDetailsFragment">
+    tools:context=".fragments.Student.BasicDetailsFragment">
 
     <ListView
         android:id="@+id/basic_details_list"
