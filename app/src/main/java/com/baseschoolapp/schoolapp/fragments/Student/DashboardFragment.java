@@ -449,7 +449,7 @@ public class DashboardFragment extends BaseFragment {
                     if (mFragmentNavigation != null) {
                         //mFragmentNavigation.pushFragment(new com.baseschoolapp.schoolapp.fragments.Teacher.TimeTableFragment());
 
-                        mFragmentNavigation.pushFragment(new com.baseschoolapp.schoolapp.fragments.Teacher.SyllabusFragment());
+                        mFragmentNavigation.pushFragment(new com.baseschoolapp.schoolapp.fragments.Teacher.StudentAttendanceFragment());
                     }
                 }
             });
@@ -535,14 +535,14 @@ public class DashboardFragment extends BaseFragment {
 
         dataModels = new ArrayList<>();
 
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good"));
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good"));
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good"));
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good"));
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good"));
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good"));
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good"));
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good"));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good",17,17));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good",17,17));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good",17,17));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good",17,17));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good",17,17));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good",17,17));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good",17,17));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good",17,17));
 
         adapter = new NewsAdapter(dataModels, this.getContext());
 

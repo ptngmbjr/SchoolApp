@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:weightSum="6">
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.7"
+        android:gravity="right|center_vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/unit_test_student_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:focusableInTouchMode="true"
+            android:src="@drawable/ic_welcome01" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="10dp">
+
+        <TextView
+            android:id="@+id/unit_test_student_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Naveen Kumar"
+            android:textSize="@dimen/font_size_small"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/unit_test_student_roll_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Roll No : 01"
+            android:textSize="@dimen/font_size_extra_small" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5"
+        android:gravity="left"
+        android:orientation="vertical"
+        android:paddingLeft="10dp">
+
+        <TextView
+            android:id="@+id/unit_test_marks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="80/100"
+            android:textSize="@dimen/font_size_medium"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/unit_test_marks_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="80/100"
+            android:textSize="@dimen/font_size_medium"
+            android:textStyle="bold"
+            android:visibility="gone" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.8"
+        android:gravity="left"
+        android:orientation="vertical"
+        android:paddingLeft="10dp">
+
+        <TextView
+            android:id="@+id/unit_test_grade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="A+"
+            android:textColor="@color/green"
+            android:textSize="@dimen/font_size_medium"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>

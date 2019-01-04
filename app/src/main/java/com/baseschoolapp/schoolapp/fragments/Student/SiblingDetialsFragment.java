@@ -48,16 +48,16 @@ public class SiblingDetialsFragment extends Fragment {
         dataModels = new ArrayList<>();
 
         dataModels.add("Pawan Kumar");
-        dataModels.add(new KeyValueDataModel("Relation", "Elder Brother"));
-        dataModels.add(new KeyValueDataModel("Class", "5th Class"));
-        dataModels.add(new KeyValueDataModel("School Name", "Vidhya Bharathi School"));
-        dataModels.add(new KeyValueDataModel("Date of Birth", "31 Aug 2000"));
+        dataModels.add(new KeyValueDataModel("Relation", "Elder Brother",17,17));
+        dataModels.add(new KeyValueDataModel("Class", "5th Class",17,17));
+        dataModels.add(new KeyValueDataModel("School Name", "Vidhya Bharathi School",17,17));
+        dataModels.add(new KeyValueDataModel("Date of Birth", "31 Aug 2000",17,17));
 
         dataModels.add("Nalini");
-        dataModels.add(new KeyValueDataModel("Relation", "Younger Sister"));
-        dataModels.add(new KeyValueDataModel("Class", "UKG"));
-        dataModels.add(new KeyValueDataModel("School Name", "Vidhya Bharathi School"));
-        dataModels.add(new KeyValueDataModel("Date of Birth", "31 Aug 2009"));
+        dataModels.add(new KeyValueDataModel("Relation", "Younger Sister",17,17));
+        dataModels.add(new KeyValueDataModel("Class", "UKG",17,17));
+        dataModels.add(new KeyValueDataModel("School Name", "Vidhya Bharathi School",17,17));
+        dataModels.add(new KeyValueDataModel("Date of Birth", "31 Aug 2009",17,17));
 
         listView.setAdapter(new FamilyDetailsAdapter(this.getContext(), dataModels));
 

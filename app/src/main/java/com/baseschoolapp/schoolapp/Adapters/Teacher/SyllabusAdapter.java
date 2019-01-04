@@ -55,7 +55,7 @@ public class SyllabusAdapter extends ArrayAdapter<SyllabusDataModel> implements 
 
         switch (v.getId()) {
             case R.id.subject_name:
-                mListener.onClick(object.getSubjectName(),object.getBgColor());
+                mListener.onClick(object.getSubjectName(), object.getBgColor());
                 break;
         }
     }
@@ -69,8 +69,6 @@ public class SyllabusAdapter extends ArrayAdapter<SyllabusDataModel> implements 
         // Check if an existing view is being reused, otherwise inflate the view
         ViewHolder viewHolder; // view lookup cache stored in tag
 
-        final View result;
-
         if (convertView == null) {
 
             viewHolder = new ViewHolder();
@@ -81,12 +79,10 @@ public class SyllabusAdapter extends ArrayAdapter<SyllabusDataModel> implements 
             viewHolder.completionStatus = (TextView) convertView.findViewById(R.id.completionsStatus);
             viewHolder.image = (ImageView) convertView.findViewById(R.id.syllabus_image);
 
-            result = convertView;
 
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
-            result = convertView;
         }
 
         lastPosition = position;

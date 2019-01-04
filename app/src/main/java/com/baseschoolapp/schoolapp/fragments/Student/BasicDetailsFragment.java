@@ -52,12 +52,12 @@ public class BasicDetailsFragment extends Fragment {
 
         dataModels = new ArrayList<>();
 
-        dataModels.add(new KeyValueDataModel("Admission Number", "55126826"));
-        dataModels.add(new KeyValueDataModel("Date of Registration", "15 Aug 2017"));
-        dataModels.add(new KeyValueDataModel("Date of Birth", "31 Aug 2001"));
-        dataModels.add(new KeyValueDataModel("Gender", "Female"));
-        dataModels.add(new KeyValueDataModel("Caste", "AB-B"));
-        dataModels.add(new KeyValueDataModel("Blood Group", "AB+"));
+        dataModels.add(new KeyValueDataModel("Admission Number", "55126826",17,17));
+        dataModels.add(new KeyValueDataModel("Date of Registration", "15 Aug 2017",17,17));
+        dataModels.add(new KeyValueDataModel("Date of Birth", "31 Aug 2001",17,17));
+        dataModels.add(new KeyValueDataModel("Gender", "Female",17,17));
+        dataModels.add(new KeyValueDataModel("Caste", "AB-B",17,17));
+        dataModels.add(new KeyValueDataModel("Blood Group", "AB+",17,17));
 
         adapter = new BasicDetailsAdapter(dataModels, this.getContext());
 

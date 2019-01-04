@@ -2,10 +2,12 @@ package com.baseschoolapp.schoolapp.Adapters.Student;
 
 
 import android.content.Context;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.baseschoolapp.schoolapp.R;
@@ -24,6 +26,7 @@ public class BasicDetailsAdapter extends ArrayAdapter<KeyValueDataModel> impleme
         TextView profilekey;
         TextView profilevalue;
 
+        LinearLayout ll;
     }
 
     public BasicDetailsAdapter(ArrayList<KeyValueDataModel> data, Context context) {
@@ -74,22 +77,21 @@ public class BasicDetailsAdapter extends ArrayAdapter<KeyValueDataModel> impleme
 
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
-           // result = convertView;
+            // result = convertView;
         }
 
         viewHolder.profilekey = (TextView) convertView.findViewById(R.id.profilekey);
         viewHolder.profilevalue = (TextView) convertView.findViewById(R.id.profilevalue);
+        viewHolder.ll = (LinearLayout) convertView.findViewById(R.id.layout_background);
 
         viewHolder.profilekey.setText(dataModel.getKey());
         viewHolder.profilevalue.setText(dataModel.getValue());
 
-
-        result = convertView;
+        viewHolder.profilekey.setTextSize(TypedValue.COMPLEX_UNIT_SP, dataModel.getKeyHeight());
+        viewHolder.profilevalue.setTextSize(TypedValue.COMPLEX_UNIT_SP, dataModel.getValHeight());
 
         convertView.setTag(viewHolder);
 
-//        Animation animation = AnimationUtils.loadAnimation(mContext, (position > lastPosition) ? R.anim.up_from_bottom : R.anim.down_from_top);
-//        result.startAnimation(animation);
         lastPosition = position;
 
 

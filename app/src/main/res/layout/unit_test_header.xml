@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="30dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_weight="0.8">
+
+        <Button
+            android:id="@+id/unit_test_header_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@drawable/round_button"
+            android:clickable="false"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Unit Test 1"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/font_size_medium"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="0.2">
+
+        <TextView
+            android:id="@+id/unit_test_header_edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit"
+            android:textColor="@color/red"
+            android:textSize="@dimen/font_size_medium"/>
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -15,6 +15,7 @@
     <string name="homework">Home Work</string>
     <string name="subject">Subject</string>
     <string name="class_title">Class</string>
+    <string name="student_profile">Student Profile</string>
 
     <string name="get_started">GET STARTED</string>
     <string name="user_name">User Name</string>
@@ -67,6 +68,7 @@
     <string name="student_grade">Grade</string>
     <string name="profile">Profile</string>
     <string name="time_table">Time Table</string>
+    <string name="my_attendance">My Attendance</string>
 
     <string name="installment_text">Next Installment</string>
     <string name="due_text">Due on</string>
@@ -93,5 +95,7 @@
     <string name="type_of_leave">Type of Leave</string>
     <string name="from_date">From Date</string>
     <string name="to_date">To Date</string>
+    <string name="add_new_time_table">Add New Time Table</string>
+    <string name="leaves_history">Leave History</string>
 
 </resources>

@@ -22,10 +22,32 @@ public class KeyValueDataModel {
 
     String key;
     String value;
+    int keyHeight;
 
-    public KeyValueDataModel(String subject_name, String id) {
+    public int getKeyHeight() {
+        return keyHeight;
+    }
+
+    public void setKeyHeight(int keyHeight) {
+        this.keyHeight = keyHeight;
+    }
+
+    public int getValHeight() {
+        return valHeight;
+    }
+
+    public void setValHeight(int valHeight) {
+        this.valHeight = valHeight;
+    }
+
+    int valHeight;
+
+
+    public KeyValueDataModel(String subject_name, String id, int keyHeight, int valHeight) {
         this.key = subject_name;
         this.value = id;
+        this.keyHeight = keyHeight;
+        this.valHeight = valHeight;
     }
 
 

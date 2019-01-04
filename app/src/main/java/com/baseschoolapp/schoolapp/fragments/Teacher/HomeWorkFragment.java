@@ -165,13 +165,13 @@ public class HomeWorkFragment extends BaseFragment implements OnDateSetListener 
         View subject_name_spinner = (View) view.findViewById(R.id.subject_name_spinner);
         Spinner spinnerClassName;
 
-        dataModels.add(new KeyValueDataModel("Subject", "0"));
-        dataModels.add(new KeyValueDataModel("Telugu", "1"));
-        dataModels.add(new KeyValueDataModel("Hindi", "2"));
-        dataModels.add(new KeyValueDataModel("English", "3"));
-        dataModels.add(new KeyValueDataModel("Maths", "4"));
-        dataModels.add(new KeyValueDataModel("Science", "5"));
-        dataModels.add(new KeyValueDataModel("Biology", "6"));
+        dataModels.add(new KeyValueDataModel("Subject", "0",17,17));
+        dataModels.add(new KeyValueDataModel("Telugu", "1",17,17));
+        dataModels.add(new KeyValueDataModel("Hindi", "2",17,17));
+        dataModels.add(new KeyValueDataModel("English", "3",17,17));
+        dataModels.add(new KeyValueDataModel("Maths", "4",17,17));
+        dataModels.add(new KeyValueDataModel("Science", "5",17,17));
+        dataModels.add(new KeyValueDataModel("Biology", "6",17,17));
 
 
         spinnerClassName = (Spinner) subject_name_spinner.findViewById(R.id.spinner);

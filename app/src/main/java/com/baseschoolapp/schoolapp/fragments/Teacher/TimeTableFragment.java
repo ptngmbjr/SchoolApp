@@ -138,9 +138,9 @@ public class TimeTableFragment extends BaseFragment {
         View subject_name_spinner = (View) view.findViewById(R.id.day_spinner);
         Spinner spinnerClassName;
 
-        dataModels.add(new KeyValueDataModel("Daily", "0"));
-        dataModels.add(new KeyValueDataModel("Weekly", "1"));
-        dataModels.add(new KeyValueDataModel("FortNightly", "2"));
+        dataModels.add(new KeyValueDataModel("Daily", "0",17,17));
+        dataModels.add(new KeyValueDataModel("Weekly", "1",17,17));
+        dataModels.add(new KeyValueDataModel("FortNightly", "2",17,17));
 
 
         spinnerClassName = (Spinner) subject_name_spinner.findViewById(R.id.spinner);

@@ -49,20 +49,20 @@ public class ParentDetialsFragment extends Fragment {
         dataModels = new ArrayList<>();
 
         dataModels.add("Father Details");
-        dataModels.add(new KeyValueDataModel("Father's Name", "Prasanna Kumar"));
-        dataModels.add(new KeyValueDataModel("Mobile Number", "2031256485"));
-        dataModels.add(new KeyValueDataModel("Date of Birth", "31 Aug 1987"));
-        dataModels.add(new KeyValueDataModel("Designation", "Manager"));
-        dataModels.add(new KeyValueDataModel("Qualification", "MCA"));
-        dataModels.add(new KeyValueDataModel("Organization", "SBI"));
+        dataModels.add(new KeyValueDataModel("Father's Name", "Prasanna Kumar",17,17));
+        dataModels.add(new KeyValueDataModel("Mobile Number", "2031256485",17,17));
+        dataModels.add(new KeyValueDataModel("Date of Birth", "31 Aug 1987",17,17));
+        dataModels.add(new KeyValueDataModel("Designation", "Manager",17,17));
+        dataModels.add(new KeyValueDataModel("Qualification", "MCA",17,17));
+        dataModels.add(new KeyValueDataModel("Organization", "SBI",17,17));
 
         dataModels.add("Mother Details");
-        dataModels.add(new KeyValueDataModel("Mother's Name", "Veena"));
-        dataModels.add(new KeyValueDataModel("Mobile Number", "2031256485"));
-        dataModels.add(new KeyValueDataModel("Date of Birth", "31 Aug 1987"));
-        dataModels.add(new KeyValueDataModel("Designation", "Manager"));
-        dataModels.add(new KeyValueDataModel("Qualification", "MCA"));
-        dataModels.add(new KeyValueDataModel("Organization", "SBI"));
+        dataModels.add(new KeyValueDataModel("Mother's Name", "Veena",17,17));
+        dataModels.add(new KeyValueDataModel("Mobile Number", "2031256485",17,17));
+        dataModels.add(new KeyValueDataModel("Date of Birth", "31 Aug 1987",17,17));
+        dataModels.add(new KeyValueDataModel("Designation", "Manager",17,17));
+        dataModels.add(new KeyValueDataModel("Qualification", "MCA",17,17));
+        dataModels.add(new KeyValueDataModel("Organization", "SBI",17,17));
 
         listView.setAdapter(new FamilyDetailsAdapter(this.getContext(), dataModels));
 
