@@ -2,116 +2,129 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:weightSum="6">
+    android:orientation="vertical">
 
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.7"
-        android:gravity="right|center_vertical">
-
-        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/student_attendance_student_image"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:focusableInTouchMode="true"
-            android:src="@drawable/ic_welcome01" />
-
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="3.3"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:paddingLeft="10dp">
-
-        <TextView
-            android:id="@+id/student_attendance_student_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Naveen Kumar"
-            android:textSize="@dimen/font_size_small"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/student_attendance_roll_no"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Roll No : 01"
-            android:textSize="@dimen/font_size_extra_small" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:gravity="left"
-        android:orientation="vertical"
-        android:paddingLeft="10dp">
+        android:orientation="horizontal"
+        android:weightSum="6">
 
         <LinearLayout
-            android:id="@+id/student_attendance_leave_details_ll"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:gravity="right|center_vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/student_attendance_student_image"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:focusableInTouchMode="true"
+                android:src="@drawable/ic_welcome01" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3.3"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="10dp">
+
+            <TextView
+                android:id="@+id/student_attendance_student_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Naveen Kumar"
+                android:textSize="@dimen/font_size_small"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/student_attendance_roll_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Roll No : 01"
+                android:textSize="@dimen/font_size_extra_small" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:gravity="left"
             android:orientation="vertical"
-            android:paddingLeft="10dp"
-            android:visibility="gone">
-
-
-            <TextView
-                android:id="@+id/student_attendance_leave_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="20 - 30 Sept,2018"
-                android:textColor="@color/loginblue"
-                android:textSize="@dimen/font_size_extra_small"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/student_attendance_leave_type"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sick Leave"
-                android:textColor="@color/orange"
-                android:textSize="@dimen/font_size_extra_small" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/student_attendance_leave_status_ll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:gravity="left"
-            android:orientation="horizontal"
             android:paddingLeft="10dp">
 
-            <ImageView
-                android:id="@+id/student_attendance_message_icon"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:gravity="left"
-                android:src="@drawable/ic_menu_send" />
-
-            <ToggleButton
-                android:id="@+id/student_attendance_toggle_status"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/student_attendance_leave_details_ll"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:gravity="right"
-                android:paddingRight="2dp" />
+                android:layout_weight="2"
+                android:gravity="left"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:visibility="gone">
 
+
+                <TextView
+                    android:id="@+id/student_attendance_leave_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20 - 30 Sept,2018"
+                    android:textColor="@color/loginblue"
+                    android:textSize="@dimen/font_size_extra_small"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/student_attendance_leave_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sick Leave"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/font_size_extra_small" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/student_attendance_leave_status_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="left"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp">
+
+                <ImageView
+                    android:id="@+id/student_attendance_message_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="left"
+                    android:src="@drawable/ic_menu_send" />
+
+                <ToggleButton
+                    android:id="@+id/student_attendance_toggle_status"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="right"
+                    android:paddingRight="2dp" />
+
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/bottom_shadow" />
 
 </LinearLayout>

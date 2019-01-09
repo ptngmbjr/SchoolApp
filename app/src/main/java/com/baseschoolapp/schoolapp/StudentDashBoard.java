@@ -275,7 +275,7 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         if (mNavController != null) {
             mNavController.onSaveInstanceState(outState);

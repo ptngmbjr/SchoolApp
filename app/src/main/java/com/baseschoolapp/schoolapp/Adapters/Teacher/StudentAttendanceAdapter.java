@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -128,6 +129,12 @@ public class StudentAttendanceAdapter extends BaseAdapter implements View.OnClic
                     viewHolder.leaveType = (TextView) convertView.findViewById(R.id.student_attendance_leave_type);
                     viewHolder.messageIcon = (ImageView) convertView.findViewById(R.id.student_attendance_message_icon);
                     viewHolder.tgBtn = (ToggleButton) convertView.findViewById(R.id.student_attendance_toggle_status);
+
+                    if (viewHolder.tgBtn.isChecked()) {
+                        viewHolder.tgBtn.setGravity(Gravity.RIGHT);
+                    } else {
+                        viewHolder.tgBtn.setGravity(Gravity.LEFT);
+                    }
 
                     viewHolder.ll_leave = (LinearLayout) convertView.findViewById(R.id.student_attendance_leave_details_ll);
                     viewHolder.ll_normal = (LinearLayout) convertView.findViewById(R.id.student_attendance_leave_status_ll);

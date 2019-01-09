@@ -1,5 +1,6 @@
 package com.baseschoolapp.schoolapp.fragments.Teacher;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
@@ -77,15 +78,17 @@ public class SyllabusFragment extends BaseFragment {
                 // do something with the string here.
                 if (mFragmentNavigation != null) {
 
+                    Intent i = new Intent(getContext(), SyllabusDrillDownFragment.class);
+
                     Bundle bundle = new Bundle();
                     bundle.putString("SUBJECT", name); // Put anything what you want
                     bundle.putInt("COLOR", color); // Put anything what you want
 
-                    SyllabusDrillDownFragment fragment = new SyllabusDrillDownFragment();
-                    fragment.setArguments(bundle);
+                    i.putExtras(bundle);
+                    startActivity(i);
 
 
-                    mFragmentNavigation.pushFragment(fragment);
+                    //  mFragmentNavigation.pushFragment(fragment);
                 }
 
             }

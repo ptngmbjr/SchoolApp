@@ -5,9 +5,7 @@ import android.app.DatePickerDialog.OnDateSetListener;
 import android.content.DialogInterface;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -18,6 +16,7 @@ import android.widget.TextView;
 import com.baseschoolapp.schoolapp.Adapters.Teacher.HomeWorkAllocationAdapter;
 import com.baseschoolapp.schoolapp.Adapters.Teacher.KeyAdapter;
 import com.baseschoolapp.schoolapp.Adapters.Teacher.KeyValueAdapter;
+import com.baseschoolapp.schoolapp.BaseActivity;
 import com.baseschoolapp.schoolapp.R;
 import com.baseschoolapp.schoolapp.StudentDashBoard;
 import com.baseschoolapp.schoolapp.fragments.Student.BaseFragment;
@@ -31,7 +30,7 @@ import java.util.Calendar;
 import butterknife.ButterKnife;
 
 
-public class ApplyLeaveFragment extends BaseFragment implements OnDateSetListener {
+public class ApplyLeaveFragment extends BaseActivity implements OnDateSetListener {
 
     Button from_date, to_date;
 
@@ -40,22 +39,21 @@ public class ApplyLeaveFragment extends BaseFragment implements OnDateSetListene
         super.onCreate(savedInstanceState);
 
 
+        setContentView(R.layout.fragment_applyleave);
+
+        initView();
+
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public void initView() {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_applyleave, container, false);
-
-
-        Button apply_leave = (Button) view.findViewById(R.id.applyLeave);
+        Button apply_leave = (Button) findViewById(R.id.applyLeave);
 
         apply_leave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((StudentDashBoard) getActivity()).onBackPressed();
+                finish();
 
             }
         });
@@ -64,21 +62,20 @@ public class ApplyLeaveFragment extends BaseFragment implements OnDateSetListene
         GradientDrawable background = (GradientDrawable) apply_leave.getBackground();
         background.setColor(getResources().getColor(R.color.white));
 
-        ButterKnife.bind(this, view);
+        ButterKnife.bind(this);
 
-        ((StudentDashBoard) getActivity()).hideToolBar();
+        //   ((StudentDashBoard) getActivity()).hideToolBar();
 
-        initialiseLeaveTitle(view);
+        initialiseLeaveTitle();
 
-        initHomeFromDate(view);
+        initHomeFromDate();
 
-        initToDate(view);
+        initToDate();
 
-        return view;
     }
 
-    public void initialiseLeaveTitle(View view) {
-        View leave_include = (View) view.findViewById(R.id.apply_leave_title_include);
+    public void initialiseLeaveTitle() {
+        View leave_include = (View) findViewById(R.id.apply_leave_title_include);
 
         TextView leave_title_head = (TextView) leave_include.findViewById(R.id.edit_field_header_title);
         EditText leave_type = (EditText) leave_include.findViewById(R.id.edit_field_text_value);
@@ -88,9 +85,9 @@ public class ApplyLeaveFragment extends BaseFragment implements OnDateSetListene
 
     }
 
-    public void initHomeFromDate(View view) {
+    public void initHomeFromDate() {
 
-        View date_spinner_layout = (View) view.findViewById(R.id.leave_from_date_include);
+        View date_spinner_layout = (View) findViewById(R.id.leave_from_date_include);
 
         from_date = (Button) date_spinner_layout.findViewById(R.id.spinner_date);
 
@@ -105,9 +102,9 @@ public class ApplyLeaveFragment extends BaseFragment implements OnDateSetListene
         });
     }
 
-    public void initToDate(View view) {
+    public void initToDate() {
 
-        View date_spinner_layout = (View) view.findViewById(R.id.leave_to_date_include);
+        View date_spinner_layout = (View) findViewById(R.id.leave_to_date_include);
 
         to_date = (Button) date_spinner_layout.findViewById(R.id.spinner_date);
         to_date.setHint(getResources().getString(R.string.to_date));
@@ -126,7 +123,7 @@ public class ApplyLeaveFragment extends BaseFragment implements OnDateSetListene
     public void showCalender(final Button btn) {
 
         Calendar cal = Calendar.getInstance();
-        final DatePickerDialog dialog = new DatePickerDialog(this.getContext(), this, cal.get(Calendar.YEAR),
+        final DatePickerDialog dialog = new DatePickerDialog(this, this, cal.get(Calendar.YEAR),
                 cal.get(Calendar.MONTH), cal.get(Calendar.DATE));
 
 

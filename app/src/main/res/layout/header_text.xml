@@ -10,7 +10,6 @@
         android:id="@+id/header_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
         android:layout_gravity="left"
         android:text="Sample Header"
         android:textColor="@color/black"

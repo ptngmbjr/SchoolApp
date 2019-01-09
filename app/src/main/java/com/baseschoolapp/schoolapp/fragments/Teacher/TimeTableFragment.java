@@ -6,9 +6,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +16,7 @@ import android.widget.TextView;
 import com.baseschoolapp.schoolapp.Adapters.Student.TimeTableDateWiseAdapter;
 import com.baseschoolapp.schoolapp.Adapters.Teacher.KeyAdapter;
 import com.baseschoolapp.schoolapp.Adapters.Teacher.KeyValueAdapter;
+import com.baseschoolapp.schoolapp.BaseActivity;
 import com.baseschoolapp.schoolapp.R;
 import com.baseschoolapp.schoolapp.StudentDashBoard;
 import com.baseschoolapp.schoolapp.fragments.Student.BaseFragment;
@@ -31,7 +30,7 @@ import java.util.List;
 import butterknife.ButterKnife;
 
 
-public class TimeTableFragment extends BaseFragment {
+public class TimeTableFragment extends BaseActivity {
 
     EditText class_data;
     private RecyclerView timeTableRecyclerView;
@@ -42,23 +41,22 @@ public class TimeTableFragment extends BaseFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setContentView(R.layout.fragment_timetable);
 
+        initView();
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public void initView() {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_timetable, container, false);
 
-
-        Button addTimeTable = (Button) view.findViewById(R.id.addTimeTable);
+        Button addTimeTable = (Button) findViewById(R.id.addTimeTable);
 
         addTimeTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((StudentDashBoard) getActivity()).onBackPressed();
+
+                finish();
 
             }
         });
@@ -67,27 +65,27 @@ public class TimeTableFragment extends BaseFragment {
         GradientDrawable background = (GradientDrawable) addTimeTable.getBackground();
         background.setColor(getResources().getColor(R.color.white));
 
-        ButterKnife.bind(this, view);
+        ButterKnife.bind(this);
 
-        ((StudentDashBoard) getActivity()).hideToolBar();
+        //    ((StudentDashBoard) getActivity()).hideToolBar();
 
-        initialiseTimeTable(view);
+        initialiseTimeTable();
 
-        initialiseClassField(view);
+        initialiseClassField();
 
-        initialiseClassNames(view);
+        initialiseClassNames();
 
-        initialiseTimeTableDay(view);
+        initialiseTimeTableDay();
 
-        initialiseTime(view);
+        initialiseTime();
 
-        initialiseSubject(view);
+        initialiseSubject();
 
-        return view;
+//        return view;
     }
 
-    public void initialiseClassField(View view) {
-        View class_include = (View) view.findViewById(R.id.time_table_title_include);
+    public void initialiseClassField() {
+        View class_include = (View) findViewById(R.id.time_table_title_include);
 
         TextView class_title = (TextView) class_include.findViewById(R.id.edit_field_header_title);
         class_data = (EditText) class_include.findViewById(R.id.edit_field_text_value);
@@ -98,10 +96,10 @@ public class TimeTableFragment extends BaseFragment {
     }
 
 
-    public void initialiseClassNames(View view) {
+    public void initialiseClassNames() {
 
         ArrayList<KeyDataModel> dataModels = new ArrayList<>();
-        View class_sub_spinner = (View) view.findViewById(R.id.class_name_spinner);
+        View class_sub_spinner = (View) findViewById(R.id.class_name_spinner);
         Spinner spinnerClassName;
 
 
@@ -113,7 +111,7 @@ public class TimeTableFragment extends BaseFragment {
 
 
         spinnerClassName = (Spinner) class_sub_spinner.findViewById(R.id.spinner);
-        KeyAdapter adapter = new KeyAdapter(this.getContext(),
+        KeyAdapter adapter = new KeyAdapter(this,
                 R.layout.spinner_row_item, dataModels);
 
 
@@ -121,7 +119,9 @@ public class TimeTableFragment extends BaseFragment {
 
         spinnerClassName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                String item = ((TextView) view.findViewById(R.id.spinner_text_name)).getText().toString();
+                String item = "";
+                if (view != null)
+                    item = ((TextView) findViewById(R.id.spinner_text_name)).getText().toString();
                 class_data.setText(item);
             }
 
@@ -132,19 +132,19 @@ public class TimeTableFragment extends BaseFragment {
 
     }
 
-    public void initialiseTimeTableDay(View view) {
+    public void initialiseTimeTableDay() {
 
         ArrayList<KeyValueDataModel> dataModels = new ArrayList<>();
-        View subject_name_spinner = (View) view.findViewById(R.id.day_spinner);
+        View subject_name_spinner = (View) findViewById(R.id.day_spinner);
         Spinner spinnerClassName;
 
-        dataModels.add(new KeyValueDataModel("Daily", "0",17,17));
-        dataModels.add(new KeyValueDataModel("Weekly", "1",17,17));
-        dataModels.add(new KeyValueDataModel("FortNightly", "2",17,17));
+        dataModels.add(new KeyValueDataModel("Daily", "0", 17, 17));
+        dataModels.add(new KeyValueDataModel("Weekly", "1", 17, 17));
+        dataModels.add(new KeyValueDataModel("FortNightly", "2", 17, 17));
 
 
         spinnerClassName = (Spinner) subject_name_spinner.findViewById(R.id.spinner);
-        KeyValueAdapter adapter = new KeyValueAdapter(this.getContext(),
+        KeyValueAdapter adapter = new KeyValueAdapter(this,
                 R.layout.spinner_row_item, dataModels);
 
 
@@ -152,7 +152,7 @@ public class TimeTableFragment extends BaseFragment {
 
         spinnerClassName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                String item = ((TextView) view.findViewById(R.id.spinner_text_name)).getText().toString();
+//                    String item = ((TextView) findViewById(R.id.spinner_text_name)).getText().toString();
 
             }
 
@@ -163,10 +163,10 @@ public class TimeTableFragment extends BaseFragment {
 
     }
 
-    public void initialiseTime(View view) {
+    public void initialiseTime() {
 
         ArrayList<KeyDataModel> dataModels = new ArrayList<>();
-        View subject_name_spinner = (View) view.findViewById(R.id.time_spinner);
+        View subject_name_spinner = (View) findViewById(R.id.time_spinner);
         Spinner spinnerClassName;
 
         dataModels.add(new KeyDataModel("Time"));
@@ -180,7 +180,7 @@ public class TimeTableFragment extends BaseFragment {
 
 
         spinnerClassName = (Spinner) subject_name_spinner.findViewById(R.id.spinner);
-        KeyAdapter adapter = new KeyAdapter(this.getContext(),
+        KeyAdapter adapter = new KeyAdapter(this,
                 R.layout.spinner_row_item, dataModels);
 
 
@@ -188,7 +188,7 @@ public class TimeTableFragment extends BaseFragment {
 
         spinnerClassName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                String item = ((TextView) view.findViewById(R.id.spinner_text_name)).getText().toString();
+//                    String item = ((TextView) findViewById(R.id.spinner_text_name)).getText().toString();
 
             }
 
@@ -199,10 +199,10 @@ public class TimeTableFragment extends BaseFragment {
 
     }
 
-    public void initialiseSubject(View view) {
+    public void initialiseSubject() {
 
         ArrayList<KeyDataModel> dataModels = new ArrayList<>();
-        View subject_name_spinner = (View) view.findViewById(R.id.subject_spinner);
+        View subject_name_spinner = (View) findViewById(R.id.subject_spinner);
         Spinner spinnerClassName;
 
         dataModels.add(new KeyDataModel("Subject"));
@@ -215,7 +215,7 @@ public class TimeTableFragment extends BaseFragment {
 
 
         spinnerClassName = (Spinner) subject_name_spinner.findViewById(R.id.spinner);
-        KeyAdapter adapter = new KeyAdapter(this.getContext(),
+        KeyAdapter adapter = new KeyAdapter(this,
                 R.layout.spinner_row_item, dataModels);
 
 
@@ -223,7 +223,7 @@ public class TimeTableFragment extends BaseFragment {
 
         spinnerClassName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                String item = ((TextView) view.findViewById(R.id.spinner_text_name)).getText().toString();
+//                String item = ((TextView) findViewById(R.id.spinner_text_name)).getText().toString();
 
             }
 
@@ -234,19 +234,19 @@ public class TimeTableFragment extends BaseFragment {
 
     }
 
-    public void initialiseTimeTable(View view) {
+    public void initialiseTimeTable() {
 
-        timeTableRecyclerView = (RecyclerView) view.findViewById(R.id.dates_list);
+        timeTableRecyclerView = (RecyclerView) findViewById(R.id.dates_list);
 
-        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), DividerItemDecoration.HORIZONTAL);
-        itemDecorator.setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.horisontal_space));
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL);
+        itemDecorator.setDrawable(ContextCompat.getDrawable(this, R.drawable.horisontal_space));
 
         timeTableRecyclerView.addItemDecoration(itemDecorator);
 
-        ttAdapter = new TimeTableDateWiseAdapter(time_table_list, getContext());
+        ttAdapter = new TimeTableDateWiseAdapter(time_table_list, this);
 
 
-        LinearLayoutManager horizontalLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager horizontalLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         timeTableRecyclerView.setLayoutManager(horizontalLayoutManager);
         timeTableRecyclerView.setAdapter(ttAdapter);
 
@@ -259,24 +259,24 @@ public class TimeTableFragment extends BaseFragment {
 
         ttAdapter.notifyDataSetChanged();
 
-        ttAdapter.setOnItemClickListener(new TimeTableDateWiseAdapter.ClickListener() {
-            @Override
-            public void onItemClick(int position, View v) {
-
-                for (int i = 0; i < time_table_list.size(); i++) {
-                    TimeTableDateWiseModel olddataModel = time_table_list.get(i);
-                    olddataModel.setBgColor("#ffffff");
-                    olddataModel.setFgColor("#000000");
-
-                }
-                TimeTableDateWiseModel dataModel = time_table_list.get(position);
-
-                dataModel.setBgColor("#70c050");
-                dataModel.setFgColor("#ffffff");
-                ttAdapter.notifyDataSetChanged();
-            }
-
-        });
+//        ttAdapter.setOnItemClickListener(new TimeTableDateWiseAdapter.ClickListener() {
+//            @Override
+//            public void onItemClick(int position, View v) {
+//
+//                for (int i = 0; i < time_table_list.size(); i++) {
+//                    TimeTableDateWiseModel olddataModel = time_table_list.get(i);
+//                    olddataModel.setBgColor("#ffffff");
+//                    olddataModel.setFgColor("#000000");
+//
+//                }
+//                TimeTableDateWiseModel dataModel = time_table_list.get(position);
+//
+//                dataModel.setBgColor("#70c050");
+//                dataModel.setFgColor("#ffffff");
+//                ttAdapter.notifyDataSetChanged();
+//            }
+//
+//        });
 
     }
 

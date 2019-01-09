@@ -7,6 +7,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -184,6 +185,7 @@ public class UnitTestDetailsAdapter extends BaseAdapter implements View.OnClickL
                     @Override
                     public void afterTextChanged(Editable s) {
                         dataModel.setMarks(viewHolder.edit_marks.getText().toString());
+
                     }
                 });
 

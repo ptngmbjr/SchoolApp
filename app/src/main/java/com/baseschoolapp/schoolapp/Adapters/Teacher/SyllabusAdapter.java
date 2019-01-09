@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.baseschoolapp.schoolapp.R;
@@ -37,6 +38,7 @@ public class SyllabusAdapter extends ArrayAdapter<SyllabusDataModel> implements 
         ImageView image;
         TextView subjectName;
         TextView completionStatus;
+        LinearLayout ll;
 
     }
 
@@ -54,7 +56,7 @@ public class SyllabusAdapter extends ArrayAdapter<SyllabusDataModel> implements 
         SyllabusDataModel object = (SyllabusDataModel) getItem(position);
 
         switch (v.getId()) {
-            case R.id.subject_name:
+            case R.id.syllabus_row_bg:
                 mListener.onClick(object.getSubjectName(), object.getBgColor());
                 break;
         }
@@ -63,7 +65,7 @@ public class SyllabusAdapter extends ArrayAdapter<SyllabusDataModel> implements 
     private int lastPosition = -1;
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
         SyllabusDataModel SyllabusDataModel = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
@@ -78,6 +80,17 @@ public class SyllabusAdapter extends ArrayAdapter<SyllabusDataModel> implements 
             viewHolder.subjectName = (TextView) convertView.findViewById(R.id.subject_name);
             viewHolder.completionStatus = (TextView) convertView.findViewById(R.id.completionsStatus);
             viewHolder.image = (ImageView) convertView.findViewById(R.id.syllabus_image);
+            viewHolder.ll = (LinearLayout) convertView.findViewById(R.id.syllabus_row_bg);
+
+            viewHolder.ll.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    SyllabusDataModel object = (SyllabusDataModel) getItem(position);
+
+                    mListener.onClick(object.getSubjectName(), object.getBgColor());
+
+                }
+            });
 
 
             convertView.setTag(viewHolder);
@@ -95,8 +108,8 @@ public class SyllabusAdapter extends ArrayAdapter<SyllabusDataModel> implements 
         int color = ContextCompat.getColor(getContext(), SyllabusDataModel.getBgColor());
         background.setColor(color);
 
-        viewHolder.subjectName.setOnClickListener(this);
-        viewHolder.subjectName.setTag(position);
+//        viewHolder.ll.setOnClickListener(this);
+//        viewHolder.ll.setTag(position);
         // Return the completed view to render on screen
         return convertView;
     }

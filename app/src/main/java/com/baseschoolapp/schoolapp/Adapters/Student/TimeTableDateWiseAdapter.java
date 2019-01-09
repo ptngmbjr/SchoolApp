@@ -52,6 +52,25 @@ public class TimeTableDateWiseAdapter extends RecyclerView.Adapter<TimeTableDate
         holder.day.setTextColor(Color.parseColor(horizontalGrocderyList.get(position).getFgColor()));
 
         holder.llout.setBackground(context.getResources().getDrawable(horizontalGrocderyList.get(position).getBgColor() == "#ffffff" ? R.drawable.round_white_button : R.drawable.round_green_button));
+
+        holder.llout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                for (int i = 0; i < horizontalGrocderyList.size(); i++) {
+                    horizontalGrocderyList.get(i).setBgColor("#ffffff");
+                    horizontalGrocderyList.get(i).setFgColor("#000000");
+                }
+
+                horizontalGrocderyList.get(position).setBgColor("#70c050");
+                horizontalGrocderyList.get(position).setFgColor("#ffffff");
+
+
+                notifyDataSetChanged();
+            }
+        });
+
+
     }
 
     @Override

@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.baseschoolapp.schoolapp.Adapters.Student.NewsAdapter;
 import com.baseschoolapp.schoolapp.R;
 import com.baseschoolapp.schoolapp.StudentDashBoard;
+import com.baseschoolapp.schoolapp.fragments.Teacher.AllActivitiesTeacherFragment;
 import com.baseschoolapp.schoolapp.fragments.Teacher.HomeWorkFragment;
 import com.baseschoolapp.schoolapp.models.Teacher.KeyValueDataModel;
 import com.baseschoolapp.schoolapp.utils.RoundedImageView;
@@ -342,13 +343,13 @@ public class DashboardFragment extends BaseFragment {
 
             LinearLayout class_name3 = (LinearLayout) round_layout_subj3.findViewById(R.id.class_time);
 
-            TextView class_1_name = (TextView) round_layout_subj1.findViewById(R.id.class_name);
+            final TextView class_1_name = (TextView) round_layout_subj1.findViewById(R.id.class_name);
             TextView class_1_time = (TextView) class_name1.findViewById(R.id.subject_data);
 
-            TextView class_2_name = (TextView) round_layout_subj2.findViewById(R.id.class_name);
+            final TextView class_2_name = (TextView) round_layout_subj2.findViewById(R.id.class_name);
             TextView class_2_time = (TextView) class_name2.findViewById(R.id.subject_data);
 
-            TextView class_3_name = (TextView) round_layout_subj3.findViewById(R.id.class_name);
+            final TextView class_3_name = (TextView) round_layout_subj3.findViewById(R.id.class_name);
             TextView class_3_time = (TextView) class_name3.findViewById(R.id.subject_data);
 
             class_1_name.setText("1st Class");
@@ -360,6 +361,28 @@ public class DashboardFragment extends BaseFragment {
             class_3_name.setText("3rd Class");
             class_3_time.setText("10:10am - 11:20am");
 
+
+            round_layout_subj1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onClassNameClick(class_1_name.getText().toString());
+                }
+            });
+
+            round_layout_subj2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onClassNameClick(class_2_name.getText().toString());
+                }
+            });
+
+            round_layout_subj3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onClassNameClick(class_3_name.getText().toString());
+                }
+            });
+
             background = (GradientDrawable) class_name1.getBackground();
             background.setColor(getResources().getColor(R.color.transparent));
 
@@ -370,6 +393,17 @@ public class DashboardFragment extends BaseFragment {
             background2.setColor(getResources().getColor(R.color.transparent));
 
 
+        }
+
+    }
+
+    public void onClassNameClick(String className) {
+        if (mFragmentNavigation != null) {
+            AllActivitiesTeacherFragment fragment = new AllActivitiesTeacherFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("CLASS_NAME", className);
+            fragment.setArguments(bundle);
+            mFragmentNavigation.pushFragment(fragment);
         }
 
     }
@@ -442,39 +476,37 @@ public class DashboardFragment extends BaseFragment {
 
         if (StudentDashBoard.user == USER.TEACHER) {
 
-            activity1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    if (mFragmentNavigation != null) {
-                        //mFragmentNavigation.pushFragment(new com.baseschoolapp.schoolapp.fragments.Teacher.TimeTableFragment());
-
-                        mFragmentNavigation.pushFragment(new com.baseschoolapp.schoolapp.fragments.Teacher.StudentAttendanceFragment());
-                    }
-                }
-            });
-
-            activity2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    if (mFragmentNavigation != null) {
-                        mFragmentNavigation.pushFragment(new com.baseschoolapp.schoolapp.fragments.Teacher.ApplyLeaveFragment());
-
-                    }
-                }
-            });
-
-            activity3.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    if (mFragmentNavigation != null) {
-                        mFragmentNavigation.pushFragment(new HomeWorkFragment());
-
-                    }
-                }
-            });
+//            activity1.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//
+//                    if (mFragmentNavigation != null) {
+//                        mFragmentNavigation.pushFragment(new com.baseschoolapp.schoolapp.fragments.Teacher.TimeTableFragment());
+//                    }
+//                }
+//            });
+//
+//            activity2.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//
+//                    if (mFragmentNavigation != null) {
+//                        mFragmentNavigation.pushFragment(new com.baseschoolapp.schoolapp.fragments.Teacher.ApplyLeaveFragment());
+//
+//                    }
+//                }
+//            });
+//
+//            activity3.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//
+//                    if (mFragmentNavigation != null) {
+//                        mFragmentNavigation.pushFragment(new HomeWorkFragment());
+//
+//                    }
+//                }
+//            });
 
 
         } else if (StudentDashBoard.user == USER.STUDENT) {
@@ -535,14 +567,14 @@ public class DashboardFragment extends BaseFragment {
 
         dataModels = new ArrayList<>();
 
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good",17,17));
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good",17,17));
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good",17,17));
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good",17,17));
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good",17,17));
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good",17,17));
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good",17,17));
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good",17,17));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17));
 
         adapter = new NewsAdapter(dataModels, this.getContext());
 

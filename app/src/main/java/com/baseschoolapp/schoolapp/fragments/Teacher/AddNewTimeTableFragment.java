@@ -1,5 +1,6 @@
 package com.baseschoolapp.schoolapp.fragments.Teacher;
 
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -64,7 +65,11 @@ public class AddNewTimeTableFragment extends BaseFragment {
         addTimeTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((StudentDashBoard) getActivity()).onBackPressed();
+                //((StudentDashBoard) getActivity()).onBackPressed();
+
+                Intent i = new Intent(getContext(), TimeTableFragment.class);
+                startActivity(i);
+
 
             }
         });
@@ -75,7 +80,7 @@ public class AddNewTimeTableFragment extends BaseFragment {
 
         ButterKnife.bind(this, view);
 
-        ((StudentDashBoard) getActivity()).hideToolBar();
+        //     ((StudentDashBoard) getActivity()).hideToolBar();
 
         initialiseDates(view);
 
@@ -109,24 +114,24 @@ public class AddNewTimeTableFragment extends BaseFragment {
 
         ttAdapter.notifyDataSetChanged();
 
-        ttAdapter.setOnItemClickListener(new TimeTableDateWiseAdapter.ClickListener() {
-            @Override
-            public void onItemClick(int position, View v) {
-
-                for (int i = 0; i < time_table_list.size(); i++) {
-                    TimeTableDateWiseModel olddataModel = time_table_list.get(i);
-                    olddataModel.setBgColor("#ffffff");
-                    olddataModel.setFgColor("#000000");
-
-                }
-                TimeTableDateWiseModel dataModel = time_table_list.get(position);
-
-                dataModel.setBgColor("#70c050");
-                dataModel.setFgColor("#ffffff");
-                ttAdapter.notifyDataSetChanged();
-            }
-
-        });
+//        ttAdapter.setOnItemClickListener(new TimeTableDateWiseAdapter.ClickListener() {
+//            @Override
+//            public void onItemClick(int position, View v) {
+//
+//                for (int i = 0; i < time_table_list.size(); i++) {
+//                    TimeTableDateWiseModel olddataModel = time_table_list.get(i);
+//                    olddataModel.setBgColor("#ffffff");
+//                    olddataModel.setFgColor("#000000");
+//
+//                }
+//                TimeTableDateWiseModel dataModel = time_table_list.get(position);
+//
+//                dataModel.setBgColor("#70c050");
+//                dataModel.setFgColor("#ffffff");
+//                ttAdapter.notifyDataSetChanged();
+//            }
+//
+//        });
 
     }
 

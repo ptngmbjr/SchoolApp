@@ -1,5 +1,7 @@
 package com.baseschoolapp.schoolapp.fragments.Teacher;
 
+import android.content.Intent;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DividerItemDecoration;
@@ -9,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.baseschoolapp.schoolapp.Adapters.Student.TimeTableDateWiseAdapter;
@@ -51,9 +54,27 @@ public class LeaveFragment extends BaseFragment {
 
         View view = inflater.inflate(R.layout.teacher_leaves, container, false);
 
+
+        Button applyLeave = (Button) view.findViewById(R.id.btn_apply_leave);
+
+        GradientDrawable background = (GradientDrawable) applyLeave.getBackground();
+        int color = ContextCompat.getColor(getContext(), R.color.green);
+        background.setColor(color);
+
         ButterKnife.bind(this, view);
 
         ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.my_attendance));
+
+        applyLeave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getContext(), ApplyLeaveFragment.class);
+                startActivity(i);
+
+            }
+        });
+
 
         initialiseAllLeaves(view);
 

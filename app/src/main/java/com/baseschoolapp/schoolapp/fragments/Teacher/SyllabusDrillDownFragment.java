@@ -3,9 +3,7 @@ package com.baseschoolapp.schoolapp.fragments.Teacher;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -14,6 +12,7 @@ import android.widget.TextView;
 
 import com.baseschoolapp.schoolapp.Adapters.Teacher.SyllabusDrillDownAdapter;
 import com.baseschoolapp.schoolapp.Adapters.Teacher.SyllabusDrillDownAdapter;
+import com.baseschoolapp.schoolapp.BaseActivity;
 import com.baseschoolapp.schoolapp.R;
 import com.baseschoolapp.schoolapp.StudentDashBoard;
 import com.baseschoolapp.schoolapp.fragments.Student.BaseFragment;
@@ -25,7 +24,7 @@ import java.util.ArrayList;
 import butterknife.ButterKnife;
 
 
-public class SyllabusDrillDownFragment extends BaseFragment {
+public class SyllabusDrillDownFragment extends BaseActivity {
 
     ArrayList<SyllabusDrillDownDataModel> dataModels;
     private static SyllabusDrillDownAdapter adapter;
@@ -34,47 +33,45 @@ public class SyllabusDrillDownFragment extends BaseFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setContentView(R.layout.syllabus_drill_down);
+
+        initView();
 
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public void initView() {
         // Inflate the layout for this fragment
 
         String subject = "";
         int colorCode = R.color.white;
 
-        Bundle bundle = this.getArguments();
+        Bundle extras = getIntent().getExtras();
 
-        if (bundle != null) {
-            subject = this.getArguments().getString("SUBJECT");
-            colorCode = this.getArguments().getInt("COLOR");
+        if (extras != null) {
+            subject = extras.getString("SUBJECT");
+            colorCode = extras.getInt("COLOR");
         }
 
-        View view = inflater.inflate(R.layout.syllabus_drill_down, container, false);
 
-        Button subjectName = (Button) view.findViewById(R.id.syllabusSubjectName);
+        Button subjectName = (Button) findViewById(R.id.syllabusSubjectName);
         subjectName.setText(subject);
 
         GradientDrawable background = (GradientDrawable) subjectName.getBackground();
-        int color = ContextCompat.getColor(getContext(), colorCode);
+        int color = ContextCompat.getColor(this, colorCode);
         background.setColor(color);
 
 
-        ButterKnife.bind(this, view);
+        ButterKnife.bind(this);
 
-        ((StudentDashBoard) getActivity()).updateToolbarTitle("5th Class - A");
 
-        initialiseSyllabusDrillDown(view);
+        initialiseSyllabusDrillDown();
 
-        return view;
     }
 
 
-    public void initialiseSyllabusDrillDown(View view) {
+    public void initialiseSyllabusDrillDown() {
 
-        ListView listView = (ListView) view.findViewById(R.id.syllabus_drill_down_list);
+        ListView listView = (ListView) findViewById(R.id.syllabus_drill_down_list);
 
         dataModels = new ArrayList<>();
 
@@ -87,7 +84,7 @@ public class SyllabusDrillDownFragment extends BaseFragment {
         dataModels.add(new SyllabusDrillDownDataModel("7.", "Chapter 7", "this is sample desc so that we can see how many lines it can span", "In Process", R.color.green));
         dataModels.add(new SyllabusDrillDownDataModel("8.", "Chapter 8", "this is sample desc so that we can see how many lines it can span", "In Process", R.color.green));
 
-        adapter = new SyllabusDrillDownAdapter(dataModels, this.getContext());
+        adapter = new SyllabusDrillDownAdapter(dataModels, this);
 
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

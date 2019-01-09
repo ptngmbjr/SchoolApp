@@ -94,24 +94,24 @@ public class StudentAttendanceFragment extends BaseFragment {
 
         ttAdapter.notifyDataSetChanged();
 
-        ttAdapter.setOnItemClickListener(new TimeTableDateWiseAdapter.ClickListener() {
-            @Override
-            public void onItemClick(int position, View v) {
-
-                for (int i = 0; i < time_table_list.size(); i++) {
-                    TimeTableDateWiseModel olddataModel = time_table_list.get(i);
-                    olddataModel.setBgColor("#ffffff");
-                    olddataModel.setFgColor("#000000");
-
-                }
-                TimeTableDateWiseModel dataModel = time_table_list.get(position);
-
-                dataModel.setBgColor("#70c050");
-                dataModel.setFgColor("#ffffff");
-                ttAdapter.notifyDataSetChanged();
-            }
-
-        });
+//        ttAdapter.setOnItemClickListener(new TimeTableDateWiseAdapter.ClickListener() {
+//            @Override
+//            public void onItemClick(int position, View v) {
+//
+//                for (int i = 0; i < time_table_list.size(); i++) {
+//                    TimeTableDateWiseModel olddataModel = time_table_list.get(i);
+//                    olddataModel.setBgColor("#ffffff");
+//                    olddataModel.setFgColor("#000000");
+//
+//                }
+//                TimeTableDateWiseModel dataModel = time_table_list.get(position);
+//
+//                dataModel.setBgColor("#70c050");
+//                dataModel.setFgColor("#ffffff");
+//                ttAdapter.notifyDataSetChanged();
+//            }
+//
+//        });
 
     }
 
@@ -129,7 +129,7 @@ public class StudentAttendanceFragment extends BaseFragment {
                 "1", "20 - 30 Sept,2018", R.color.loginblue,
                 "Sick Leave", R.color.orange, ROW_ENTRY_TYPE.STUDENT_ON_LEAVE,
                 false, false, null));
-        dataModels.add(new StudentAttendanceStatusDataModel(ROW_TYPE.DATA_ROW, R.drawable.student_activities, "Akshay Kumar", R.color.orange,
+        dataModels.add(new StudentAttendanceStatusDataModel(ROW_TYPE.DATA_ROW, R.drawable.student_activities, "Akshay Kumar", R.color.black,
                 "2", "10 - 12 Sept,2018", R.color.loginblue,
                 "Casual Leave", R.color.orange, ROW_ENTRY_TYPE.STUDENT_ON_LEAVE,
                 false, false, null));
