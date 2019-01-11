@@ -47,34 +47,34 @@ public class UnitTestFragment extends Fragment {
 
 
     public void initialiseUnitTestDetails(View view) {
-        ListView listView = (ListView) view.findViewById(R.id.unit_test_list);
-
-        dataModels = new ArrayList<>();
-
-        dataModels.add(new UnitTestDataModel(-1, "Unit Test 1", "", "", "", ROW_TYPE.HEADER, 1, false));
-        dataModels.add(new UnitTestDataModel(R.drawable.ic_welcome01, "Kartheek Kumar", "01", "80/100", "A+", ROW_TYPE.DATA_ROW, 1, false));
-        dataModels.add(new UnitTestDataModel(R.drawable.ic_welcome01, "Arvind Kumar", "02", "70/100", "A", ROW_TYPE.DATA_ROW, 1, false));
-        dataModels.add(new UnitTestDataModel(R.drawable.ic_welcome01, "Kumar", "03", "60/100", "B+", ROW_TYPE.DATA_ROW, 1, false));
-        dataModels.add(new UnitTestDataModel(R.drawable.ic_welcome01, "Rangamma", "04", "50/100", "B", ROW_TYPE.DATA_ROW, 1, false));
-        dataModels.add(new UnitTestDataModel(R.drawable.ic_welcome01, "Jagapathi", "05", "100/100", "A++", ROW_TYPE.DATA_ROW, 1, false));
-
-        dataModels.add(new UnitTestDataModel(-1, "Unit Test 2", "", "", "", ROW_TYPE.HEADER, 2, false));
-        dataModels.add(new UnitTestDataModel(R.drawable.ic_welcome01, "Ram Charan", "01", "80/100", "A+", ROW_TYPE.DATA_ROW, 2, false));
-        dataModels.add(new UnitTestDataModel(R.drawable.ic_welcome01, "Arvind Swamy", "02", "70/100", "A", ROW_TYPE.DATA_ROW, 2, false));
-        dataModels.add(new UnitTestDataModel(R.drawable.ic_welcome01, "Rakul", "03", "60/100", "B+", ROW_TYPE.DATA_ROW, 2, false));
-        dataModels.add(new UnitTestDataModel(R.drawable.ic_welcome01, "Navdeep", "04", "50/100", "B", ROW_TYPE.DATA_ROW, 2, false));
-        dataModels.add(new UnitTestDataModel(R.drawable.ic_welcome01, "Tanikeli", "05", "100/100", "A++", ROW_TYPE.DATA_ROW, 2, false));
-
-        adapter = new UnitTestDetailsAdapter(this.getContext(), dataModels);
-
-        listView.setAdapter(adapter);
-
-        adapter.setListener(new UnitTestDetailsAdapter.AdapterListener() {
-            public void onClick(int id) {
-
-            }
-
-        });
+//        ListView listView = (ListView) view.findViewById(R.id.unit_test_list);
+//
+//        dataModels = new ArrayList<>();
+//
+//        dataModels.add(new UnitTestDataModel(-1, "Unit Test 1", "", "", "", ROW_TYPE.HEADER, 1, false));
+//        dataModels.add(new UnitTestDataModel(R.drawable.ic_welcome01, "Kartheek Kumar", "01", "80/100", "A+", ROW_TYPE.DATA_ROW, 1, false));
+//        dataModels.add(new UnitTestDataModel(R.drawable.ic_welcome01, "Arvind Kumar", "02", "70/100", "A", ROW_TYPE.DATA_ROW, 1, false));
+//        dataModels.add(new UnitTestDataModel(R.drawable.ic_welcome01, "Kumar", "03", "60/100", "B+", ROW_TYPE.DATA_ROW, 1, false));
+//        dataModels.add(new UnitTestDataModel(R.drawable.ic_welcome01, "Rangamma", "04", "50/100", "B", ROW_TYPE.DATA_ROW, 1, false));
+//        dataModels.add(new UnitTestDataModel(R.drawable.ic_welcome01, "Jagapathi", "05", "100/100", "A++", ROW_TYPE.DATA_ROW, 1, false));
+//
+//        dataModels.add(new UnitTestDataModel(-1, "Unit Test 2", "", "", "", ROW_TYPE.HEADER, 2, false));
+//        dataModels.add(new UnitTestDataModel(R.drawable.ic_welcome01, "Ram Charan", "01", "80/100", "A+", ROW_TYPE.DATA_ROW, 2, false));
+//        dataModels.add(new UnitTestDataModel(R.drawable.ic_welcome01, "Arvind Swamy", "02", "70/100", "A", ROW_TYPE.DATA_ROW, 2, false));
+//        dataModels.add(new UnitTestDataModel(R.drawable.ic_welcome01, "Rakul", "03", "60/100", "B+", ROW_TYPE.DATA_ROW, 2, false));
+//        dataModels.add(new UnitTestDataModel(R.drawable.ic_welcome01, "Navdeep", "04", "50/100", "B", ROW_TYPE.DATA_ROW, 2, false));
+//        dataModels.add(new UnitTestDataModel(R.drawable.ic_welcome01, "Tanikeli", "05", "100/100", "A++", ROW_TYPE.DATA_ROW, 2, false));
+//
+//        adapter = new UnitTestDetailsAdapter(this.getContext(), dataModels);
+//
+//        listView.setAdapter(adapter);
+//
+//        adapter.setListener(new UnitTestDetailsAdapter.AdapterListener() {
+//            public void onClick(int id) {
+//
+//            }
+//
+//        });
 
     }
 }

@@ -15,6 +15,7 @@ import com.baseschoolapp.schoolapp.fragments.Teacher.StudentHomeWorkFragment;
 import com.baseschoolapp.schoolapp.fragments.Teacher.SyllabusFragment;
 import com.baseschoolapp.schoolapp.fragments.Teacher.TimeTableFragment;
 import com.baseschoolapp.schoolapp.fragments.Teacher.UnitTestFragment;
+import com.baseschoolapp.schoolapp.fragments.Teacher.UnitTestResultsFragment;
 
 
 public class AllActivityTeacherPageAdaptor extends FragmentStatePagerAdapter {
@@ -48,7 +49,7 @@ public class AllActivityTeacherPageAdaptor extends FragmentStatePagerAdapter {
                 fragment = new AddNewTimeTableFragment();
                 break;
             case 3:
-                fragment = new UnitTestFragment();
+                fragment = new UnitTestResultsFragment();
                 break;
             case 4:
                 fragment = new LeaveFragment();
