@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_events_background"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="15dp"
+    android:background="@drawable/square_button"
+    android:orientation="horizontal"
+    android:padding="2dp"
+    android:weightSum="2">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:background="@drawable/square_button_white_with_left_curves"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.4"
+            android:gravity="bottom|center_horizontal">
+
+            <TextView
+                android:id="@+id/tv_event_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/grade"
+                android:textColor="@color/loginblue"
+                android:textSize="@dimen/font_size_small"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/tv_event_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A+"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/font_size_extra_xsmall"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_event_activity"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:background="@drawable/square_button_white_with_left_bottom_curve"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_event_activity_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/grade"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_size_extra_small"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="3dp"
+        android:layout_height="match_parent"
+        android:background="@color/transparent" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_weight="1.5"
+        android:background="@drawable/square_button_white_with_right_curves"
+        android:orientation="vertical"
+        android:paddingTop="5dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp">
+
+        <TextView
+            android:id="@+id/tv_events_desc_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:text="2nd Unit Test Result"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_size_medium"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_events_desc_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:text="This is sample test over here , which will be replaced after wards"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/font_size_small"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+</LinearLayout>

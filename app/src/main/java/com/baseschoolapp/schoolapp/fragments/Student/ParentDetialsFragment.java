@@ -11,6 +11,7 @@ import android.widget.ListView;
 import com.baseschoolapp.schoolapp.Adapters.Student.FamilyDetailsAdapter;
 import com.baseschoolapp.schoolapp.R;
 import com.baseschoolapp.schoolapp.models.Teacher.KeyValueDataModel;
+import com.baseschoolapp.schoolapp.utils.ROW_TYPE;
 
 import java.util.ArrayList;
 
@@ -48,21 +49,23 @@ public class ParentDetialsFragment extends Fragment {
 
         dataModels = new ArrayList<>();
 
-        dataModels.add("Father Details");
-        dataModels.add(new KeyValueDataModel("Father's Name", "Prasanna Kumar",17,17));
-        dataModels.add(new KeyValueDataModel("Mobile Number", "2031256485",17,17));
-        dataModels.add(new KeyValueDataModel("Date of Birth", "31 Aug 1987",17,17));
-        dataModels.add(new KeyValueDataModel("Designation", "Manager",17,17));
-        dataModels.add(new KeyValueDataModel("Qualification", "MCA",17,17));
-        dataModels.add(new KeyValueDataModel("Organization", "SBI",17,17));
+        dataModels.add(new KeyValueDataModel("HEADER_NAME2", "Father Details", 20, 20, R.color.grey, R.color.loginblue, ROW_TYPE.HEADER));
 
-        dataModels.add("Mother Details");
-        dataModels.add(new KeyValueDataModel("Mother's Name", "Veena",17,17));
-        dataModels.add(new KeyValueDataModel("Mobile Number", "2031256485",17,17));
-        dataModels.add(new KeyValueDataModel("Date of Birth", "31 Aug 1987",17,17));
-        dataModels.add(new KeyValueDataModel("Designation", "Manager",17,17));
-        dataModels.add(new KeyValueDataModel("Qualification", "MCA",17,17));
-        dataModels.add(new KeyValueDataModel("Organization", "SBI",17,17));
+        dataModels.add(new KeyValueDataModel("Father's Name", "Prasanna Kumar", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Mobile Number", "2031256485", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Date of Birth", "31 Aug 1987", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Designation", "Manager", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Qualification", "MCA", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Organization", "SBI", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+
+        dataModels.add(new KeyValueDataModel("HEADER_NAME2", "Mother Details", 20, 20, R.color.grey, R.color.loginblue, ROW_TYPE.HEADER));
+
+        dataModels.add(new KeyValueDataModel("Mother's Name", "Veena", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Mobile Number", "2031256485", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Date of Birth", "31 Aug 1987", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Designation", "Manager", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Qualification", "MCA", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Organization", "SBI", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
 
         listView.setAdapter(new FamilyDetailsAdapter(this.getContext(), dataModels));
 

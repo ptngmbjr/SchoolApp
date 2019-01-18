@@ -1,5 +1,6 @@
 package com.baseschoolapp.schoolapp.models.Teacher;
 
+import com.baseschoolapp.schoolapp.utils.ROW_TYPE;
 
 public class KeyValueDataModel {
 
@@ -42,12 +43,43 @@ public class KeyValueDataModel {
 
     int valHeight;
 
+    public ROW_TYPE getRow_entry_type() {
+        return row_entry_type;
+    }
 
-    public KeyValueDataModel(String subject_name, String id, int keyHeight, int valHeight) {
+    public void setRow_entry_type(ROW_TYPE row_entry_type) {
+        this.row_entry_type = row_entry_type;
+    }
+
+    ROW_TYPE row_entry_type;
+    int keyColor;
+
+    public int getKeyColor() {
+        return keyColor;
+    }
+
+    public void setKeyColor(int keyColor) {
+        this.keyColor = keyColor;
+    }
+
+    public int getValColor() {
+        return valColor;
+    }
+
+    public void setValColor(int valColor) {
+        this.valColor = valColor;
+    }
+
+    int valColor;
+
+    public KeyValueDataModel(String subject_name, String id, int keyHeight, int valHeight, int keyColor, int valColor, ROW_TYPE row_entry_type) {
         this.key = subject_name;
         this.value = id;
         this.keyHeight = keyHeight;
         this.valHeight = valHeight;
+        this.row_entry_type = row_entry_type;
+        this.keyColor = keyColor;
+        this.valColor = valColor;
     }
 
 

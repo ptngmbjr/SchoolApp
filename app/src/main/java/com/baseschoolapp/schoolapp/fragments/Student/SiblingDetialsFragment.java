@@ -11,6 +11,7 @@ import android.widget.ListView;
 import com.baseschoolapp.schoolapp.Adapters.Student.FamilyDetailsAdapter;
 import com.baseschoolapp.schoolapp.R;
 import com.baseschoolapp.schoolapp.models.Teacher.KeyValueDataModel;
+import com.baseschoolapp.schoolapp.utils.ROW_TYPE;
 
 import java.util.ArrayList;
 
@@ -47,17 +48,17 @@ public class SiblingDetialsFragment extends Fragment {
 
         dataModels = new ArrayList<>();
 
-        dataModels.add("Pawan Kumar");
-        dataModels.add(new KeyValueDataModel("Relation", "Elder Brother",17,17));
-        dataModels.add(new KeyValueDataModel("Class", "5th Class",17,17));
-        dataModels.add(new KeyValueDataModel("School Name", "Vidhya Bharathi School",17,17));
-        dataModels.add(new KeyValueDataModel("Date of Birth", "31 Aug 2000",17,17));
+        dataModels.add(new KeyValueDataModel("HEADER_NAME2", "Pawan Kumar", 20, 20,R.color.grey,R.color.loginblue, ROW_TYPE.HEADER));
+        dataModels.add(new KeyValueDataModel("Relation", "Elder Brother",17,17,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Class", "5th Class",17,17,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("School Name", "Vidhya Bharathi School",17,17,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Date of Birth", "31 Aug 2000",17,17,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
 
-        dataModels.add("Nalini");
-        dataModels.add(new KeyValueDataModel("Relation", "Younger Sister",17,17));
-        dataModels.add(new KeyValueDataModel("Class", "UKG",17,17));
-        dataModels.add(new KeyValueDataModel("School Name", "Vidhya Bharathi School",17,17));
-        dataModels.add(new KeyValueDataModel("Date of Birth", "31 Aug 2009",17,17));
+        dataModels.add(new KeyValueDataModel("HEADER_NAME2", "Nalini", 20, 20,R.color.grey,R.color.loginblue, ROW_TYPE.HEADER));
+        dataModels.add(new KeyValueDataModel("Relation", "Younger Sister",17,17,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Class", "UKG",17,17,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("School Name", "Vidhya Bharathi School",17,17,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Date of Birth", "31 Aug 2009",17,17,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
 
         listView.setAdapter(new FamilyDetailsAdapter(this.getContext(), dataModels));
 

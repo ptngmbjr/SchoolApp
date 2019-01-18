@@ -14,6 +14,7 @@ import android.widget.ListView;
 import com.baseschoolapp.schoolapp.Adapters.Student.BasicDetailsAdapter;
 import com.baseschoolapp.schoolapp.R;
 import com.baseschoolapp.schoolapp.models.Teacher.KeyValueDataModel;
+import com.baseschoolapp.schoolapp.utils.ROW_TYPE;
 
 import java.util.ArrayList;
 
@@ -52,12 +53,12 @@ public class BasicDetailsFragment extends Fragment {
 
         dataModels = new ArrayList<>();
 
-        dataModels.add(new KeyValueDataModel("Admission Number", "55126826",17,17));
-        dataModels.add(new KeyValueDataModel("Date of Registration", "15 Aug 2017",17,17));
-        dataModels.add(new KeyValueDataModel("Date of Birth", "31 Aug 2001",17,17));
-        dataModels.add(new KeyValueDataModel("Gender", "Female",17,17));
-        dataModels.add(new KeyValueDataModel("Caste", "AB-B",17,17));
-        dataModels.add(new KeyValueDataModel("Blood Group", "AB+",17,17));
+        dataModels.add(new KeyValueDataModel("Admission Number", "55126826",17,17,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Date of Registration", "15 Aug 2017",17,17,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Date of Birth", "31 Aug 2001",17,17,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Gender", "Female",17,17,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Caste", "AB-B",17,17,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Blood Group", "AB+",17,17,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
 
         adapter = new BasicDetailsAdapter(dataModels, this.getContext());
 

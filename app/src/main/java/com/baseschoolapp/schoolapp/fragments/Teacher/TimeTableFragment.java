@@ -23,6 +23,7 @@ import com.baseschoolapp.schoolapp.fragments.Student.BaseFragment;
 import com.baseschoolapp.schoolapp.models.Student.TimeTableDateWiseModel;
 import com.baseschoolapp.schoolapp.models.Teacher.KeyDataModel;
 import com.baseschoolapp.schoolapp.models.Teacher.KeyValueDataModel;
+import com.baseschoolapp.schoolapp.utils.ROW_TYPE;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -138,9 +139,9 @@ public class TimeTableFragment extends BaseActivity {
         View subject_name_spinner = (View) findViewById(R.id.day_spinner);
         Spinner spinnerClassName;
 
-        dataModels.add(new KeyValueDataModel("Daily", "0", 17, 17));
-        dataModels.add(new KeyValueDataModel("Weekly", "1", 17, 17));
-        dataModels.add(new KeyValueDataModel("FortNightly", "2", 17, 17));
+        dataModels.add(new KeyValueDataModel("Daily", "0", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Weekly", "1", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("FortNightly", "2", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
 
 
         spinnerClassName = (Spinner) subject_name_spinner.findViewById(R.id.spinner);

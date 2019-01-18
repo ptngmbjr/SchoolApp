@@ -23,6 +23,7 @@ import com.baseschoolapp.schoolapp.fragments.Student.BaseFragment;
 import com.baseschoolapp.schoolapp.models.Teacher.KeyValueDataModel;
 import com.baseschoolapp.schoolapp.models.Teacher.LeaveHistoyDataModel;
 import com.baseschoolapp.schoolapp.models.Teacher.StudentProfileDataModel;
+import com.baseschoolapp.schoolapp.utils.ROW_TYPE;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -110,12 +111,12 @@ public class StudentProfileFragment extends BaseFragment {
 
         final ArrayList<KeyValueDataModel> dataModelsSP = new ArrayList<>();
 
-        dataModelsSP.add(new KeyValueDataModel("Mobile Number", "99492302562",13,13));
-        dataModelsSP.add(new KeyValueDataModel("Landline Number", "040-555512345",13,13));
-        dataModelsSP.add(new KeyValueDataModel("Emergency Number", "9945862031",13,13));
-        dataModelsSP.add(new KeyValueDataModel("Father Email", "ptngmbjr1@gmail.com",13,13));
-        dataModelsSP.add(new KeyValueDataModel("Mother Email", "ptngmbjr2@gmail.com",13,13));
-        dataModelsSP.add(new KeyValueDataModel("Present Address", "H.no 4/86/86\nSai Nagar Colony\nBhel Busdepot Road\nRamchandrapuram",13,13));
+        dataModelsSP.add(new KeyValueDataModel("Mobile Number", "99492302562",13,13,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
+        dataModelsSP.add(new KeyValueDataModel("Landline Number", "040-555512345",13,13,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
+        dataModelsSP.add(new KeyValueDataModel("Emergency Number", "9945862031",13,13,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
+        dataModelsSP.add(new KeyValueDataModel("Father Email", "ptngmbjr1@gmail.com",13,13,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
+        dataModelsSP.add(new KeyValueDataModel("Mother Email", "ptngmbjr2@gmail.com",13,13,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
+        dataModelsSP.add(new KeyValueDataModel("Present Address", "H.no 4/86/86\nSai Nagar Colony\nBhel Busdepot Road\nRamchandrapuram",13,13,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
 
 
         BasicDetailsAdapter adapter = new BasicDetailsAdapter(dataModelsSP, this.getContext());

@@ -14,6 +14,7 @@ import android.widget.ListView;
 import com.baseschoolapp.schoolapp.Adapters.Student.BasicDetailsAdapter;
 import com.baseschoolapp.schoolapp.R;
 import com.baseschoolapp.schoolapp.models.Teacher.KeyValueDataModel;
+import com.baseschoolapp.schoolapp.utils.ROW_TYPE;
 
 import java.util.ArrayList;
 
@@ -52,12 +53,12 @@ public class ContactDetailsFragment extends Fragment {
 
         dataModels = new ArrayList<>();
 
-        dataModels.add(new KeyValueDataModel("Mobile Number", "99492302562",17,17));
-        dataModels.add(new KeyValueDataModel("Landline Number", "040-555512345",17,17));
-        dataModels.add(new KeyValueDataModel("Emergency Number", "9945862031",17,17));
-        dataModels.add(new KeyValueDataModel("Father Email", "ptngmbjr1@gmail.com",17,17));
-        dataModels.add(new KeyValueDataModel("Mother Email", "ptngmbjr2@gmail.com",17,17));
-        dataModels.add(new KeyValueDataModel("Present Address", "H.no 4/86/86\nSai Nagar Colony\nBhel Busdepot Road\nRamchandrapuram",17,17));
+        dataModels.add(new KeyValueDataModel("Mobile Number", "99492302562", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Landline Number", "040-555512345", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Emergency Number", "9945862031", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Father Email", "ptngmbjr1@gmail.com", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Mother Email", "ptngmbjr2@gmail.com", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("Present Address", "H.no 4/86/86\nSai Nagar Colony\nBhel Busdepot Road\nRamchandrapuram", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
 
 
         adapter = new BasicDetailsAdapter(dataModels, this.getContext());
