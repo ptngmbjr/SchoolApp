@@ -98,4 +98,14 @@
     <string name="add_new_time_table">Add New Time Table</string>
     <string name="leaves_history">Leave History</string>
 
+    <string name="attendance_for_all_months">Attendance For All Months</string>
+    <string name="months">Months</string>
+    <string name="present">Present</string>
+    <string name="percentage">Percentage</string>
+
+    <string name="food_menu">Food Menu</string>
+
+    <string name="subjectandsyllabus">Subjects and Syllabuss</string>
+    <string name="downloadtimetable">Download Time Table</string>
+
 </resources>

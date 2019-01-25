@@ -62,4 +62,7 @@ dependencies {
     implementation 'sun.bob:mcalendarview:1.0.0'
     implementation 'com.android.support:recyclerview-v7:27.1.0'
 
+    implementation 'dev.dworks.libs:astickyheader:0.1.0'
+
+
 }

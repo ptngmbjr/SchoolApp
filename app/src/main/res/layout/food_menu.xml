@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/student_homework_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp">
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/food_menu_dates_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp" />
+
+    <GridView
+        android:id="@+id/food_menu_grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:horizontalSpacing="10dp"
+        android:numColumns="3"
+        android:verticalSpacing="10dp" />
+
+
+    <!--<dev.dworks.libs.astickyheader.ui.PinnedSectionGridView-->
+        <!--android:id="@+id/food_menu_grid_view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@android:color/white"-->
+        <!--android:choiceMode="singleChoice"-->
+        <!--android:columnWidth="100dp"-->
+        <!--android:drawSelectorOnTop="true"-->
+        <!--android:focusable="false"-->
+        <!--android:gravity="center"-->
+        <!--android:horizontalSpacing="3dp"-->
+        <!--android:numColumns="auto_fit"-->
+        <!--android:padding="10dp"-->
+        <!--android:scrollbarStyle="outsideOverlay"-->
+        <!--android:stretchMode="columnWidth"-->
+        <!--android:verticalSpacing="2dp" />-->
+
+</LinearLayout>

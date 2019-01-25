@@ -72,9 +72,9 @@ public class KeyValueDataModel {
 
     int valColor;
 
-    public KeyValueDataModel(String subject_name, String id, int keyHeight, int valHeight, int keyColor, int valColor, ROW_TYPE row_entry_type) {
-        this.key = subject_name;
-        this.value = id;
+    public KeyValueDataModel(String key, String value, int keyHeight, int valHeight, int keyColor, int valColor, ROW_TYPE row_entry_type) {
+        this.key = key;
+        this.value = value;
         this.keyHeight = keyHeight;
         this.valHeight = valHeight;
         this.row_entry_type = row_entry_type;

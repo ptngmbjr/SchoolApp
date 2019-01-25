@@ -1,5 +1,6 @@
 package com.baseschoolapp.schoolapp.fragments.Student;
 
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,6 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.baseschoolapp.schoolapp.Adapters.Student.NewsAdapter;
+import com.baseschoolapp.schoolapp.Login;
 import com.baseschoolapp.schoolapp.R;
 import com.baseschoolapp.schoolapp.StudentDashBoard;
 import com.baseschoolapp.schoolapp.fragments.Teacher.AllActivitiesTeacherFragment;
@@ -480,10 +482,12 @@ public class DashboardFragment extends BaseFragment {
             activity1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Intent i = new Intent(getContext(), UnitTestTimeTableSubjectWise.class);
+                    startActivity(i);
 
-                    if (mFragmentNavigation != null) {
-                        mFragmentNavigation.pushFragment(new com.baseschoolapp.schoolapp.fragments.Teacher.HolidaysContainerFragment());
-                    }
+//                    if (mFragmentNavigation != null) {
+//                        mFragmentNavigation.pushFragment(new com.baseschoolapp.schoolapp.fragments.Student.FoodMenuFragment());
+//                    }
                 }
             });
 //
@@ -568,15 +572,15 @@ public class DashboardFragment extends BaseFragment {
 
         dataModels = new ArrayList<>();
 
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
-        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17,R.color.grey,R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
+        dataModels.add(new KeyValueDataModel("News Title", "This is sample text to check the behaviour of the list view with long text, this text looks good", 17, 17, R.color.grey, R.color.black, ROW_TYPE.DATA_ROW));
 
         adapter = new NewsAdapter(dataModels, this.getContext());
 

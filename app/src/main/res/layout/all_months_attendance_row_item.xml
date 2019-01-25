@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_fee_history_row"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp"
+    android:orientation="horizontal"
+    android:weightSum="4">
+
+    <TextView
+        android:id="@+id/monthName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5"
+        android:text="@string/receipt_no"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_size_medium"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/present"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Date"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_size_medium"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/percentage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5"
+        android:text="Amount"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_size_medium"
+        android:textStyle="bold" />
+
+</LinearLayout>

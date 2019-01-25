@@ -30,6 +30,7 @@
         <activity android:name=".fragments.Teacher.SyllabusDrillDownFragment" />
         <activity android:name=".fragments.Teacher.ApplyLeaveFragment" />
         <activity android:name=".fragments.Teacher.TimeTableFragment" />
+        <activity android:name=".fragments.Student.UnitTestTimeTableSubjectWise" />
         <activity android:name=".SuccessLogin">
 
             <intent-filter>

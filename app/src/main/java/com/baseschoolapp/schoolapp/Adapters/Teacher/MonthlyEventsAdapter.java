@@ -1,22 +1,25 @@
 package com.baseschoolapp.schoolapp.Adapters.Teacher;
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.baseschoolapp.schoolapp.R;
-import com.baseschoolapp.schoolapp.models.Teacher.HomeWorkViewDataModel;
+import com.baseschoolapp.schoolapp.models.Teacher.KeyValueDataModel;
+import com.baseschoolapp.schoolapp.models.Teacher.KeyValueDataModel;
 
 import java.util.ArrayList;
 
-public class HomeWorkViewAdapter extends ArrayAdapter<HomeWorkViewDataModel> implements View.OnClickListener {
+public class MonthlyEventsAdapter extends ArrayAdapter<KeyValueDataModel> implements View.OnClickListener {
 
-    private ArrayList<HomeWorkViewDataModel> dataSet;
+    private ArrayList<KeyValueDataModel> dataSet;
     Context mContext;
     private AdapterListener mListener;
 
@@ -32,13 +35,12 @@ public class HomeWorkViewAdapter extends ArrayAdapter<HomeWorkViewDataModel> imp
 
     // View lookup cache
     private static class ViewHolder {
-        ImageView hw_sub_image;
-        TextView hw_sub_Name, hw_sub_details, hw_sub_date;
-        CheckBox hw_sub_cb;
+        TextView name;
+        LinearLayout ll;
     }
 
-    public HomeWorkViewAdapter(ArrayList<HomeWorkViewDataModel> data, Context context) {
-        super(context, R.layout.home_work_grid_item, data);
+    public MonthlyEventsAdapter(ArrayList<KeyValueDataModel> data, Context context) {
+        super(context, R.layout.round_rectangle_one_text, data);
         this.dataSet = data;
         this.mContext = context;
 
@@ -48,7 +50,7 @@ public class HomeWorkViewAdapter extends ArrayAdapter<HomeWorkViewDataModel> imp
     public void onClick(View v) {
 
         int position = (Integer) v.getTag();
-        HomeWorkViewDataModel object = (HomeWorkViewDataModel) getItem(position);
+        KeyValueDataModel object = (KeyValueDataModel) getItem(position);
 
         switch (v.getId()) {
 //            case R.id.subject_name:
@@ -62,7 +64,7 @@ public class HomeWorkViewAdapter extends ArrayAdapter<HomeWorkViewDataModel> imp
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
-        HomeWorkViewDataModel HomeWorkViewDataModel = getItem(position);
+        KeyValueDataModel KeyValueDataModel = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         ViewHolder viewHolder; // view lookup cache stored in tag
 
@@ -70,12 +72,10 @@ public class HomeWorkViewAdapter extends ArrayAdapter<HomeWorkViewDataModel> imp
 
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            convertView = inflater.inflate(R.layout.home_work_grid_item, parent, false);
+            convertView = inflater.inflate(R.layout.round_rectangle_one_text, parent, false);
 
-            viewHolder.hw_sub_Name = (TextView) convertView.findViewById(R.id.hw_subject_name);
-            viewHolder.hw_sub_cb = (CheckBox) convertView.findViewById(R.id.hw_sub_checkbox);
-            viewHolder.hw_sub_details = (TextView) convertView.findViewById(R.id.student_homework_details);
-            viewHolder.hw_sub_date = (TextView) convertView.findViewById(R.id.student_homework_submission_date);
+            viewHolder.name = (TextView) convertView.findViewById(R.id.subject_data);
+            viewHolder.ll = (LinearLayout) convertView.findViewById(R.id.round_rect_one_text_ll);
 
 
             convertView.setTag(viewHolder);
@@ -85,11 +85,16 @@ public class HomeWorkViewAdapter extends ArrayAdapter<HomeWorkViewDataModel> imp
 
         lastPosition = position;
 
-        viewHolder.hw_sub_Name.setText(HomeWorkViewDataModel.getHw_sub_name());
-        viewHolder.hw_sub_details.setText(HomeWorkViewDataModel.getHw_sub_details());
-        viewHolder.hw_sub_date.setText(HomeWorkViewDataModel.getHw_submission_date());
+        viewHolder.name.setText(KeyValueDataModel.getKey() + "(" + KeyValueDataModel.getValue() + ")");
+        viewHolder.name.setPadding(10,20,10,20);
 
-        viewHolder.hw_sub_Name.setTextColor(getContext().getResources().getColor(HomeWorkViewDataModel.getHw_sub_color()));
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(310,
+                100); // or set height to any fixed value you want
+
+        viewHolder.ll.setLayoutParams(lp);
+
+        GradientDrawable background = (GradientDrawable) viewHolder.ll.getBackground();
+        background.setColor(getContext().getResources().getColor(KeyValueDataModel.getKeyColor()));
 
         return convertView;
     }
