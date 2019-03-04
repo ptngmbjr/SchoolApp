@@ -44,8 +44,8 @@ public class FeeAdapter extends ArrayAdapter<FeeDataModel> implements View.OnCli
 
         switch (v.getId()) {
             case R.id.fee_toggle:
-                Snackbar.make(v, "Fee name : " + dataModel.getFee_name(), Snackbar.LENGTH_LONG)
-                        .setAction("No action", null).show();
+//                Snackbar.make(v, "Fee name : " + dataModel.getFee_name(), Snackbar.LENGTH_LONG)
+//                        .setAction("No action", null).show();
                 break;
         }
     }

@@ -11,55 +11,34 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.baseschoolapp.schoolapp.Adapters.Student.MarksAdapter;
+import com.baseschoolapp.schoolapp.BaseActivity;
 import com.baseschoolapp.schoolapp.R;
 import com.baseschoolapp.schoolapp.StudentDashBoard;
 import com.baseschoolapp.schoolapp.models.Student.MarksDataModel;
 
 import java.util.ArrayList;
 
-public class StudentGradeFragment extends Fragment {
+public class StudentGradeActivity extends BaseActivity {
 
     ArrayList<MarksDataModel> dataModels;
     private static MarksAdapter adapter;
 
-    public StudentGradeFragment() {
-        // Required empty public constructor
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_student_grade, container, false);
-    }
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+        setContentView(R.layout.fragment_student_grade);
 
-        ((StudentDashBoard) getActivity()).hideToolBar();
 
-        initialiseMarks(view);
+        initialiseMarks();
 
     }
 
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
+    public void initialiseMarks() {
 
-        ((StudentDashBoard) getActivity()).showToolBar();
-
-    }
-
-    public void initialiseMarks(View view) {
-
-        ListView listView = (ListView) view.findViewById(R.id.marks_result_list);
+        ListView listView = (ListView) findViewById(R.id.marks_result_list);
         ViewCompat.setNestedScrollingEnabled(listView, true);
 
         dataModels = new ArrayList<>();
@@ -73,7 +52,7 @@ public class StudentGradeFragment extends Fragment {
         dataModels.add(new MarksDataModel("Socail", "80/100", R.dimen.font_size_medium, R.color.white));
         dataModels.add(new MarksDataModel("Total", "480/600", R.dimen.font_size_medium, R.color.yellow));
 
-        adapter = new MarksAdapter(dataModels, this.getContext());
+        adapter = new MarksAdapter(dataModels, this);
 
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -15,7 +15,7 @@ import com.baseschoolapp.schoolapp.utils.ROW_TYPE;
 
 import java.util.ArrayList;
 
-public class ParentDetialsFragment extends Fragment {
+public class ParentDetialsFragment extends BaseFragment {
 
     ArrayList<Object> dataModels;
 

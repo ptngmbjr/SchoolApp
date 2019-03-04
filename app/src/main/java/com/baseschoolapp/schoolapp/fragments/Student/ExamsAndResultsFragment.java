@@ -1,9 +1,9 @@
 package com.baseschoolapp.schoolapp.fragments.Student;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +18,7 @@ import com.baseschoolapp.schoolapp.models.Student.ExamAndResultDataModel;
 
 import java.util.ArrayList;
 
-public class ExamsAndResultsFragment extends Fragment {
+public class ExamsAndResultsFragment extends BaseFragment {
 
     ArrayList<ExamAndResultDataModel> dataModels;
     private static ExamAndResultAdapter adapter;
@@ -42,12 +42,18 @@ public class ExamsAndResultsFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.exam_result));
+        initHeaderName();
 
         initialiseExamAndResult(view);
     }
 
+    private void initHeaderName() {
+        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.exam_result));
+
+    }
+    public void onHiddenChanged(boolean hidden) {
+        initHeaderName();
+    }
 
     public void initialiseExamAndResult(View view) {
 
@@ -67,10 +73,27 @@ public class ExamsAndResultsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                Intent i = null;
                 ExamAndResultDataModel dataModel = dataModels.get(position);
 
-                Snackbar.make(view, dataModel.getUnitTestName() + "\n" + dataModel.getUnitTestStartDate(), Snackbar.LENGTH_LONG)
-                        .setAction("No action", null).show();
+//                Snackbar.make(view, dataModel.getUnitTestName() + "\n" + dataModel.getUnitTestStartDate(), Snackbar.LENGTH_LONG)
+//                        .setAction("No action", null).show();
+
+                switch (dataModel.getUnitTestName()) {
+                    case "2nd Unit Test":
+                        i = new Intent(getContext(), UnitTestTimeTableSubjectWise.class);
+                        break;
+                    case "":
+                        i = new Intent(getContext(), StudentGradeActivity.class);
+                        break;
+
+
+                }
+
+                if (i != null)
+                    startActivity(i);
+
+
             }
         });
     }

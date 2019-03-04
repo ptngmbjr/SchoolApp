@@ -9,6 +9,7 @@ import com.baseschoolapp.schoolapp.fragments.Student.ContactDetailsFragment;
 import com.baseschoolapp.schoolapp.fragments.Student.ParentDetialsFragment;
 import com.baseschoolapp.schoolapp.fragments.Student.SiblingDetialsFragment;
 import com.baseschoolapp.schoolapp.fragments.Teacher.AddNewTimeTableFragment;
+import com.baseschoolapp.schoolapp.fragments.Teacher.AttendanceNewFragment;
 import com.baseschoolapp.schoolapp.fragments.Teacher.LeaveFragment;
 import com.baseschoolapp.schoolapp.fragments.Teacher.StudentAttendanceFragment;
 import com.baseschoolapp.schoolapp.fragments.Teacher.StudentHomeWorkFragment;
@@ -40,7 +41,7 @@ public class AllActivityTeacherPageAdaptor extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                fragment = new StudentAttendanceFragment();
+                fragment = new AttendanceNewFragment();
                 break;
             case 1:
                 fragment = new StudentHomeWorkFragment();

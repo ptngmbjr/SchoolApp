@@ -28,8 +28,10 @@ public class SuccessLogin extends AppCompatActivity {
 
     public void doneClick(View view) {
         Intent i = new Intent(this, StudentDashBoard.class);
-//        i.putExtra("USER_TYPE", USER.STUDENT.name());
-        i.putExtra("USER_TYPE", USER.TEACHER.name());
+        if (MainActivity.PACKAGE_NAME.contains("student"))
+            i.putExtra("USER_TYPE", USER.STUDENT.name());
+        else if (MainActivity.PACKAGE_NAME.contains("teacher"))
+            i.putExtra("USER_TYPE", USER.TEACHER.name());
         startActivity(i);
     }
 

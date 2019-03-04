@@ -48,6 +48,13 @@ public class StudentAttendanceFragment extends BaseFragment {
 
 
     }
+    private void initHeaderName() {
+        ((StudentDashBoard) getActivity()).updateToolbarTitle(StudentDashBoard.studentClassName);
+
+    }
+    public void onHiddenChanged(boolean hidden) {
+        initHeaderName();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -28,11 +28,17 @@ public class BusFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_bus, container, false);
 
         ButterKnife.bind(this, view);
-
-        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.bus_head_title));
+        initHeaderName();
 
 
         return view;
+    }
+    private void initHeaderName() {
+        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.bus_head_title));
+
+    }
+    public void onHiddenChanged(boolean hidden) {
+        initHeaderName();
     }
 
 

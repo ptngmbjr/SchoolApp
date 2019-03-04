@@ -62,8 +62,7 @@ public class LeaveFragment extends BaseFragment {
         background.setColor(color);
 
         ButterKnife.bind(this, view);
-
-        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.my_attendance));
+        initHeaderName();
 
         applyLeave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,7 +81,21 @@ public class LeaveFragment extends BaseFragment {
 
         return view;
     }
+    private void initHeaderName() {
+//        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.my_attendance));
 
+    }
+
+//    @Override
+//    public void setUserVisibleHint(boolean isVisibleToUser) {
+//        super.setUserVisibleHint(isVisibleToUser);
+//        if (isVisibleToUser)
+//            initHeaderName();
+//    }
+
+    public void onHiddenChanged(boolean hidden) {
+        initHeaderName();
+    }
 
     public void initialiseAllLeaves(View view) {
 

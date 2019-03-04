@@ -20,6 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:paddingBottom="10dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -50,7 +51,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Laxmi"
-                        android:textColor="@color/loginblue"
+                        android:textColor="@color/bluetitle"
                         android:textSize="@dimen/font_size_large"
                         android:textStyle="bold" />
 
@@ -59,7 +60,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Prasanna"
-                        android:textColor="@color/loginblue"
+                        android:textColor="@color/bluetitle"
                         android:textSize="@dimen/font_size_large"
                         android:textStyle="bold" />
 
@@ -69,7 +70,7 @@
                         android:layout_height="wrap_content"
                         android:text="3rd Standard"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/font_size_medium"
+                        android:textSize="@dimen/font_size_small"
                         android:textStyle="bold" />
 
 

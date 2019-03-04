@@ -29,11 +29,17 @@ public class MoreFragment extends BaseFragment{
         View view = inflater.inflate(R.layout.fragment_more, container, false);
 
         ButterKnife.bind(this, view);
-
-        ( (StudentDashBoard)getActivity()).updateToolbarTitle(getResources().getString(R.string.more_head_title));
+        initHeaderName();
 
 
         return view;
+    }
+    private void initHeaderName() {
+        ( (StudentDashBoard)getActivity()).updateToolbarTitle(getResources().getString(R.string.more_head_title));
+
+    }
+    public void onHiddenChanged(boolean hidden) {
+        initHeaderName();
     }
 
 

@@ -79,14 +79,20 @@ public class AddNewTimeTableFragment extends BaseFragment {
         background.setColor(getResources().getColor(R.color.green));
 
         ButterKnife.bind(this, view);
-
-        //     ((StudentDashBoard) getActivity()).hideToolBar();
+        initHeaderName();
 
         initialiseDates(view);
 
         initialiseExistingTT(view);
 
         return view;
+    }
+    private void initHeaderName() {
+        ((StudentDashBoard) getActivity()).updateToolbarTitle(StudentDashBoard.studentClassName);
+
+    }
+    public void onHiddenChanged(boolean hidden) {
+        initHeaderName();
     }
 
     public void initialiseDates(View view) {

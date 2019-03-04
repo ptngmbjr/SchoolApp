@@ -78,12 +78,13 @@ public class Signup extends AppCompatActivity {
         txt_error_message.setVisibility(View.GONE);
 
         int res = -1;
-        res = isPhoneNoValid(txt_phone_number.getText().toString());
-
-        if (res == SUCCESS)
-            getStarted();
-        else
-            handleError(res);
+//        res = isPhoneNoValid(txt_phone_number.getText().toString());
+//
+//        if (res == SUCCESS)
+//            getStarted();
+//        else
+//            handleError(res);
+        getStarted();
     }
 
     public void getStarted() {

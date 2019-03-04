@@ -43,12 +43,18 @@ public class AttendanceFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_attendance, container, false);
 
         ButterKnife.bind(this, view);
-
-        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.attendance_head_title));
+        initHeaderName();
 
         initialiseCalenderEvents(view);
 
         return view;
+    }
+    private void initHeaderName() {
+        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.attendance_head_title));
+
+    }
+    public void onHiddenChanged(boolean hidden) {
+        initHeaderName();
     }
 
     public void initialiseCalenderEvents(View view) {
@@ -61,19 +67,19 @@ public class AttendanceFragment extends BaseFragment {
         Date today = new Date();
 
         calendarView.markDate(
-                new DateData(2018, 11, 22).setMarkStyle(new MarkStyle(MarkStyle.BACKGROUND, Color.BLUE))
+                new DateData(2019, 1, 22).setMarkStyle(new MarkStyle(MarkStyle.BACKGROUND, Color.BLUE))
         );
 
         calendarView.markDate(
-                new DateData(2018, 11, 1).setMarkStyle(new MarkStyle(MarkStyle.BACKGROUND, Color.RED))
+                new DateData(2019, 1, 1).setMarkStyle(new MarkStyle(MarkStyle.BACKGROUND, Color.RED))
         );
 
         calendarView.markDate(
-                new DateData(2018, 11, 8).setMarkStyle(new MarkStyle(MarkStyle.BACKGROUND, Color.GREEN))
+                new DateData(2019, 1, 8).setMarkStyle(new MarkStyle(MarkStyle.BACKGROUND, Color.GREEN))
         );
 
         calendarView.markDate(
-                new DateData(2018, 11, 10).setMarkStyle(new MarkStyle(MarkStyle.BACKGROUND, Color.YELLOW))
+                new DateData(2019, 1, 10).setMarkStyle(new MarkStyle(MarkStyle.BACKGROUND, Color.YELLOW))
         );
 
 

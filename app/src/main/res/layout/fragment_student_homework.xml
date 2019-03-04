@@ -41,9 +41,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="6"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
+        android:layout_weight="5"
         android:gravity="center_vertical"
         android:orientation="vertical">
 
@@ -60,5 +60,23 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/add_home_work_student_howework"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:paddingLeft="55dp"
+            android:paddingRight="55dp"
+            android:background="@drawable/round_button"
+            android:text="@string/add_home_work"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 </LinearLayout>

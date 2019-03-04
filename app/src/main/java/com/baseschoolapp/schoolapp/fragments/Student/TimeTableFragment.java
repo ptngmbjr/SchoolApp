@@ -48,14 +48,21 @@ public class TimeTableFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.time_table_date, container, false);
 
         ButterKnife.bind(this, view);
+        initHeaderName();
 
-        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.time_table));
 
         initialiseTimeTable(view);
 
         return view;
     }
+    private void initHeaderName() {
+        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.time_table));
 
+    }
+
+    public void onHiddenChanged(boolean hidden) {
+        initHeaderName();
+    }
 
     public void initialiseTimeTable(View view) {
 
@@ -112,7 +119,7 @@ public class TimeTableFragment extends BaseFragment {
 
         dataModels.add(new TimeTableSubjectsDataModel(R.drawable.ic_timetable, "Biology", "by Sharma", "9.30am-10.30am", R.color.green));
         dataModels.add(new TimeTableSubjectsDataModel(R.drawable.ic_notification, "History", "by Uttapha", "10.30am-11.30am", R.color.loginblue));
-        dataModels.add(new TimeTableSubjectsDataModel(R.drawable.ic_english, "Zoology", "by Dhoni", "11.30am-12.30pm", R.color.orange));
+        dataModels.add(new TimeTableSubjectsDataModel(R.drawable.ic_english, "Zoology", "by Dhoni", "11.3am-12.30pm", R.color.orange));
         dataModels.add(new TimeTableSubjectsDataModel(R.drawable.ic_attendance, "Mathematics", "by Virat", "1.00pm-2.00pm", R.color.red));
         dataModels.add(new TimeTableSubjectsDataModel(R.drawable.ic_syllabus, "English", "by Pandya", "2.00pm-3.00pm", R.color.yellow));
         dataModels.add(new TimeTableSubjectsDataModel(R.drawable.ic_classess, "Telugu", "by Sachin", "3.00pm-4.00pm", R.color.chrome_grey));

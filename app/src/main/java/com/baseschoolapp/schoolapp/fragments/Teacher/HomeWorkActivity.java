@@ -31,7 +31,7 @@ import java.util.Calendar;
 import butterknife.ButterKnife;
 
 
-public class HomeWorkFragment extends BaseActivity implements OnDateSetListener {
+public class HomeWorkActivity extends BaseActivity implements OnDateSetListener {
 
     Button home_work_date, submission_date;
 

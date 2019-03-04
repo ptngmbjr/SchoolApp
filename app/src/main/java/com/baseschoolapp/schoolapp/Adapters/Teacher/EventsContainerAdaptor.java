@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import com.baseschoolapp.schoolapp.fragments.Teacher.AddNewTimeTableFragment;
 import com.baseschoolapp.schoolapp.fragments.Teacher.AllEventsFragment;
 import com.baseschoolapp.schoolapp.fragments.Teacher.LeaveFragment;
+import com.baseschoolapp.schoolapp.fragments.Teacher.MonthlyEventsFragment;
 import com.baseschoolapp.schoolapp.fragments.Teacher.StudentAttendanceFragment;
 import com.baseschoolapp.schoolapp.fragments.Teacher.StudentHomeWorkFragment;
 import com.baseschoolapp.schoolapp.fragments.Teacher.SyllabusFragment;
@@ -32,10 +33,7 @@ public class EventsContainerAdaptor extends FragmentStatePagerAdapter {
                 fragment = new AllEventsFragment();
                 break;
             case 1:
-                fragment = new AllEventsFragment();
-                break;
-            default:
-                fragment = new AllEventsFragment();
+                fragment = new MonthlyEventsFragment();
                 break;
         }
         return fragment;

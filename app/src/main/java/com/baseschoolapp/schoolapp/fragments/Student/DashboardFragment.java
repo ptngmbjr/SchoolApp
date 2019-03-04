@@ -1,10 +1,8 @@
 package com.baseschoolapp.schoolapp.fragments.Student;
 
-import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.ViewCompat;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -18,11 +16,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.baseschoolapp.schoolapp.Adapters.Student.NewsAdapter;
-import com.baseschoolapp.schoolapp.Login;
 import com.baseschoolapp.schoolapp.R;
 import com.baseschoolapp.schoolapp.StudentDashBoard;
+import com.baseschoolapp.schoolapp.fragments.Teacher.AddNewTimeTableFragment;
 import com.baseschoolapp.schoolapp.fragments.Teacher.AllActivitiesTeacherFragment;
-import com.baseschoolapp.schoolapp.fragments.Teacher.HomeWorkFragment;
+import com.baseschoolapp.schoolapp.fragments.Teacher.AttendanceNewFragment;
+import com.baseschoolapp.schoolapp.fragments.Teacher.EventsContainerFragment;
+import com.baseschoolapp.schoolapp.fragments.Teacher.StudentHomeWorkFragment;
+import com.baseschoolapp.schoolapp.fragments.Teacher.SyllabusFragment;
 import com.baseschoolapp.schoolapp.models.Teacher.KeyValueDataModel;
 import com.baseschoolapp.schoolapp.utils.ROW_TYPE;
 import com.baseschoolapp.schoolapp.utils.RoundedImageView;
@@ -56,6 +57,15 @@ public class DashboardFragment extends BaseFragment {
         // Required empty public constructor
     }
 
+    public void onHiddenChanged(boolean hidden) {
+        initHeaderName();
+    }
+
+    private void initHeaderName() {
+        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.dashboard_head_title));
+
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +82,8 @@ public class DashboardFragment extends BaseFragment {
 
 
         ButterKnife.bind(this, view);
+        initHeaderName();
+
 
 //        Bundle args = getArguments();
 //        if (args != null) {
@@ -98,8 +110,6 @@ public class DashboardFragment extends BaseFragment {
 //            }
 //        });
 
-
-        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.dashboard_head_title));
 
         initialiseAboutStudent(view);
 
@@ -139,13 +149,13 @@ public class DashboardFragment extends BaseFragment {
         TextView valueText_fee = (TextView) round_layout_fee.findViewById(R.id.value);
 
         GradientDrawable background = (GradientDrawable) round_layout_attendance.getBackground();
-        background.setColor(getResources().getColor(R.color.signuporange));
+        background.setColor(getResources().getColor(R.color.yellowroundcircle));
 
         GradientDrawable background1 = (GradientDrawable) round_layout_score.getBackground();
-        background1.setColor(getResources().getColor(R.color.signuporange));
+        background1.setColor(getResources().getColor(R.color.yellowroundcircle));
 
         GradientDrawable background2 = (GradientDrawable) round_layout_fee.getBackground();
-        background2.setColor(getResources().getColor(R.color.signuporange));
+        background2.setColor(getResources().getColor(R.color.yellowroundcircle));
 
         if (StudentDashBoard.user == USER.STUDENT) {
 
@@ -201,7 +211,7 @@ public class DashboardFragment extends BaseFragment {
                 public void onClick(View v) {
 
                     if (mFragmentNavigation != null) {
-                        mFragmentNavigation.pushFragment(new StudentGradeFragment());
+                        mFragmentNavigation.pushFragment(new AttendanceFragment());
 
                     }
                 }
@@ -226,6 +236,17 @@ public class DashboardFragment extends BaseFragment {
             first_name.setText("James");
             last_name.setText("Anderson");
             standard.setText("Mathematician");
+
+            profile_image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (mFragmentNavigation != null) {
+                        mFragmentNavigation.pushFragment(new AttendanceFragment());
+
+                    }
+                }
+            });
 
         }
 
@@ -259,9 +280,9 @@ public class DashboardFragment extends BaseFragment {
             GradientDrawable background1 = (GradientDrawable) round_layout_subj2.getBackground();
             GradientDrawable background2 = (GradientDrawable) round_layout_subj3.getBackground();
 
-            background.setColor(getResources().getColor(R.color.loginblue));
-            background1.setColor(getResources().getColor(R.color.green));
-            background2.setColor(getResources().getColor(R.color.red));
+            background.setColor(getResources().getColor(R.color.bluesquarebox));
+            background1.setColor(getResources().getColor(R.color.greensquarebox));
+            background2.setColor(getResources().getColor(R.color.yellowroundcircle));
 
 
             LinearLayout sub1_date_layout = (LinearLayout) round_layout_subj1.findViewById(R.id.subject_date_layout);
@@ -319,6 +340,18 @@ public class DashboardFragment extends BaseFragment {
             background2 = (GradientDrawable) sub3_time_layout.getBackground();
             background2.setColor(getResources().getColor(R.color.signuporange));
 
+            gruop_header_title_right.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (mFragmentNavigation != null) {
+                        mFragmentNavigation.pushFragment(new TimeTableFragment());
+
+                    }
+                }
+            });
+
+
         } else if (StudentDashBoard.user == USER.TEACHER) {
             //teacher
             LinearLayout teacher_classes = (LinearLayout) view.findViewById(R.id.layout_today_class_teacher);
@@ -365,26 +398,26 @@ public class DashboardFragment extends BaseFragment {
             class_3_time.setText("10:10am - 11:20am");
 
 
-            round_layout_subj1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onClassNameClick(class_1_name.getText().toString());
-                }
-            });
-
-            round_layout_subj2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onClassNameClick(class_2_name.getText().toString());
-                }
-            });
-
-            round_layout_subj3.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onClassNameClick(class_3_name.getText().toString());
-                }
-            });
+//            round_layout_subj1.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    onClassNameClick(class_1_name.getText().toString());
+//                }
+//            });
+//
+//            round_layout_subj2.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    onClassNameClick(class_2_name.getText().toString());
+//                }
+//            });
+//
+//            round_layout_subj3.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    onClassNameClick(class_3_name.getText().toString());
+//                }
+//            });
 
             background = (GradientDrawable) class_name1.getBackground();
             background.setColor(getResources().getColor(R.color.transparent));
@@ -482,37 +515,46 @@ public class DashboardFragment extends BaseFragment {
             activity1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(getContext(), UnitTestTimeTableSubjectWise.class);
-                    startActivity(i);
 
-//                    if (mFragmentNavigation != null) {
-//                        mFragmentNavigation.pushFragment(new com.baseschoolapp.schoolapp.fragments.Student.FoodMenuFragment());
-//                    }
+                    if (mFragmentNavigation != null) {
+                        mFragmentNavigation.pushFragment(new AddNewTimeTableFragment());
+
+                    }
                 }
             });
-//
-//            activity2.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//
-//                    if (mFragmentNavigation != null) {
-//                        mFragmentNavigation.pushFragment(new com.baseschoolapp.schoolapp.fragments.Teacher.ApplyLeaveFragment());
-//
-//                    }
-//                }
-//            });
-//
-//            activity3.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//
-//                    if (mFragmentNavigation != null) {
-//                        mFragmentNavigation.pushFragment(new HomeWorkFragment());
-//
-//                    }
-//                }
-//            });
 
+            activity2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (mFragmentNavigation != null) {
+                        mFragmentNavigation.pushFragment(new AttendanceNewFragment());
+
+                    }
+                }
+            });
+
+            activity3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (mFragmentNavigation != null) {
+                        mFragmentNavigation.pushFragment(new StudentHomeWorkFragment());
+
+                    }
+                }
+            });
+
+            activity4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (mFragmentNavigation != null) {
+                        mFragmentNavigation.pushFragment(new SyllabusFragment());
+
+                    }
+                }
+            });
 
         } else if (StudentDashBoard.user == USER.STUDENT) {
             activity1.setOnClickListener(new View.OnClickListener() {
@@ -521,6 +563,39 @@ public class DashboardFragment extends BaseFragment {
 
                     if (mFragmentNavigation != null) {
                         mFragmentNavigation.pushFragment(new TimeTableFragment());
+
+                    }
+                }
+            });
+
+            activity2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (mFragmentNavigation != null) {
+                        mFragmentNavigation.pushFragment(new AttendanceFragment());
+
+                    }
+                }
+            });
+
+            activity3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (mFragmentNavigation != null) {
+                        mFragmentNavigation.pushFragment(new StudentHomeWorkFragment());
+
+                    }
+                }
+            });
+
+            activity4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (mFragmentNavigation != null) {
+                        mFragmentNavigation.pushFragment(new SyllabusFragment());
 
                     }
                 }
@@ -535,13 +610,27 @@ public class DashboardFragment extends BaseFragment {
         TextView gruop_header_title_left = (TextView) header_title.findViewById(R.id.group_header_left);
         TextView gruop_header_title_right = (TextView) header_title.findViewById(R.id.group_header_right);
 
-        ImageView school_route_image = (ImageView) view.findViewById(R.id.events_image);
-        school_route_image.setImageDrawable(getResources().getDrawable(R.drawable.event_image));
+        ImageView events_image = (ImageView) view.findViewById(R.id.events_image);
+        events_image.setImageDrawable(getResources().getDrawable(R.drawable.event_image));
 
         gruop_header_title_left.setVisibility(View.VISIBLE);
         gruop_header_title_right.setVisibility(View.VISIBLE);
         gruop_header_title_left.setText(getResources().getText(R.string.events));
         gruop_header_title_right.setText(getResources().getText(R.string.view_all));
+
+        if (StudentDashBoard.user == USER.STUDENT) {
+            events_image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (mFragmentNavigation != null) {
+                        mFragmentNavigation.pushFragment(new EventsContainerFragment());
+
+                    }
+                }
+            });
+        }
+
     }
 
     private void initialiseNewsUpdates(View view) {
@@ -591,8 +680,8 @@ public class DashboardFragment extends BaseFragment {
 
                 KeyValueDataModel dataModel = dataModels.get(position);
 
-                Snackbar.make(view, dataModel.getKey() + "\n" + dataModel.getValue(), Snackbar.LENGTH_LONG)
-                        .setAction("No action", null).show();
+//                Snackbar.make(view, dataModel.getKey() + "\n" + dataModel.getValue(), Snackbar.LENGTH_LONG)
+//                        .setAction("No action", null).show();
             }
         });
     }

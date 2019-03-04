@@ -1,5 +1,6 @@
 package com.baseschoolapp.schoolapp;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
@@ -9,9 +10,14 @@ import android.support.v4.widget.DrawerLayout;
 import com.baseschoolapp.schoolapp.fragments.Student.BaseFragment;
 import com.baseschoolapp.schoolapp.fragments.Student.ChatFragment;
 import com.baseschoolapp.schoolapp.fragments.Student.DashboardFragment;
+import com.baseschoolapp.schoolapp.fragments.Student.ExamsAndResultsFragment;
+import com.baseschoolapp.schoolapp.fragments.Student.FoodMenu;
 import com.baseschoolapp.schoolapp.fragments.Student.MoreFragment;
 import com.baseschoolapp.schoolapp.fragments.Student.AttendanceFragment;
 import com.baseschoolapp.schoolapp.fragments.Student.BusFragment;
+import com.baseschoolapp.schoolapp.fragments.Teacher.AllActivitiesTeacherFragment;
+import com.baseschoolapp.schoolapp.fragments.Teacher.StudentHomeWorkFragment;
+import com.baseschoolapp.schoolapp.fragments.Teacher.TransportFragment;
 import com.baseschoolapp.schoolapp.utils.FragmentHistory;
 import com.baseschoolapp.schoolapp.utils.USER;
 import com.baseschoolapp.schoolapp.utils.Utils;
@@ -29,6 +35,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.Switch;
 
 import butterknife.BindArray;
 import butterknife.BindView;
@@ -47,8 +54,8 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
 
     private int[] mTabIconsSelected = {
             R.drawable.ic_home,
-            R.drawable.ic_attendance,
-            R.drawable.ic_sports,
+            R.drawable.ic_exam_results,
+            R.drawable.ic_classess,
             R.drawable.ic_chat,
             R.drawable.ic_more};
 
@@ -65,6 +72,7 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
     DrawerLayout drawer;
 
     public static USER user = null;
+    public static String studentClassName = "5th Class - A";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -126,12 +134,12 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
 
                 switchTab(tab.getPosition());
 
-
             }
         });
 
 
     }
+
 
     private void initToolbar() {
         setSupportActionBar(toolbar);
@@ -231,6 +239,8 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
 
 
             if (!mNavController.isRootFragment()) {
+                //write here code for back pressed on a tab
+
                 mNavController.popFragment();
             } else {
 
@@ -335,9 +345,9 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
                 case FragNavController.TAB1:
                     return new DashboardFragment();
                 case FragNavController.TAB2:
-                    return new AttendanceFragment();
+                    return new ExamsAndResultsFragment();
                 case FragNavController.TAB3:
-                    return new BusFragment();
+                    return new TransportFragment();
                 case FragNavController.TAB4:
                     return new ChatFragment();
                 case FragNavController.TAB5:
@@ -351,9 +361,9 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
                 case FragNavController.TAB1:
                     return new DashboardFragment();
                 case FragNavController.TAB2:
-                    return new AttendanceFragment();
+                    return new AllActivitiesTeacherFragment();
                 case FragNavController.TAB3:
-                    return new BusFragment();
+                    return new StudentHomeWorkFragment();
                 case FragNavController.TAB4:
                     return new ChatFragment();
                 case FragNavController.TAB5:
@@ -400,14 +410,22 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_gallery) {
+        Intent i = null;
 
-        } else if (id == R.id.nav_manage) {
+        if (id == R.id.nav_food_menu) {
+
+            i = new Intent(this, FoodMenu.class);
 
         }
 
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
+        if (i != null)
+            startActivity(i);
+
+
         return true;
     }
 

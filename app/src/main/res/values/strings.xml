@@ -108,4 +108,10 @@
     <string name="subjectandsyllabus">Subjects and Syllabuss</string>
     <string name="downloadtimetable">Download Time Table</string>
 
+    <string name="students_on_leave">Students On Leave</string>
+    <string name="morning">Morning</string>
+    <string name="afternoon">Afternoon</string>
+
+    <string name="messages_header_title">Messages</string>
+
 </resources>

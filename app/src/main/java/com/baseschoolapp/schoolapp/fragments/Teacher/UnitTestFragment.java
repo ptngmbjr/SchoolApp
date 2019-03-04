@@ -11,13 +11,14 @@ import android.widget.ListView;
 import com.baseschoolapp.schoolapp.Adapters.Student.FamilyDetailsAdapter;
 import com.baseschoolapp.schoolapp.Adapters.Teacher.UnitTestDetailsAdapter;
 import com.baseschoolapp.schoolapp.R;
+import com.baseschoolapp.schoolapp.fragments.Student.BaseFragment;
 import com.baseschoolapp.schoolapp.models.Teacher.KeyValueDataModel;
 import com.baseschoolapp.schoolapp.models.Teacher.UnitTestDataModel;
 import com.baseschoolapp.schoolapp.utils.ROW_TYPE;
 
 import java.util.ArrayList;
 
-public class UnitTestFragment extends Fragment {
+public class UnitTestFragment extends BaseFragment {
 
     ArrayList<Object> dataModels;
     private static UnitTestDetailsAdapter adapter;

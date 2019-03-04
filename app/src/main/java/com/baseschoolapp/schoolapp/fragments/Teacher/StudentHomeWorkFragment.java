@@ -1,6 +1,7 @@
 package com.baseschoolapp.schoolapp.fragments.Teacher;
 
 import android.content.Intent;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DividerItemDecoration;
@@ -9,22 +10,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ListView;
 
 import com.baseschoolapp.schoolapp.Adapters.Student.TimeTableDateWiseAdapter;
 import com.baseschoolapp.schoolapp.Adapters.Teacher.HomeWorkStatutesAdapter;
 import com.baseschoolapp.schoolapp.Adapters.Teacher.HomeWorkViewAdapter;
-import com.baseschoolapp.schoolapp.Adapters.Teacher.StudentAttendanceAdapter;
-import com.baseschoolapp.schoolapp.Login;
 import com.baseschoolapp.schoolapp.R;
+import com.baseschoolapp.schoolapp.StudentDashBoard;
 import com.baseschoolapp.schoolapp.fragments.Student.BaseFragment;
 import com.baseschoolapp.schoolapp.models.Student.TimeTableDateWiseModel;
 import com.baseschoolapp.schoolapp.models.Teacher.HomeWorkStatutesModel;
 import com.baseschoolapp.schoolapp.models.Teacher.HomeWorkViewDataModel;
-import com.baseschoolapp.schoolapp.models.Teacher.StudentAttendanceStatusDataModel;
-import com.baseschoolapp.schoolapp.utils.ROW_ENTRY_TYPE;
-import com.baseschoolapp.schoolapp.utils.ROW_TYPE;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,10 +54,23 @@ public class StudentHomeWorkFragment extends BaseFragment {
 
         View view = inflater.inflate(R.layout.fragment_student_homework, container, false);
 
+        Button add_home_work = (Button) view.findViewById(R.id.add_home_work_student_howework);
+        GradientDrawable background = (GradientDrawable) add_home_work.getBackground();
+        background.setColor(getResources().getColor(R.color.green));
+
+        add_home_work.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getContext(), HomeWorkActivity.class);
+                startActivity(i);
+            }
+        });
+
 
         ButterKnife.bind(this, view);
+        initHeaderName();
 
-//        ((StudentDashBoard) getActivity()).updateToolbarTitle();
 
         initialiseDatesList(view);
 
@@ -71,6 +81,13 @@ public class StudentHomeWorkFragment extends BaseFragment {
         return view;
     }
 
+    private void initHeaderName() {
+        ((StudentDashBoard) getActivity()).updateToolbarTitle(StudentDashBoard.studentClassName);
+
+    }
+    public void onHiddenChanged(boolean hidden) {
+        initHeaderName();
+    }
 
     public void initialiseDatesList(View view) {
 
@@ -152,7 +169,7 @@ public class StudentHomeWorkFragment extends BaseFragment {
 
                 if (model.getName().trim().contains("Create Home Work")) {
 
-                    Intent i = new Intent(getContext(), HomeWorkFragment.class);
+                    Intent i = new Intent(getContext(), HomeWorkActivity.class);
                     startActivity(i);
 
                 }

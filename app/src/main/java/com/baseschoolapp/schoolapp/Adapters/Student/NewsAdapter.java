@@ -44,8 +44,8 @@ public class NewsAdapter extends ArrayAdapter<KeyValueDataModel> implements View
         switch (v.getId())
         {
             case R.id.news_details:
-                Snackbar.make(v, "Release date " +dataModel.getKey(), Snackbar.LENGTH_LONG)
-                        .setAction("No action", null).show();
+//                Snackbar.make(v, "Release date " +dataModel.getKey(), Snackbar.LENGTH_LONG)
+//                        .setAction("No action", null).show();
                 break;
         }
     }

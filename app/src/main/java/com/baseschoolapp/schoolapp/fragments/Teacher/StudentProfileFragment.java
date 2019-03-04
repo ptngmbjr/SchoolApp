@@ -55,8 +55,7 @@ public class StudentProfileFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.student_profile, container, false);
 
         ButterKnife.bind(this, view);
-
-        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.student_profile));
+        initHeaderName();
 
         initialiseStudentProfileBtns(view);
 
@@ -65,6 +64,13 @@ public class StudentProfileFragment extends BaseFragment {
         return view;
     }
 
+    private void initHeaderName() {
+        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.student_profile));
+
+    }
+    public void onHiddenChanged(boolean hidden) {
+        initHeaderName();
+    }
 
     public void initialiseStudentProfileBtns(final View view) {
 

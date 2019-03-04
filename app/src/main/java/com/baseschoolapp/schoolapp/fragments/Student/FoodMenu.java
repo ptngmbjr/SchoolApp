@@ -13,6 +13,7 @@ import android.widget.GridView;
 import com.baseschoolapp.schoolapp.Adapters.Student.FoodMenuAdapter;
 import com.baseschoolapp.schoolapp.Adapters.Student.TimeTableDateWiseAdapter;
 import com.baseschoolapp.schoolapp.Adapters.Teacher.HomeWorkViewAdapter;
+import com.baseschoolapp.schoolapp.BaseActivity;
 import com.baseschoolapp.schoolapp.R;
 import com.baseschoolapp.schoolapp.StudentDashBoard;
 import com.baseschoolapp.schoolapp.models.Student.TimeTableDateWiseModel;
@@ -29,7 +30,7 @@ import dev.dworks.libs.astickyheader.SimpleSectionedGridAdapter.Section;
 import butterknife.ButterKnife;
 
 
-public class FoodMenuFragment extends BaseFragment {
+public class FoodMenu extends BaseActivity {
 
     private ArrayList<Section> sections = new ArrayList<Section>();
 
@@ -38,45 +39,32 @@ public class FoodMenuFragment extends BaseFragment {
         super.onCreate(savedInstanceState);
 
 
-    }
+        setContentView(R.layout.food_menu);
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        initialiseDatesList();
 
-        View view = inflater.inflate(R.layout.food_menu, container, false);
+        initialiseFoodMenu();
 
 
-        ButterKnife.bind(this, view);
-
-        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.food_menu));
-
-        initialiseDatesList(view);
-
-        initialiseFoodMenu(view);
-
-
-        return view;
     }
 
 
-    public void initialiseDatesList(View view) {
+    public void initialiseDatesList() {
 
-        RecyclerView datesRecyclerView = (RecyclerView) view.findViewById(R.id.food_menu_dates_list);
+        RecyclerView datesRecyclerView = (RecyclerView) findViewById(R.id.food_menu_dates_list);
 
 
         List<TimeTableDateWiseModel> time_table_list = new ArrayList<>();
 
-        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), DividerItemDecoration.HORIZONTAL);
-        itemDecorator.setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.horisontal_space));
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL);
+        itemDecorator.setDrawable(ContextCompat.getDrawable(this, R.drawable.horisontal_space));
 
         datesRecyclerView.addItemDecoration(itemDecorator);
 
-        TimeTableDateWiseAdapter ttAdapter = new TimeTableDateWiseAdapter(time_table_list, getContext());
+        TimeTableDateWiseAdapter ttAdapter = new TimeTableDateWiseAdapter(time_table_list, this);
 
 
-        LinearLayoutManager horizontalLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager horizontalLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         datesRecyclerView.setLayoutManager(horizontalLayoutManager);
         datesRecyclerView.setAdapter(ttAdapter);
 
@@ -91,11 +79,11 @@ public class FoodMenuFragment extends BaseFragment {
 
     }
 
-    public void initialiseFoodMenu(final View view) {
+    public void initialiseFoodMenu() {
 
 
         ArrayList<Object> dataModels = new ArrayList<>();
-        GridView grid = (GridView) view.findViewById(R.id.food_menu_grid_view);
+        GridView grid = (GridView) findViewById(R.id.food_menu_grid_view);
 
 
         dataModels.add(new KeyValueDataModel("Breakfast", "", 0, 0, R.color.black, R.color.black, ROW_TYPE.HEADER));
@@ -133,7 +121,7 @@ public class FoodMenuFragment extends BaseFragment {
 //
 //
 //        }
-        FoodMenuAdapter studentProfileAdapter = new FoodMenuAdapter(getContext(), dataModels);
+        FoodMenuAdapter studentProfileAdapter = new FoodMenuAdapter(this, dataModels);
 
         grid.setAdapter(studentProfileAdapter);
 
@@ -154,7 +142,7 @@ public class FoodMenuFragment extends BaseFragment {
 //            sections.add(new Section(mHeaderPositions.get(i), mHeaderNames.get(i)));
 //        }
 //
-//        SimpleSectionedGridAdapter simpleSectionedGridAdapter = new SimpleSectionedGridAdapter(getContext(), studentProfileAdapter,
+//        SimpleSectionedGridAdapter simpleSectionedGridAdapter = new SimpleSectionedGridAdapter(this, studentProfileAdapter,
 //                R.layout.grid_item_header, R.id.header_layout, R.id.grid_header);
 //        simpleSectionedGridAdapter.setGridView(grid);
 //        simpleSectionedGridAdapter.setSections(sections.toArray(new Section[0]));

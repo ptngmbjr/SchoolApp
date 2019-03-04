@@ -25,7 +25,7 @@ import com.baseschoolapp.schoolapp.models.Student.FeeHistoryDataModel;
 
 import java.util.ArrayList;
 
-public class FeeFragment extends Fragment {
+public class FeeFragment extends BaseFragment {
 
     ArrayList<FeeDataModel> dataModels;
     ArrayList<FeeHistoryDataModel> dataModels_fee_history_;
@@ -51,12 +51,18 @@ public class FeeFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.fee_details));
+        initHeaderName();
 
         initialiseInstallment(view);
 
         initialiseFeeHistory(view);
+    }
+    private void initHeaderName() {
+        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.fee_details));
+
+    }
+    public void onHiddenChanged(boolean hidden) {
+        initHeaderName();
     }
 
     public void initialiseInstallment(View view) {
@@ -131,8 +137,8 @@ public class FeeFragment extends Fragment {
 
                 FeeDataModel dataModel = dataModels.get(position);
 
-                Snackbar.make(view, dataModel.getFee_name() + "\n" + dataModel.getFee_amout(), Snackbar.LENGTH_LONG)
-                        .setAction("No action", null).show();
+//                Snackbar.make(view, dataModel.getFee_name() + "\n" + dataModel.getFee_amout(), Snackbar.LENGTH_LONG)
+//                        .setAction("No action", null).show();
             }
         });
     }
@@ -161,8 +167,8 @@ public class FeeFragment extends Fragment {
 
                 FeeHistoryDataModel dataModel = dataModels_fee_history_.get(position);
 
-                Snackbar.make(view, dataModel.getReceipt_no() + "\n" + dataModel.getAmout(), Snackbar.LENGTH_LONG)
-                        .setAction("No action", null).show();
+//                Snackbar.make(view, dataModel.getReceipt_no() + "\n" + dataModel.getAmout(), Snackbar.LENGTH_LONG)
+//                        .setAction("No action", null).show();
             }
         });
     }

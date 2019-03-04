@@ -11,12 +11,13 @@ import android.widget.ListView;
 
 import com.baseschoolapp.schoolapp.Adapters.Teacher.AllEventsAdapter;
 import com.baseschoolapp.schoolapp.R;
+import com.baseschoolapp.schoolapp.fragments.Student.BaseFragment;
 import com.baseschoolapp.schoolapp.models.Teacher.EventsDataModel;
 import com.baseschoolapp.schoolapp.utils.ROW_TYPE;
 
 import java.util.ArrayList;
 
-public class AllEventsFragment extends Fragment {
+public class AllEventsFragment extends BaseFragment {
 
     private static AllEventsAdapter adapter;
     ArrayList<Object> dataModels;

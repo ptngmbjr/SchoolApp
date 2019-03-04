@@ -13,6 +13,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.util.Pair;
 import android.view.View;
 
+import com.baseschoolapp.schoolapp.StudentDashBoard;
+
 import org.json.JSONArray;
 
 import java.lang.annotation.Retention;
@@ -57,7 +59,7 @@ public class FragNavController {
     private final FragmentManager mFragmentManager;
     private final FragNavTransactionOptions mDefaultTransactionOptions;
     @TabIndex
-    private int mSelectedTabIndex;
+    public int mSelectedTabIndex;
     private int mTagCount;
     @Nullable
     private Fragment mCurrentFrag;

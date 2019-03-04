@@ -40,14 +40,21 @@ public class MonthlyEventsFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.monthly_events, container, false);
 
         ButterKnife.bind(this, view);
+        initHeaderName();
 
-        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.events));
 
         initMonths(view);
 
         initialiseStudentHomeWorkDetails(view);
 
         return view;
+    }
+    private void initHeaderName() {
+        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.events));
+
+    }
+    public void onHiddenChanged(boolean hidden) {
+        initHeaderName();
     }
 
     public void initMonths(View view) {

@@ -45,8 +45,8 @@ public class FeeHistoryAdapter extends ArrayAdapter<FeeHistoryDataModel> impleme
 
         switch (v.getId()) {
             case R.id.fee_toggle:
-                Snackbar.make(v, "Receipt no : " + dataModel.getReceipt_no(), Snackbar.LENGTH_LONG)
-                        .setAction("No action", null).show();
+//                Snackbar.make(v, "Receipt no : " + dataModel.getReceipt_no(), Snackbar.LENGTH_LONG)
+//                        .setAction("No action", null).show();
                 break;
         }
     }

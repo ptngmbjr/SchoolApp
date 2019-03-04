@@ -18,11 +18,17 @@ repositories {
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.baseschoolapp.schoolapp"
-        minSdkVersion 16
-        targetSdkVersion 27
+
+        applicationId "com.baseschoolapp.schoolapp.student"
         versionCode 1
         versionName "1.0"
+
+//        applicationId "com.baseschoolapp.schoolapp.teacher"
+//        versionCode 1
+//        versionName "1.0"
+
+        minSdkVersion 16
+        targetSdkVersion 27
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

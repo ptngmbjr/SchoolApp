@@ -21,7 +21,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BasicDetailsFragment extends Fragment {
+public class BasicDetailsFragment extends BaseFragment {
 
     ArrayList<KeyValueDataModel> dataModels;
     private static BasicDetailsAdapter adapter;
@@ -29,7 +29,6 @@ public class BasicDetailsFragment extends Fragment {
     public BasicDetailsFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {

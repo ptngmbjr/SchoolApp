@@ -59,6 +59,7 @@ public class ChatFragment extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        initHeaderName();
 
 //        btnClickMe.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -72,8 +73,13 @@ public class ChatFragment extends BaseFragment {
 //        });
 
 
-        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.chat_head_title));
 
+    }
+    public void onHiddenChanged(boolean hidden) {
+        initHeaderName();
+    }
+    private void initHeaderName() {
+        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.chat_head_title));
 
     }
 }

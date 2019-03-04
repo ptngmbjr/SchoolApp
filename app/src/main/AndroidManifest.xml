@@ -15,7 +15,15 @@
         android:theme="@style/AppTheme.Launcher">
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
 
         <meta-data
             android:name="io.fabric.ApiKey"
@@ -26,20 +34,14 @@
         <activity android:name=".Otp" />
         <activity android:name=".Registration" />
         <activity android:name=".StudentDashBoard" />
-        <activity android:name=".fragments.Teacher.HomeWorkFragment" />
+        <activity android:name=".fragments.Teacher.HomeWorkActivity" />
         <activity android:name=".fragments.Teacher.SyllabusDrillDownFragment" />
         <activity android:name=".fragments.Teacher.ApplyLeaveFragment" />
         <activity android:name=".fragments.Teacher.TimeTableFragment" />
         <activity android:name=".fragments.Student.UnitTestTimeTableSubjectWise" />
-        <activity android:name=".SuccessLogin">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
+        <activity android:name=".SuccessLogin" />
+        <activity android:name=".fragments.Student.FoodMenu" />
+        <activity android:name=".fragments.Student.StudentGradeActivity" />
 
     </application>
 

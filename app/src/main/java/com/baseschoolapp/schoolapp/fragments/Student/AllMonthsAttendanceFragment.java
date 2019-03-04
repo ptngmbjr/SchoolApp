@@ -18,7 +18,7 @@ import com.baseschoolapp.schoolapp.models.Student.AllMonthsAttendanceDataModel;
 
 import java.util.ArrayList;
 
-public class AllMonthsAttendanceFragment extends Fragment {
+public class AllMonthsAttendanceFragment extends BaseFragment {
 
     ArrayList<AllMonthsAttendanceDataModel> dataModels_fee_history_;
     private static AllMonthsAttendanceAdapter adapter_fee_history;
@@ -43,9 +43,16 @@ public class AllMonthsAttendanceFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.attendance_head_title));
+        initHeaderName();
 
         initialiseAllMonthsAttendanceList(view);
+    }
+    private void initHeaderName() {
+        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.attendance_head_title));
+
+    }
+    public void onHiddenChanged(boolean hidden) {
+        initHeaderName();
     }
 
     public void initialiseAllMonthsAttendanceList(View view) {

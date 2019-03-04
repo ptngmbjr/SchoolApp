@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.HorizontalScrollView;
 
 import com.baseschoolapp.schoolapp.Adapters.Student.PageAdaptor;
 import com.baseschoolapp.schoolapp.R;
@@ -22,6 +23,7 @@ public class ProfileFragment extends android.support.v4.app.Fragment {
     TabLayout tabLayout = null;
     PageAdaptor pageAdapter;
     ViewPager viewPager;
+    int scrollOldPosition = 0;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -40,6 +42,7 @@ public class ProfileFragment extends android.support.v4.app.Fragment {
 
 
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        initHeaderName();
         //  initialise(view);
         return view;
     }
@@ -64,10 +67,15 @@ public class ProfileFragment extends android.support.v4.app.Fragment {
 //        tabLayout = view.findViewById(R.id.tab_layout);
 //        tabLayout.setupWithViewPager(viewPager);
 //    }
+private void initHeaderName() {
+    ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.profile));
 
-    public void init(View view) {
-        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.profile));
+}
 
+    public void onHiddenChanged(boolean hidden) {
+        initHeaderName();
+    }
+    public void init(final View view) {
         tabLayout = (TabLayout) view.findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Basic Details"));
         tabLayout.addTab(tabLayout.newTab().setText("Contact Details"));
@@ -86,6 +94,8 @@ public class ProfileFragment extends android.support.v4.app.Fragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
+                autoSmoothScroll(scrollOldPosition, tab.getPosition(), view);
+                scrollOldPosition = tab.getPosition();
             }
 
             @Override
@@ -102,5 +112,20 @@ public class ProfileFragment extends android.support.v4.app.Fragment {
         pageAdapter.instantiateItem(viewPager, 0);
 
     }
+
+    public void autoSmoothScroll(final int oldPosition, final int newPosition, View view) {
+
+        final HorizontalScrollView hsv = (HorizontalScrollView) view.findViewById(R.id.horizontal_sv_profile);
+        hsv.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (oldPosition < newPosition)
+                    hsv.smoothScrollBy(300, 0);
+                else
+                    hsv.smoothScrollBy(-300, 0);
+            }
+        }, 100);
+    }
+
 }
 

@@ -15,18 +15,30 @@ import android.widget.ListView;
 import com.baseschoolapp.schoolapp.Adapters.Teacher.UnitTestDetailsAdapter;
 import com.baseschoolapp.schoolapp.Adapters.Teacher.UnitTestResultsAdapter;
 import com.baseschoolapp.schoolapp.R;
+import com.baseschoolapp.schoolapp.StudentDashBoard;
+import com.baseschoolapp.schoolapp.fragments.Student.BaseFragment;
 import com.baseschoolapp.schoolapp.models.Teacher.UnitTestDataModel;
 import com.baseschoolapp.schoolapp.utils.ROW_TYPE;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UnitTestResultsFragment extends Fragment {
+public class UnitTestResultsFragment extends BaseFragment {
 
     private static UnitTestResultsAdapter adapter;
 
     public UnitTestResultsFragment() {
         // Required empty public constructor
+    }
+
+
+    private void initHeaderName() {
+        ((StudentDashBoard) getActivity()).updateToolbarTitle("changes");
+
+    }
+
+    public void onHiddenChanged(boolean hidden) {
+        initHeaderName();
     }
 
     @Override

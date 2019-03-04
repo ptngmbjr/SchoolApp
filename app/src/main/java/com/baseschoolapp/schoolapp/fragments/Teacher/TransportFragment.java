@@ -10,12 +10,13 @@ import android.widget.ListView;
 
 import com.baseschoolapp.schoolapp.Adapters.Student.FamilyDetailsAdapter;
 import com.baseschoolapp.schoolapp.R;
+import com.baseschoolapp.schoolapp.fragments.Student.BaseFragment;
 import com.baseschoolapp.schoolapp.models.Teacher.KeyValueDataModel;
 import com.baseschoolapp.schoolapp.utils.ROW_TYPE;
 
 import java.util.ArrayList;
 
-public class TransportFragment extends Fragment {
+public class TransportFragment extends BaseFragment {
 
     ArrayList<Object> dataModels;
 

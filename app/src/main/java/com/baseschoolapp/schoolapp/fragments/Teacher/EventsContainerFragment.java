@@ -38,6 +38,7 @@ public class EventsContainerFragment extends android.support.v4.app.Fragment {
 
 
         View view = inflater.inflate(R.layout.all_activities_teacher, container, false);
+        initHeaderName();
         //  initialise(view);
         return view;
     }
@@ -54,13 +55,19 @@ public class EventsContainerFragment extends android.support.v4.app.Fragment {
         super.onViewCreated(view, savedInstanceState);
         init(view);
     }
+    private void initHeaderName() {
+        ((StudentDashBoard) getActivity()).updateToolbarTitle("Events");
+
+    }
+    public void onHiddenChanged(boolean hidden) {
+        initHeaderName();
+    }
 
     public void init(final View view) {
 
 //        Bundle bundle = this.getArguments();
 //        String className = bundle.getString("CLASS_NAME", "");
 //
-        ((StudentDashBoard) getActivity()).updateToolbarTitle("Events");
 
         tabLayout = (TabLayout) view.findViewById(R.id.all_act_teacher_tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("All Events"));

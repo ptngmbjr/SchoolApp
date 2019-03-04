@@ -75,7 +75,7 @@ public class LeavesSummaryAdapter extends RecyclerView.Adapter<LeavesSummaryAdap
 
         @Override
         public void onClick(View v) {
-            clickListener.onItemClick(getAdapterPosition(), v);
+//            clickListener.onItemClick(getAdapterPosition(), v);
         }
     }
 }

@@ -29,6 +29,7 @@ public class AllActivitiesTeacherFragment extends android.support.v4.app.Fragmen
         // Required empty public constructor
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,12 +60,20 @@ public class AllActivitiesTeacherFragment extends android.support.v4.app.Fragmen
         init(view);
     }
 
+    private void initHeaderName() {
+        ((StudentDashBoard) getActivity()).updateToolbarTitle(StudentDashBoard.studentClassName);
+
+    }
+
+    public void onHiddenChanged(boolean hidden) {
+        initHeaderName();
+    }
+
     public void init(final View view) {
 
         Bundle bundle = this.getArguments();
-        String className = bundle.getString("CLASS_NAME", "");
 
-        ((StudentDashBoard) getActivity()).updateToolbarTitle(className);
+        initHeaderName();
 
         tabLayout = (TabLayout) view.findViewById(R.id.all_act_teacher_tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Attendance"));

@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
 
     private SliderLayout mDemoSlider;
     private Button btnGetStarted;
+    public static String PACKAGE_NAME;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,8 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
         Fabric.with(this, new Crashlytics());
 
         setContentView(R.layout.activity_main);
+
+        PACKAGE_NAME = getApplicationContext().getPackageName();
 
         mDemoSlider = (SliderLayout) findViewById(R.id.slider);
         btnGetStarted = (Button) findViewById(R.id.btngetstarted);

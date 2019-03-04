@@ -12,11 +12,12 @@ import android.widget.Switch;
 
 import com.baseschoolapp.schoolapp.Adapters.Teacher.HolidaysAdapter;
 import com.baseschoolapp.schoolapp.R;
+import com.baseschoolapp.schoolapp.fragments.Student.BaseFragment;
 import com.baseschoolapp.schoolapp.models.Teacher.HolidaysDataModel;
 
 import java.util.ArrayList;
 
-public class HolidaysFragment extends Fragment {
+public class HolidaysFragment extends BaseFragment {
 
     private static HolidaysAdapter adapter;
     ArrayList<Object> dataModels;

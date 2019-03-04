@@ -13,8 +13,10 @@ public class BaseFragment extends Fragment {
 
     public static final String ARGS_INSTANCE = "com.f22labs.instalikefragmenttransaction";
 
+    public static String fragmentName="";
 
     public FragmentNavigation mFragmentNavigation;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

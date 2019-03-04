@@ -21,7 +21,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ContactDetailsFragment extends Fragment {
+public class ContactDetailsFragment extends BaseFragment {
 
     ArrayList<KeyValueDataModel> dataModels;
     private static BasicDetailsAdapter adapter;
