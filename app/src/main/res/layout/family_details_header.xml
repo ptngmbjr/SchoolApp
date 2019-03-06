@@ -3,6 +3,7 @@
     android:id="@+id/layout_background"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingTop="20dp"
     android:orientation="horizontal"
     >
 
@@ -10,7 +11,6 @@
         android:id="@+id/family_headername"
         android:layout_width="match_parent"
         android:gravity="center_vertical"
-        android:paddingLeft="20dp"
         android:textColor="@color/loginblue"
         android:textStyle="bold"
         android:textSize="@dimen/font_size_extra_large"

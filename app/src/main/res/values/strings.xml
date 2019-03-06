@@ -114,4 +114,7 @@
 
     <string name="messages_header_title">Messages</string>
 
+    <string name="move_to_complete">Move to Complete</string>
+    <string name="transport">Transport</string>
+
 </resources>

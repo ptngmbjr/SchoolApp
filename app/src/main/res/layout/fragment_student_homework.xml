@@ -15,25 +15,28 @@
         android:orientation="vertical">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/student_homework_dates_list"
+            android:id="@+id/student_homework_homework_status"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp" />
 
     </LinearLayout>
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:gravity="center_vertical"
+        android:gravity="center"
         android:orientation="vertical">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/student_homework_homework_status"
+            android:id="@+id/student_homework_dates_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp" />
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
 
     </LinearLayout>
 
@@ -70,10 +73,10 @@
             android:id="@+id/add_home_work_student_howework"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
+            android:background="@drawable/round_button"
             android:paddingLeft="55dp"
             android:paddingRight="55dp"
-            android:background="@drawable/round_button"
-            android:text="@string/add_home_work"
+            android:text="@string/move_to_complete"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textStyle="bold" />

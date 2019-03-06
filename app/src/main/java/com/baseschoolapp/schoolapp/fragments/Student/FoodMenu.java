@@ -61,19 +61,19 @@ public class FoodMenu extends BaseActivity {
 
         datesRecyclerView.addItemDecoration(itemDecorator);
 
+        time_table_list.add(new TimeTableDateWiseModel("02", "Mon", R.color.green, R.color.white));
+        time_table_list.add(new TimeTableDateWiseModel("03", "Tue", R.color.white, R.color.black));
+        time_table_list.add(new TimeTableDateWiseModel("04", "Wed", R.color.white, R.color.black));
+        time_table_list.add(new TimeTableDateWiseModel("05", "Thu", R.color.white, R.color.black));
+        time_table_list.add(new TimeTableDateWiseModel("06", "Fri", R.color.white, R.color.black));
+        time_table_list.add(new TimeTableDateWiseModel("07", "Sat", R.color.white, R.color.black));
+
         TimeTableDateWiseAdapter ttAdapter = new TimeTableDateWiseAdapter(time_table_list, this);
 
 
         LinearLayoutManager horizontalLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         datesRecyclerView.setLayoutManager(horizontalLayoutManager);
         datesRecyclerView.setAdapter(ttAdapter);
-
-        time_table_list.add(new TimeTableDateWiseModel("02", "Mon", "#70c050", "#ffffff"));
-        time_table_list.add(new TimeTableDateWiseModel("03", "Tue", "#ffffff", "#000000"));
-        time_table_list.add(new TimeTableDateWiseModel("04", "Wed", "#ffffff", "#000000"));
-        time_table_list.add(new TimeTableDateWiseModel("05", "Thu", "#ffffff", "#000000"));
-        time_table_list.add(new TimeTableDateWiseModel("06", "Fri", "#ffffff", "#000000"));
-        time_table_list.add(new TimeTableDateWiseModel("07", "Sat", "#ffffff", "#000000"));
 
         ttAdapter.notifyDataSetChanged();
 

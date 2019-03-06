@@ -58,14 +58,14 @@ public class StudentHomeWorkFragment extends BaseFragment {
         GradientDrawable background = (GradientDrawable) add_home_work.getBackground();
         background.setColor(getResources().getColor(R.color.green));
 
-        add_home_work.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent i = new Intent(getContext(), HomeWorkActivity.class);
-                startActivity(i);
-            }
-        });
+//        add_home_work.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Intent i = new Intent(getContext(), HomeWorkActivity.class);
+//                startActivity(i);
+//            }
+//        });
 
 
         ButterKnife.bind(this, view);
@@ -82,9 +82,10 @@ public class StudentHomeWorkFragment extends BaseFragment {
     }
 
     private void initHeaderName() {
-        ((StudentDashBoard) getActivity()).updateToolbarTitle(StudentDashBoard.studentClassName);
+        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.homework));
 
     }
+
     public void onHiddenChanged(boolean hidden) {
         initHeaderName();
     }
@@ -98,19 +99,19 @@ public class StudentHomeWorkFragment extends BaseFragment {
 
         datesRecyclerView.addItemDecoration(itemDecorator);
 
+        time_table_list.add(new TimeTableDateWiseModel("02", "Mon", R.color.green, R.color.white));
+        time_table_list.add(new TimeTableDateWiseModel("03", "Tue", R.color.white, R.color.black));
+        time_table_list.add(new TimeTableDateWiseModel("04", "Wed", R.color.white, R.color.black));
+        time_table_list.add(new TimeTableDateWiseModel("05", "Thu", R.color.white, R.color.black));
+        time_table_list.add(new TimeTableDateWiseModel("06", "Fri", R.color.white, R.color.black));
+        time_table_list.add(new TimeTableDateWiseModel("07", "Sat", R.color.white, R.color.black));
+
         ttAdapter = new TimeTableDateWiseAdapter(time_table_list, getContext());
 
 
         LinearLayoutManager horizontalLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         datesRecyclerView.setLayoutManager(horizontalLayoutManager);
         datesRecyclerView.setAdapter(ttAdapter);
-
-        time_table_list.add(new TimeTableDateWiseModel("02", "Mon", "#70c050", "#ffffff"));
-        time_table_list.add(new TimeTableDateWiseModel("03", "Tue", "#ffffff", "#000000"));
-        time_table_list.add(new TimeTableDateWiseModel("04", "Wed", "#ffffff", "#000000"));
-        time_table_list.add(new TimeTableDateWiseModel("05", "Thu", "#ffffff", "#000000"));
-        time_table_list.add(new TimeTableDateWiseModel("06", "Fri", "#ffffff", "#000000"));
-        time_table_list.add(new TimeTableDateWiseModel("07", "Sat", "#ffffff", "#000000"));
 
         ttAdapter.notifyDataSetChanged();
 
@@ -144,9 +145,9 @@ public class StudentHomeWorkFragment extends BaseFragment {
 
         hwStatutesRecyclerView.addItemDecoration(itemDecorator);
 
-        home_work_statutes_list.add(new HomeWorkStatutesModel("Pending", 10, R.color.orange));
+        home_work_statutes_list.add(new HomeWorkStatutesModel("Pending", 10, R.color.pink));
         home_work_statutes_list.add(new HomeWorkStatutesModel("Completed", 20, R.color.grey));
-        home_work_statutes_list.add(new HomeWorkStatutesModel("Create Home Work", -1, R.color.grey));
+//        home_work_statutes_list.add(new HomeWorkStatutesModel("Create Home Work", -1, R.color.grey));
 
         hwStatutesAdapter = new HomeWorkStatutesAdapter(home_work_statutes_list, getContext());
 
@@ -165,7 +166,7 @@ public class StudentHomeWorkFragment extends BaseFragment {
                 for (int i = 0; i < home_work_statutes_list.size(); i++)
                     home_work_statutes_list.get(i).setColor(R.color.grey);
 
-                home_work_statutes_list.get(position).setColor(R.color.orange);
+                home_work_statutes_list.get(position).setColor(R.color.pink);
 
                 if (model.getName().trim().contains("Create Home Work")) {
 

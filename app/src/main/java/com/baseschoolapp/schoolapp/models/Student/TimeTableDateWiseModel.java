@@ -6,9 +6,9 @@ public class TimeTableDateWiseModel {
 
     String date;
     String day;
-    String bgColor, fgColor;
+    int bgColor, fgColor;
 
-    public TimeTableDateWiseModel(String date, String day, String bgColor, String fgColor) {
+    public TimeTableDateWiseModel(String date, String day, int bgColor, int fgColor) {
         this.date = date;
         this.day = day;
         this.bgColor = bgColor;
@@ -31,19 +31,19 @@ public class TimeTableDateWiseModel {
         this.day = day;
     }
 
-    public String getBgColor() {
+    public int getBgColor() {
         return bgColor;
     }
 
-    public void setBgColor(String bgColor) {
+    public void setBgColor(int bgColor) {
         this.bgColor = bgColor;
     }
 
-    public String getFgColor() {
+    public int getFgColor() {
         return fgColor;
     }
 
-    public void setFgColor(String fgColor) {
+    public void setFgColor(int fgColor) {
         this.fgColor = fgColor;
     }
 

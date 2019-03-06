@@ -10,6 +10,7 @@
         <item name="android:dropDownListViewStyle">@style/SpinnerStyle</item>
 
         <item name="android:textColorHint">@color/white</item>
+        <item name="android:windowBackground">@color/white</item>
 
         <!--<item name="android:actionOverflowButtonStyle">@style/MyActionButtonOverflow</item>-->
 

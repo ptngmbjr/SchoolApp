@@ -7,12 +7,15 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.baseschoolapp.schoolapp.R;
 import com.baseschoolapp.schoolapp.models.Teacher.HomeWorkViewDataModel;
 
 import java.util.ArrayList;
+
+import android.widget.CompoundButton;
 
 public class HomeWorkViewAdapter extends ArrayAdapter<HomeWorkViewDataModel> implements View.OnClickListener {
 
@@ -35,6 +38,7 @@ public class HomeWorkViewAdapter extends ArrayAdapter<HomeWorkViewDataModel> imp
         ImageView hw_sub_image;
         TextView hw_sub_Name, hw_sub_details, hw_sub_date;
         CheckBox hw_sub_cb;
+        LinearLayout ll;
     }
 
     public HomeWorkViewAdapter(ArrayList<HomeWorkViewDataModel> data, Context context) {
@@ -64,7 +68,7 @@ public class HomeWorkViewAdapter extends ArrayAdapter<HomeWorkViewDataModel> imp
         // Get the data item for this position
         HomeWorkViewDataModel HomeWorkViewDataModel = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
-        ViewHolder viewHolder; // view lookup cache stored in tag
+        final ViewHolder viewHolder; // view lookup cache stored in tag
 
         if (convertView == null) {
 
@@ -72,11 +76,26 @@ public class HomeWorkViewAdapter extends ArrayAdapter<HomeWorkViewDataModel> imp
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.home_work_grid_item, parent, false);
 
+            viewHolder.ll = (LinearLayout) convertView.findViewById(R.id.home_work_grid_item_ll);
             viewHolder.hw_sub_Name = (TextView) convertView.findViewById(R.id.hw_subject_name);
             viewHolder.hw_sub_cb = (CheckBox) convertView.findViewById(R.id.hw_sub_checkbox);
             viewHolder.hw_sub_details = (TextView) convertView.findViewById(R.id.student_homework_details);
             viewHolder.hw_sub_date = (TextView) convertView.findViewById(R.id.student_homework_submission_date);
 
+
+            viewHolder.hw_sub_cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+                                                                @Override
+                                                                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                                                                    if (isChecked)
+                                                                        viewHolder.ll.setBackground(mContext.getResources().getDrawable(R.drawable.square_button_white_with_radius));
+                                                                    else
+                                                                        viewHolder.ll.setBackground(mContext.getResources().getDrawable(R.drawable.square_button_white));
+
+                                                                }
+                                                            }
+            );
 
             convertView.setTag(viewHolder);
         } else {

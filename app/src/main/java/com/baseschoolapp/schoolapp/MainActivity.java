@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
 
 
         GradientDrawable background = (GradientDrawable) btnGetStarted.getBackground();
-        background.setColor(getResources().getColor(R.color.getstartedwhite));
+        background.setColor(getResources().getColor(R.color.white));
 
         mDemoSlider.setCustomIndicator((PagerIndicator) findViewById(R.id.custom_indicator));
 

@@ -52,7 +52,14 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
     Toolbar toolbar;
 
 
-    private int[] mTabIconsSelected = {
+    private int[] mTabIconsSelectedTeacher = {
+            R.drawable.ic_home,
+            R.drawable.ic_exam_results,
+            R.drawable.ic_classess,
+            R.drawable.ic_chat,
+            R.drawable.ic_more};
+
+    private int[] mTabIconsSelectedStudent = {
             R.drawable.ic_home,
             R.drawable.ic_exam_results,
             R.drawable.ic_classess,
@@ -169,7 +176,11 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
     private View getTabView(int position) {
         View view = LayoutInflater.from(StudentDashBoard.this).inflate(R.layout.tab_item_bottom, null);
         ImageView icon = (ImageView) view.findViewById(R.id.tab_icon);
-        icon.setImageDrawable(Utils.setDrawableSelector(StudentDashBoard.this, mTabIconsSelected[position], mTabIconsSelected[position]));
+
+        if (user == USER.TEACHER)
+            icon.setImageDrawable(Utils.setDrawableSelector(StudentDashBoard.this, mTabIconsSelectedTeacher[position], mTabIconsSelectedTeacher[position]));
+        else if (user == USER.STUDENT)
+            icon.setImageDrawable(Utils.setDrawableSelector(StudentDashBoard.this, mTabIconsSelectedStudent[position], mTabIconsSelectedStudent[position]));
         return view;
     }
 

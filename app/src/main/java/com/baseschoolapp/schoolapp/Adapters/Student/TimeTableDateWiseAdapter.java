@@ -48,22 +48,22 @@ public class TimeTableDateWiseAdapter extends RecyclerView.Adapter<TimeTableDate
         holder.day.setText(horizontalGrocderyList.get(position).getDay());
 
 
-        holder.date.setTextColor(Color.parseColor(horizontalGrocderyList.get(position).getFgColor()));
-        holder.day.setTextColor(Color.parseColor(horizontalGrocderyList.get(position).getFgColor()));
+        holder.date.setTextColor(horizontalGrocderyList.get(position).getFgColor());
+        holder.day.setTextColor(horizontalGrocderyList.get(position).getFgColor());
 
-        holder.llout.setBackground(context.getResources().getDrawable(horizontalGrocderyList.get(position).getBgColor() == "#ffffff" ? R.drawable.round_white_button : R.drawable.round_green_button));
+        holder.llout.setBackground(context.getResources().getDrawable(horizontalGrocderyList.get(position).getBgColor() == R.color.white ? R.drawable.round_white_button : R.drawable.round_green_button));
 
         holder.llout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 for (int i = 0; i < horizontalGrocderyList.size(); i++) {
-                    horizontalGrocderyList.get(i).setBgColor("#ffffff");
-                    horizontalGrocderyList.get(i).setFgColor("#000000");
+                    horizontalGrocderyList.get(i).setBgColor(R.color.white);
+                    horizontalGrocderyList.get(i).setFgColor(R.color.black);
                 }
 
-                horizontalGrocderyList.get(position).setBgColor("#70c050");
-                horizontalGrocderyList.get(position).setFgColor("#ffffff");
+                horizontalGrocderyList.get(position).setBgColor(R.color.green);
+                horizontalGrocderyList.get(position).setFgColor(R.color.white);
 
 
                 notifyDataSetChanged();

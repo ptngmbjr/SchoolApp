@@ -281,7 +281,7 @@ public class DashboardFragment extends BaseFragment {
             GradientDrawable background2 = (GradientDrawable) round_layout_subj3.getBackground();
 
             background.setColor(getResources().getColor(R.color.bluesquarebox));
-            background1.setColor(getResources().getColor(R.color.greensquarebox));
+            background1.setColor(getResources().getColor(R.color.green));
             background2.setColor(getResources().getColor(R.color.yellowroundcircle));
 
 

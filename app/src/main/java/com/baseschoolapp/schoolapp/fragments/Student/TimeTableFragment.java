@@ -73,19 +73,19 @@ public class TimeTableFragment extends BaseFragment {
 
         timeTableRecyclerView.addItemDecoration(itemDecorator);
 
+        time_table_list.add(new TimeTableDateWiseModel("02", "Mon", R.color.green, R.color.white));
+        time_table_list.add(new TimeTableDateWiseModel("03", "Tue", R.color.white, R.color.black));
+        time_table_list.add(new TimeTableDateWiseModel("04", "Wed", R.color.white, R.color.black));
+        time_table_list.add(new TimeTableDateWiseModel("05", "Thu", R.color.white, R.color.black));
+        time_table_list.add(new TimeTableDateWiseModel("06", "Fri", R.color.white, R.color.black));
+        time_table_list.add(new TimeTableDateWiseModel("07", "Sat", R.color.white, R.color.black));
+
         ttAdapter = new TimeTableDateWiseAdapter(time_table_list, getContext());
 
 
         LinearLayoutManager horizontalLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         timeTableRecyclerView.setLayoutManager(horizontalLayoutManager);
         timeTableRecyclerView.setAdapter(ttAdapter);
-
-        time_table_list.add(new TimeTableDateWiseModel("02", "Monday", "#70c050", "#ffffff"));
-        time_table_list.add(new TimeTableDateWiseModel("03", "Tuesday", "#ffffff", "#000000"));
-        time_table_list.add(new TimeTableDateWiseModel("04", "Wednesday", "#ffffff", "#000000"));
-        time_table_list.add(new TimeTableDateWiseModel("05", "Thursday", "#ffffff", "#000000"));
-        time_table_list.add(new TimeTableDateWiseModel("06", "Friday", "#ffffff", "#000000"));
-        time_table_list.add(new TimeTableDateWiseModel("07", "Saturday", "#ffffff", "#000000"));
 
         ttAdapter.notifyDataSetChanged();
 
