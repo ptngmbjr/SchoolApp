@@ -5,25 +5,22 @@
     android:layout_marginTop="5dp"
     android:orientation="horizontal">
 
-    <ToggleButton
-        android:id="@+id/fee_toggle"
-        android:layout_width="wrap_content"
-        android:gravity="center"
-        android:paddingRight="2dp"
-        android:layout_height="wrap_content" />
-
     <!--<ToggleButton-->
         <!--android:id="@+id/fee_toggle"-->
         <!--android:layout_width="wrap_content"-->
         <!--android:gravity="center"-->
         <!--android:paddingRight="2dp"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:button="@null"-->
-        <!--android:checked="false"-->
-        <!--android:clickable="true"-->
-        <!--android:drawableRight="@drawable/checkbox_selector"-->
-        <!--android:focusable="false"-->
-        <!--android:textColor="@color/orange" />-->
+        <!--android:layout_height="wrap_content" />-->
+
+    <ToggleButton
+        android:id="@+id/fee_toggle"
+        android:layout_width="50dp"
+        android:layout_height="25dp"
+        android:checked="false"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/checkbox_selector"
+        android:textOff=""
+        android:textOn="" />
 
     <TextView
         android:id="@+id/fee_name"

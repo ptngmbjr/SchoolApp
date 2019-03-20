@@ -21,10 +21,11 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:titleTextColor="@color/black">
 
         </android.support.v7.widget.Toolbar>
+
+        <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
 
         <View
             android:layout_width="match_parent"
@@ -73,11 +74,11 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true"
         android:background="@color/menubgblue"
+        android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
-        app:itemTextColor="@color/white"
         app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
         app:menu="@menu/activity_main_drawer" />
 
 

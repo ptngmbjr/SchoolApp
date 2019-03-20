@@ -2,10 +2,11 @@
 <LinearLayout
     android:id="@+id/next_installment_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="20dp"
     android:background="@drawable/square_button"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
     android:layout_gravity="center"
     android:orientation="vertical">
 
@@ -29,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:textSize="@dimen/font_size_extra_xlarge"
+            android:textSize="@dimen/font_size_extra_xxlarge"
             android:textStyle="bold"
             android:layout_marginRight="10dp"
             android:text="@string/currency"/>
@@ -39,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:textSize="@dimen/font_size_extra_xxlarge"
+            android:textSize="@dimen/font_size_extra_xxxlarge"
             android:textStyle="bold"
             android:text="55,000.00"/>
 
@@ -77,6 +78,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/round_button"
         android:text="@string/pay_now"
@@ -102,6 +105,8 @@
         <ListView
             android:id="@+id/fee_listview"
             android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:divider="@android:color/transparent" android:dividerHeight="20dp"
             android:layout_height="wrap_content"></ListView>
 
     </LinearLayout>

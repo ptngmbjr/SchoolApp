@@ -1,6 +1,7 @@
 package com.baseschoolapp.schoolapp;
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
@@ -152,7 +153,8 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
-        actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
+        //actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
+        setTitleBarIcon(R.drawable.ic_menu);
         changeOverflowIcon(R.drawable.ic_notification);
     }
 
@@ -330,12 +332,18 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
 //        getSupportActionBar().setDisplayShowHomeEnabled(!mNavController.isRootFragment());
 
         if (isRoot)
-            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
+            setTitleBarIcon(R.drawable.ic_menu);
         else
-            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
+            setTitleBarIcon(R.drawable.ic_arrow_back);
 
     }
 
+    private void setTitleBarIcon(int image)
+    {
+        final Drawable upArrow = getResources().getDrawable(image);
+        upArrow.setColorFilter(getResources().getColor(R.color.loginblue), PorterDuff.Mode.SRC_ATOP);
+        getSupportActionBar().setHomeAsUpIndicator(upArrow);
+    }
 
     @Override
     public void onFragmentTransaction(Fragment fragment, FragNavController.TransactionType transactionType) {

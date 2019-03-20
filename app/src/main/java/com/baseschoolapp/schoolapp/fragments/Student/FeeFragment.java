@@ -151,12 +151,12 @@ public class FeeFragment extends BaseFragment {
 
         dataModels_fee_history_ = new ArrayList<>();
 
-        dataModels_fee_history_.add(new FeeHistoryDataModel("1", "153236", "15 Aug 2018", "15000.00"));
-        dataModels_fee_history_.add(new FeeHistoryDataModel("1", "153236", "15 Aug 2018", "15000.00"));
-        dataModels_fee_history_.add(new FeeHistoryDataModel("1", "153236", "15 Aug 2018", "15000.00"));
-        dataModels_fee_history_.add(new FeeHistoryDataModel("1", "153236", "15 Aug 2018", "15000.00"));
-        dataModels_fee_history_.add(new FeeHistoryDataModel("1", "153236", "15 Aug 2018", "15000.00"));
-        dataModels_fee_history_.add(new FeeHistoryDataModel("1", "153236", "15 Aug 2018", "15000.00"));
+        dataModels_fee_history_.add(new FeeHistoryDataModel("1", "153236", "15 Aug 2018", "15000.00",R.color.white));
+        dataModels_fee_history_.add(new FeeHistoryDataModel("1", "153236", "15 Aug 2018", "15000.00",R.color.pale_grey));
+        dataModels_fee_history_.add(new FeeHistoryDataModel("1", "153236", "15 Aug 2018", "15000.00",R.color.white));
+        dataModels_fee_history_.add(new FeeHistoryDataModel("1", "153236", "15 Aug 2018", "15000.00",R.color.pale_grey));
+        dataModels_fee_history_.add(new FeeHistoryDataModel("1", "153236", "15 Aug 2018", "15000.00",R.color.white));
+        dataModels_fee_history_.add(new FeeHistoryDataModel("1", "153236", "15 Aug 2018", "15000.00",R.color.pale_grey));
 
         adapter_fee_history = new FeeHistoryAdapter(dataModels_fee_history_, this.getContext());
 
@@ -200,11 +200,11 @@ public class FeeFragment extends BaseFragment {
         date_footer.setText(R.string.grand_total);
         amount_footer.setText("$60,000.00");
 
-//        GradientDrawable installment_background = (GradientDrawable) fee_history_header.getBackground();
-//        installment_background.setColor(getResources().getColor(R.color.header_light_blue));
-//
-//        GradientDrawable btn_pay_background = (GradientDrawable) fee_history_footer.getBackground();
-//        btn_pay_background.setColor(getResources().getColor(R.color.footer_grey));
+        GradientDrawable installment_background = (GradientDrawable) fee_history_header.getBackground();
+        installment_background.setColor(getResources().getColor(R.color.light_sky_blue));
+
+        GradientDrawable btn_pay_background = (GradientDrawable) fee_history_footer.getBackground();
+        btn_pay_background.setColor(getResources().getColor(R.color.light_grey));
 
 
     }

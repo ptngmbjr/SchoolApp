@@ -34,6 +34,7 @@
     <color name="grey">#949494</color>
     <color name="red">#FE3824</color>
     <color name="red_logout">#E95354</color>
+    <color name="dark_red">#ff521f</color>
 
     <color name="white_transparent_80">#BFFFFFFF</color>
 
@@ -59,7 +60,21 @@
 
     <color name="green">#11B734</color>
 
-    <color name="header_light_blue">#DDECFF</color>
+    <color name="blackish_grey">#484848</color>
+
+    <color name="light_blue">#7cb7fd</color>
+    <color name="dark_pink">#fa5fa1</color>
+    <color name="dark_yellow">#ffcc38</color>
+    <color name="bringol">#ba77eb</color>
+    <color name="royal_blue">#00acea</color>
+
+    <color name="royal_blue_dark">#199bdb</color>
+
+
+
+    <color name="light_sky_blue">#DDECFD</color>
+    <color name="light_grey">#d4d4d4</color>
+    <color name="pale_grey">#f6f6f6</color>
 
 
 </resources>

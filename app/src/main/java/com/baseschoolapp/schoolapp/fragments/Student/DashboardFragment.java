@@ -280,9 +280,9 @@ public class DashboardFragment extends BaseFragment {
             GradientDrawable background1 = (GradientDrawable) round_layout_subj2.getBackground();
             GradientDrawable background2 = (GradientDrawable) round_layout_subj3.getBackground();
 
-            background.setColor(getResources().getColor(R.color.bluesquarebox));
+            background.setColor(getResources().getColor(R.color.blue_bg));
             background1.setColor(getResources().getColor(R.color.green));
-            background2.setColor(getResources().getColor(R.color.yellowroundcircle));
+            background2.setColor(getResources().getColor(R.color.dark_red));
 
 
             LinearLayout sub1_date_layout = (LinearLayout) round_layout_subj1.findViewById(R.id.subject_date_layout);

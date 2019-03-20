@@ -56,7 +56,7 @@ public class SyllabusFragment extends BaseFragment {
     }
 
     private void initHeaderName() {
-        ((StudentDashBoard) getActivity()).updateToolbarTitle(StudentDashBoard.studentClassName);
+        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.subject_and_syllabus));
 
     }
     public void onHiddenChanged(boolean hidden) {
@@ -68,12 +68,12 @@ public class SyllabusFragment extends BaseFragment {
 
         dataModels = new ArrayList<>();
 
-        dataModels.add(new SyllabusDataModel(R.drawable.ic_timetable, R.color.green, R.color.white, "Biology", "100% completed"));
-        dataModels.add(new SyllabusDataModel(R.drawable.ic_notification, R.color.loginblue, R.color.white, "Mathematics", "90% completed"));
-        dataModels.add(new SyllabusDataModel(R.drawable.ic_english, R.color.orange, R.color.white, "Telugu", "80% completed"));
-        dataModels.add(new SyllabusDataModel(R.drawable.ic_attendance, R.color.red, R.color.white, "English", "70% completed"));
-        dataModels.add(new SyllabusDataModel(R.drawable.ic_syllabus, R.color.yellow, R.color.white, "Hindi", "60% completed"));
-        dataModels.add(new SyllabusDataModel(R.drawable.ic_classess, R.color.chrome_grey, R.color.white, "Science", "50% completed"));
+        dataModels.add(new SyllabusDataModel(R.drawable.ic_timetable, R.color.light_blue, R.color.white, "Biology", "100% completed"));
+        dataModels.add(new SyllabusDataModel(R.drawable.ic_notification, R.color.dark_pink, R.color.white, "Mathematics", "90% completed"));
+        dataModels.add(new SyllabusDataModel(R.drawable.ic_english, R.color.dark_yellow, R.color.white, "Telugu", "80% completed"));
+        dataModels.add(new SyllabusDataModel(R.drawable.ic_attendance, R.color.bringol, R.color.white, "English", "70% completed"));
+        dataModels.add(new SyllabusDataModel(R.drawable.ic_syllabus, R.color.royal_blue, R.color.white, "Hindi", "60% completed"));
+        dataModels.add(new SyllabusDataModel(R.drawable.ic_classess, R.color.green, R.color.white, "Science", "50% completed"));
 
         adapter = new SyllabusAdapter(dataModels, this.getContext());
 

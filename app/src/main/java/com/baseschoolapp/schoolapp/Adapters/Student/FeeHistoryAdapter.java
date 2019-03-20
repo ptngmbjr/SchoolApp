@@ -3,12 +3,14 @@ package com.baseschoolapp.schoolapp.Adapters.Student;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.graphics.drawable.GradientDrawable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.baseschoolapp.schoolapp.R;
@@ -27,6 +29,7 @@ public class FeeHistoryAdapter extends ArrayAdapter<FeeHistoryDataModel> impleme
         TextView receipt_no;
         TextView date;
         TextView amount;
+        LinearLayout ll;
     }
 
     public FeeHistoryAdapter(ArrayList<FeeHistoryDataModel> data, Context context) {
@@ -67,12 +70,17 @@ public class FeeHistoryAdapter extends ArrayAdapter<FeeHistoryDataModel> impleme
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.fee_history_row_item, parent, false);
+            viewHolder.ll = (LinearLayout) convertView.findViewById(R.id.layout_fee_history_row);
             viewHolder.s_no = (TextView) convertView.findViewById(R.id.s_no);
             viewHolder.receipt_no = (TextView) convertView.findViewById(R.id.receipt_no);
             viewHolder.date = (TextView) convertView.findViewById(R.id.date);
             viewHolder.amount = (TextView) convertView.findViewById(R.id.fee_history_amount);
 
             result = convertView;
+
+            GradientDrawable bg = (GradientDrawable) viewHolder.ll.getBackground();
+            bg.setColor(getContext().getResources().getColor(dataModel.getBgColor()));
+
 
             convertView.setTag(viewHolder);
         } else {

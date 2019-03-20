@@ -8,11 +8,22 @@ public class FeeHistoryDataModel {
     String date;
     String amout;
 
-    public FeeHistoryDataModel(String s_no, String receipt_no, String date, String amout) {
+    int bgColor;
+
+    public FeeHistoryDataModel(String s_no, String receipt_no, String date, String amout,int bgColor) {
         this.s_no = s_no;
         this.receipt_no = receipt_no;
         this.date = date;
         this.amout = amout;
+        this.bgColor=bgColor;
+    }
+
+    public int getBgColor() {
+        return bgColor;
+    }
+
+    public void setBgColor(int bgColor) {
+        this.bgColor = bgColor;
     }
 
     public String getS_no() {
