@@ -31,6 +31,7 @@ public class AllMonthsAttendanceDataModel {
     String present_val;
     String percentage;
 
+
     public AllMonthsAttendanceDataModel(String monthName, String present_val, String percentage) {
         this.monthName = monthName;
         this.present_val = present_val;

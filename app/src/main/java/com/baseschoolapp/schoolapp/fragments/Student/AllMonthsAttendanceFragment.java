@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.baseschoolapp.schoolapp.Adapters.Student.AllMonthsAttendanceAdapter;
+import com.baseschoolapp.schoolapp.MonthWiseAttendanceFragment;
 import com.baseschoolapp.schoolapp.R;
 import com.baseschoolapp.schoolapp.StudentDashBoard;
 import com.baseschoolapp.schoolapp.models.Student.AllMonthsAttendanceDataModel;
@@ -47,10 +48,12 @@ public class AllMonthsAttendanceFragment extends BaseFragment {
 
         initialiseAllMonthsAttendanceList(view);
     }
+
     private void initHeaderName() {
         ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.attendance_head_title));
 
     }
+
     public void onHiddenChanged(boolean hidden) {
         initHeaderName();
     }
@@ -81,10 +84,20 @@ public class AllMonthsAttendanceFragment extends BaseFragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-//                AllMonthsAttendanceDataModel dataModel = dataModels_fee_history_.get(position);
-//
-//                Snackbar.make(view, dataModel.getReceipt_no() + "\n" + dataModel.getAmout(), Snackbar.LENGTH_LONG)
-//                        .setAction("No action", null).show();
+                AllMonthsAttendanceDataModel dataModel = dataModels_fee_history_.get(position);
+
+                Bundle bundle = new Bundle();
+                bundle.putString("MONTH_NAME", dataModel.getMonthName()); // Put anything what you want
+
+                MonthWiseAttendanceFragment fragment = new MonthWiseAttendanceFragment();
+                fragment.setArguments(bundle);
+
+                if (mFragmentNavigation != null) {
+                    mFragmentNavigation.pushFragment(fragment);
+
+                }
+
+
             }
         });
     }

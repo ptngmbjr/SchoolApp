@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.baseschoolapp.schoolapp.fragments.Student.AllMonthsAttendanceFragment;
 import com.baseschoolapp.schoolapp.fragments.Student.BasicDetailsFragment;
 import com.baseschoolapp.schoolapp.fragments.Student.ContactDetailsFragment;
 import com.baseschoolapp.schoolapp.fragments.Student.ParentDetialsFragment;
@@ -59,7 +60,7 @@ public class AllActivityTeacherPageAdaptor extends FragmentStatePagerAdapter {
                 fragment = new SyllabusFragment();
                 break;
             default:
-                fragment = new StudentAttendanceFragment();
+                fragment = new AllMonthsAttendanceFragment();
                 break;
         }
         return fragment;

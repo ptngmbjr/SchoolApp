@@ -9,17 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.baseschoolapp.schoolapp.Adapters.Student.DashBoardViewAdapter;
 import com.baseschoolapp.schoolapp.Adapters.Student.NewsAdapter;
-import com.baseschoolapp.schoolapp.Adapters.Teacher.HomeWorkViewAdapter;
-import com.baseschoolapp.schoolapp.MonthWiseAttendanceFragment;
 import com.baseschoolapp.schoolapp.R;
 import com.baseschoolapp.schoolapp.StudentDashBoard;
 import com.baseschoolapp.schoolapp.fragments.Teacher.AddNewTimeTableFragment;
@@ -28,8 +24,6 @@ import com.baseschoolapp.schoolapp.fragments.Teacher.AttendanceNewFragment;
 import com.baseschoolapp.schoolapp.fragments.Teacher.EventsContainerFragment;
 import com.baseschoolapp.schoolapp.fragments.Teacher.StudentHomeWorkFragment;
 import com.baseschoolapp.schoolapp.fragments.Teacher.SyllabusFragment;
-import com.baseschoolapp.schoolapp.models.Student.DashBoardViewDataModel;
-import com.baseschoolapp.schoolapp.models.Teacher.HomeWorkViewDataModel;
 import com.baseschoolapp.schoolapp.models.Teacher.KeyValueDataModel;
 import com.baseschoolapp.schoolapp.utils.ROW_TYPE;
 import com.baseschoolapp.schoolapp.utils.RoundedImageView;
@@ -41,7 +35,7 @@ import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
-public class DashboardFragment extends BaseFragment {
+public class DashboardFragment_old extends BaseFragment {
 
 //    int fragCount;
 
@@ -59,7 +53,7 @@ public class DashboardFragment extends BaseFragment {
     ListView listView;
     private static NewsAdapter adapter;
 
-    public DashboardFragment() {
+    public DashboardFragment_old() {
         // Required empty public constructor
     }
 
@@ -68,7 +62,7 @@ public class DashboardFragment extends BaseFragment {
     }
 
     private void initHeaderName() {
-       // ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.dashboard_head_title));
+        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.dashboard_head_title));
 
     }
 
@@ -84,7 +78,7 @@ public class DashboardFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.dashboard, container, false);
+        View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
 
         ButterKnife.bind(this, view);
@@ -104,61 +98,34 @@ public class DashboardFragment extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
+//        btnClickMe.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
 //
-//        initialiseAboutStudent(view);
-//
-//        initialiseNewsUpdates(view);
-//
-//        initialiseEvents(view);
-//
-//        initialiseStudentActivities(view);
-//
-//        initialiseClasses(view);
-//
-//        initialiseSchoolBus(view);
-
-        initialiseDashboardItems(view);
-
-    }
-
-    public void initialiseDashboardItems(final View view) {
-
-        ArrayList<DashBoardViewDataModel> dataModels = new ArrayList<>();
-        GridView listView = (GridView) view.findViewById(R.id.dashboard_grid_view);
-
-
-        dataModels.add(new DashBoardViewDataModel("Attendance", R.drawable.attendance_new));
-        dataModels.add(new DashBoardViewDataModel("Classes", R.drawable.classes_new));
-        dataModels.add(new DashBoardViewDataModel("Track School Bus", R.drawable.track_school_bus_new));
-        dataModels.add(new DashBoardViewDataModel("Home Work", R.drawable.home_work_new));
-        dataModels.add(new DashBoardViewDataModel("Exam Results", R.drawable.exam_results_new));
-        dataModels.add(new DashBoardViewDataModel("Food Menu", R.drawable.food_menu_new));
-        dataModels.add(new DashBoardViewDataModel("Fee Payment", R.drawable.fee_payment_new));
-        dataModels.add(new DashBoardViewDataModel("Food Menu", R.drawable.food_menu_new));
-
-        DashBoardViewAdapter studentProfileAdapter = new DashBoardViewAdapter(dataModels, this.getContext());
-
-        listView.setAdapter(studentProfileAdapter);
-
-//        adapter.setListener(new SyllabusAdapter.AdapterListener() {
-//            public void onClick(String name, int color) {
-//                // do something with the string here.
 //                if (mFragmentNavigation != null) {
+//                    mFragmentNavigation.pushFragment(DashboardFragment.newInstance(fragCount + 1));
 //
-//                    Bundle bundle = new Bundle();
-//                    bundle.putString("SUBJECT", name); // Put anything what you want
-//                    bundle.putInt("COLOR", color); // Put anything what you want
-//
-//                    SyllabusDrillDownFragment fragment = new SyllabusDrillDownFragment();
-//                    fragment.setArguments(bundle);
-//
-//
-//                    mFragmentNavigation.pushFragment(fragment);
 //                }
-//
 //            }
 //        });
+
+
+        initialiseAboutStudent(view);
+
+        initialiseNewsUpdates(view);
+
+        initialiseEvents(view);
+
+        initialiseStudentActivities(view);
+
+        initialiseClasses(view);
+
+        initialiseSchoolBus(view);
+
+
     }
+
 
     private void initialiseAboutStudent(View view) {
         View round_layout_attendance = view.findViewById(R.id.round_layout_attendance);

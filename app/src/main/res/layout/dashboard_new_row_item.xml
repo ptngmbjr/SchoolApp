@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/square_button_white"
+    android:orientation="vertical"
+    android:paddingRight="0dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:paddingLeft="0dp">
+
+    <ImageView
+        android:id="@+id/imag_dashboard_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/attendance_new"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/tv_dashboard_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Attendance"
+        android:textStyle="bold"
+        android:textColor="@color/royal_blue_xdark"
+        android:textSize="@dimen/font_size_small" />
+
+</LinearLayout>

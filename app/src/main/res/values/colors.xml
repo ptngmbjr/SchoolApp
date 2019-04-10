@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="dark_blue">#1060e5</color>
     <color name="loginblue">#0280FF</color>
     <color name="bluetitle">#0280FF</color>
     <color name="menubgblue">#0480FC</color>
@@ -68,6 +69,8 @@
     <color name="bringol">#ba77eb</color>
     <color name="royal_blue">#00acea</color>
 
+    <color name="royal_blue_xdark">#0080af</color>
+
     <color name="royal_blue_dark">#199bdb</color>
 
 
@@ -75,6 +78,7 @@
     <color name="light_sky_blue">#DDECFD</color>
     <color name="light_grey">#d4d4d4</color>
     <color name="pale_grey">#f6f6f6</color>
+    <color name="grey_98">#fafafa</color>
 
 
 </resources>

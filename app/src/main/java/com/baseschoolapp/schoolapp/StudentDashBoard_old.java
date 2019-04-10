@@ -3,30 +3,13 @@ package com.baseschoolapp.schoolapp;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-
-import com.baseschoolapp.schoolapp.fragments.Student.BaseFragment;
-import com.baseschoolapp.schoolapp.fragments.Student.ChatFragment;
-import com.baseschoolapp.schoolapp.fragments.Student.DashboardFragment;
-import com.baseschoolapp.schoolapp.fragments.Student.ExamsAndResultsFragment;
-import com.baseschoolapp.schoolapp.fragments.Student.FoodMenu;
-import com.baseschoolapp.schoolapp.fragments.Student.MoreFragment;
-import com.baseschoolapp.schoolapp.fragments.Student.AttendanceFragment;
-import com.baseschoolapp.schoolapp.fragments.Student.BusFragment;
-import com.baseschoolapp.schoolapp.fragments.Teacher.AllActivitiesTeacherFragment;
-import com.baseschoolapp.schoolapp.fragments.Teacher.StudentHomeWorkFragment;
-import com.baseschoolapp.schoolapp.fragments.Teacher.TransportFragment;
-import com.baseschoolapp.schoolapp.utils.FragmentHistory;
-import com.baseschoolapp.schoolapp.utils.USER;
-import com.baseschoolapp.schoolapp.utils.Utils;
-import com.baseschoolapp.schoolapp.views.FragNavController;
-
-import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
@@ -36,13 +19,26 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.Switch;
+
+import com.baseschoolapp.schoolapp.fragments.Student.BaseFragment;
+import com.baseschoolapp.schoolapp.fragments.Student.ChatFragment;
+import com.baseschoolapp.schoolapp.fragments.Student.DashboardFragment;
+import com.baseschoolapp.schoolapp.fragments.Student.ExamsAndResultsFragment;
+import com.baseschoolapp.schoolapp.fragments.Student.FoodMenu;
+import com.baseschoolapp.schoolapp.fragments.Student.MoreFragment;
+import com.baseschoolapp.schoolapp.fragments.Teacher.AllActivitiesTeacherFragment;
+import com.baseschoolapp.schoolapp.fragments.Teacher.StudentHomeWorkFragment;
+import com.baseschoolapp.schoolapp.fragments.Teacher.TransportFragment;
+import com.baseschoolapp.schoolapp.utils.FragmentHistory;
+import com.baseschoolapp.schoolapp.utils.USER;
+import com.baseschoolapp.schoolapp.utils.Utils;
+import com.baseschoolapp.schoolapp.views.FragNavController;
 
 import butterknife.BindArray;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class StudentDashBoard extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener, BaseFragment.FragmentNavigation,
+public class StudentDashBoard_old extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener, BaseFragment.FragmentNavigation,
         FragNavController.TransactionListener, FragNavController.RootFragmentListener {
 
 
@@ -58,16 +54,14 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
             R.drawable.ic_exam_results,
             R.drawable.ic_classess,
             R.drawable.ic_chat,
-            R.drawable.ic_more
-    };
+            R.drawable.ic_more};
 
     private int[] mTabIconsSelectedStudent = {
             R.drawable.ic_home,
             R.drawable.ic_exam_results,
             R.drawable.ic_classess,
             R.drawable.ic_chat,
-            R.drawable.ic_more
-    };
+            R.drawable.ic_more};
 
 
     @BindArray(R.array.tab_name)
@@ -178,13 +172,13 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
 
 
     private View getTabView(int position) {
-        View view = LayoutInflater.from(StudentDashBoard.this).inflate(R.layout.tab_item_bottom, null);
+        View view = LayoutInflater.from(StudentDashBoard_old.this).inflate(R.layout.tab_item_bottom, null);
         ImageView icon = (ImageView) view.findViewById(R.id.tab_icon);
 
         if (user == USER.TEACHER)
-            icon.setImageDrawable(Utils.setDrawableSelector(StudentDashBoard.this, mTabIconsSelectedTeacher[position], mTabIconsSelectedTeacher[position]));
+            icon.setImageDrawable(Utils.setDrawableSelector(StudentDashBoard_old.this, mTabIconsSelectedTeacher[position], mTabIconsSelectedTeacher[position]));
         else if (user == USER.STUDENT)
-            icon.setImageDrawable(Utils.setDrawableSelector(StudentDashBoard.this, mTabIconsSelectedStudent[position], mTabIconsSelectedStudent[position]));
+            icon.setImageDrawable(Utils.setDrawableSelector(StudentDashBoard_old.this, mTabIconsSelectedStudent[position], mTabIconsSelectedStudent[position]));
         return view;
     }
 
@@ -342,9 +336,9 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
 
     private void setTitleBarIcon(int image)
     {
-        final Drawable icon = getResources().getDrawable(image);
-        icon.setColorFilter(getResources().getColor(R.color.loginblue), PorterDuff.Mode.SRC_ATOP);
-        getSupportActionBar().setHomeAsUpIndicator(icon);
+        final Drawable upArrow = getResources().getDrawable(image);
+        upArrow.setColorFilter(getResources().getColor(R.color.loginblue), PorterDuff.Mode.SRC_ATOP);
+        getSupportActionBar().setHomeAsUpIndicator(upArrow);
     }
 
     @Override
