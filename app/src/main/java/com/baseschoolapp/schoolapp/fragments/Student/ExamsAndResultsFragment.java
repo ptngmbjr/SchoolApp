@@ -42,7 +42,7 @@ public class ExamsAndResultsFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initHeaderName();
+     //   initHeaderName();
 
         initialiseExamAndResult(view);
     }

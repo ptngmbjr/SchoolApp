@@ -79,7 +79,7 @@ public class AddNewTimeTableFragment extends BaseFragment {
         background.setColor(getResources().getColor(R.color.green));
 
         ButterKnife.bind(this, view);
-        initHeaderName();
+     //   initHeaderName();
 
         initialiseDates(view);
 
@@ -87,7 +87,7 @@ public class AddNewTimeTableFragment extends BaseFragment {
 
         return view;
     }
-    private void initHeaderName() {
+    public void initHeaderName() {
         ((StudentDashBoard) getActivity()).updateToolbarTitle(StudentDashBoard.studentClassName);
 
     }

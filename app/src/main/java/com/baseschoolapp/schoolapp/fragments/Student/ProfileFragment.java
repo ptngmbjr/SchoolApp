@@ -16,7 +16,7 @@ import com.baseschoolapp.schoolapp.models.Student.ExamAndResultDataModel;
 
 import java.util.ArrayList;
 
-public class ProfileFragment extends android.support.v4.app.Fragment {
+public class ProfileFragment extends BaseFragment {
 
     ArrayList<ExamAndResultDataModel> dataModels;
     //    private static ExamAndResultAdapter adapter;
@@ -42,7 +42,7 @@ public class ProfileFragment extends android.support.v4.app.Fragment {
 
 
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
-        initHeaderName();
+      //  initHeaderName();
         //  initialise(view);
         return view;
     }
@@ -75,6 +75,7 @@ private void initHeaderName() {
     public void onHiddenChanged(boolean hidden) {
         initHeaderName();
     }
+
     public void init(final View view) {
         tabLayout = (TabLayout) view.findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Basic Details"));

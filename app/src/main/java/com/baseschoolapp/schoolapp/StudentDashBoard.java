@@ -4,21 +4,25 @@ import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.support.design.widget.NavigationView;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 
+import com.baseschoolapp.schoolapp.fragments.Student.AllMonthsAttendanceFragment;
 import com.baseschoolapp.schoolapp.fragments.Student.BaseFragment;
+import com.baseschoolapp.schoolapp.fragments.Student.BusFragment;
 import com.baseschoolapp.schoolapp.fragments.Student.ChatFragment;
 import com.baseschoolapp.schoolapp.fragments.Student.DashboardFragment;
 import com.baseschoolapp.schoolapp.fragments.Student.ExamsAndResultsFragment;
+import com.baseschoolapp.schoolapp.fragments.Student.FeeFragment;
 import com.baseschoolapp.schoolapp.fragments.Student.FoodMenu;
 import com.baseschoolapp.schoolapp.fragments.Student.MoreFragment;
-import com.baseschoolapp.schoolapp.fragments.Student.AttendanceFragment;
-import com.baseschoolapp.schoolapp.fragments.Student.BusFragment;
+import com.baseschoolapp.schoolapp.fragments.Student.ProfileFragment;
+import com.baseschoolapp.schoolapp.fragments.Student.TimeTableFragment;
+import com.baseschoolapp.schoolapp.fragments.Teacher.AddNewTimeTableFragment;
 import com.baseschoolapp.schoolapp.fragments.Teacher.AllActivitiesTeacherFragment;
+import com.baseschoolapp.schoolapp.fragments.Teacher.AllEventsFragment;
 import com.baseschoolapp.schoolapp.fragments.Teacher.StudentHomeWorkFragment;
-import com.baseschoolapp.schoolapp.fragments.Teacher.TransportFragment;
+import com.baseschoolapp.schoolapp.fragments.Student.TransportFragment;
 import com.baseschoolapp.schoolapp.utils.FragmentHistory;
 import com.baseschoolapp.schoolapp.utils.USER;
 import com.baseschoolapp.schoolapp.utils.Utils;
@@ -27,16 +31,14 @@ import com.baseschoolapp.schoolapp.views.FragNavController;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.Switch;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import butterknife.BindArray;
 import butterknife.BindView;
@@ -49,8 +51,8 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
     @BindView(R.id.content_frame)
     FrameLayout contentFrame;
 
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
+//    @BindView(R.id.toolbar)
+//    Toolbar toolbar;
 
 
     private int[] mTabIconsSelectedTeacher = {
@@ -87,16 +89,18 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_student_dash_board);
 
         user = USER.valueOf(getIntent().getStringExtra("USER_TYPE"));
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
+//        drawer.addDrawerListener(toggle);
+//        toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -152,17 +156,17 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
 
 
     private void initToolbar() {
-        setSupportActionBar(toolbar);
-        ActionBar actionbar = getSupportActionBar();
-        actionbar.setDisplayHomeAsUpEnabled(true);
-        //actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
-        setTitleBarIcon(R.drawable.ic_menu);
-        changeOverflowIcon(R.drawable.ic_notification);
+//        setSupportActionBar(toolbar);
+//        ActionBar actionbar = getSupportActionBar();
+//        actionbar.setDisplayHomeAsUpEnabled(true);
+//        //actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
+//        setTitleBarIcon(R.drawable.ic_menu);
+//        changeOverflowIcon(R.drawable.ic_notification);
     }
 
     private void changeOverflowIcon(int res) {
-        Drawable drawable = ContextCompat.getDrawable(getApplicationContext(), res);
-        toolbar.setOverflowIcon(drawable);
+//        Drawable drawable = ContextCompat.getDrawable(getApplicationContext(), res);
+//        toolbar.setOverflowIcon(drawable);
     }
 
     private void initTab() {
@@ -222,24 +226,41 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()) {
 
+        if (clickAction(item.getItemId()))
+            return true;
+        return super.onOptionsItemSelected(item);
+
+    }
+
+    private boolean clickAction(int itemId) {
+        switch (itemId) {
 
             case android.R.id.home:
+            case R.id.title_bar_left_icon:
+            case R.id.title_bar_left_icon_back:
                 if (mNavController.isRootFragment())
                     drawer.openDrawer(GravityCompat.START);
                 else
                     onBackPressed();
                 return true;
 
-            case R.id.action_settings:
+            case R.id.title_bar_image:
+            case R.id.title_bar_name:
+            case R.id.title_bar_class:
+                ProfileFragment fragment = new ProfileFragment();
+                pushFragment(fragment);
                 return true;
 
+            case R.id.action_settings:
+                return true;
         }
+        return false;
 
+    }
 
-        return super.onOptionsItemSelected(item);
-
+    public void iconClick(View view) {
+        clickAction(view.getId());
     }
 
     @Override
@@ -312,6 +333,10 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
         if (mNavController != null) {
             mNavController.pushFragment(fragment);
         }
+
+        mNavController.getCurrentFrag().onHiddenChanged(true);
+
+
     }
 
 
@@ -340,11 +365,14 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
 
     }
 
-    private void setTitleBarIcon(int image)
-    {
+    private void setTitleBarIcon(int image) {
         final Drawable icon = getResources().getDrawable(image);
-        icon.setColorFilter(getResources().getColor(R.color.loginblue), PorterDuff.Mode.SRC_ATOP);
-        getSupportActionBar().setHomeAsUpIndicator(icon);
+        icon.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
+        // getSupportActionBar().setHomeAsUpIndicator(icon);
+
+        ImageView leftIcon = (ImageView) findViewById(R.id.title_bar_left_icon);
+        leftIcon.setImageDrawable(icon);
+
     }
 
     @Override
@@ -412,7 +440,21 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
 
     public void updateToolbarTitle(String title) {
 
-        getSupportActionBar().setTitle(title);
+        // getSupportActionBar().setTitle(title);
+
+        LinearLayout studentHeaderLayout = (LinearLayout) findViewById(R.id.title_bar_header_layout);
+        LinearLayout studentHeaderLayout_with_back = (LinearLayout) findViewById(R.id.title_bar_header_layout_with_back);
+        TextView titleHead = (TextView) findViewById(R.id.title_bar_text);
+
+
+        if (mNavController.isRootFragment()) {
+            studentHeaderLayout.setVisibility(View.VISIBLE);
+            studentHeaderLayout_with_back.setVisibility(View.GONE);
+        } else {
+            studentHeaderLayout.setVisibility(View.GONE);
+            studentHeaderLayout_with_back.setVisibility(View.VISIBLE);
+            titleHead.setText(title);
+        }
 
 
     }
@@ -431,20 +473,60 @@ public class StudentDashBoard extends BaseActivity implements NavigationView.OnN
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        Intent i = null;
-
-        if (id == R.id.nav_food_menu) {
-
-            i = new Intent(this, FoodMenu.class);
-
+//        Intent i = null;
+//
+//        if (id == R.id.nav_food_menu) {
+//
+//            i = new Intent(this, FoodMenu.class);
+//
+//        }
+//
+//        if (i != null)
+//            startActivity(i);
+        BaseFragment fragment = null;
+        switch (id) {
+            case R.id.nav_profile:
+                fragment = new ProfileFragment();
+                break;
+            case R.id.nav_messages:
+//                fragment=new ProfileFragment();
+                break;
+            case R.id.nav_attendance:
+                fragment = new AllMonthsAttendanceFragment();
+                break;
+            case R.id.nav_classes:
+                fragment = new TimeTableFragment();
+                break;
+            case R.id.nav_homework:
+                fragment = new StudentHomeWorkFragment();
+                break;
+            case R.id.nav_timetable:
+                fragment = new AddNewTimeTableFragment();
+                break;
+            case R.id.nav_exam_sched_results:
+                fragment = new ExamsAndResultsFragment();
+                break;
+            case R.id.nav_transport:
+                fragment = new TransportFragment();
+                break;
+            case R.id.nav_track_school_bus:
+                fragment = new BusFragment();
+                break;
+            case R.id.nav_food_menu:
+                fragment = new FoodMenu();
+                break;
+            case R.id.nav_fee_details:
+                fragment = new FeeFragment();
+                break;
+            case R.id.nav_events:
+                fragment = new AllEventsFragment();
+                break;
         }
 
-
+        if (fragment != null)
+            pushFragment(fragment);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-
-        if (i != null)
-            startActivity(i);
 
 
         return true;

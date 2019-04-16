@@ -37,6 +37,8 @@ public class AllMonthsAttendanceFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+      //     initHeaderName();
+
         return inflater.inflate(R.layout.attendance_for_all_months, container, false);
     }
 
@@ -44,15 +46,17 @@ public class AllMonthsAttendanceFragment extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        initHeaderName();
+
+     //   initHeaderName();
 
         initialiseAllMonthsAttendanceList(view);
     }
 
-    private void initHeaderName() {
+    public void initHeaderName() {
         ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.attendance_head_title));
 
     }
+
 
     public void onHiddenChanged(boolean hidden) {
         initHeaderName();

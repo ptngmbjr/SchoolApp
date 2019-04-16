@@ -38,7 +38,7 @@ public class EventsContainerFragment extends android.support.v4.app.Fragment {
 
 
         View view = inflater.inflate(R.layout.all_activities_teacher, container, false);
-        initHeaderName();
+     //   initHeaderName();
         //  initialise(view);
         return view;
     }

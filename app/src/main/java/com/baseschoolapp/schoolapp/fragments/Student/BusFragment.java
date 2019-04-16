@@ -28,7 +28,7 @@ public class BusFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_bus, container, false);
 
         ButterKnife.bind(this, view);
-        initHeaderName();
+      //  initHeaderName();
 
 
         return view;

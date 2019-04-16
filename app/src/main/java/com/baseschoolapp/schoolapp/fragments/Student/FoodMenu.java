@@ -1,6 +1,7 @@
 package com.baseschoolapp.schoolapp.fragments.Student;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -30,34 +31,55 @@ import dev.dworks.libs.astickyheader.SimpleSectionedGridAdapter.Section;
 import butterknife.ButterKnife;
 
 
-public class FoodMenu extends BaseActivity {
+public class FoodMenu extends BaseFragment {
 
     private ArrayList<Section> sections = new ArrayList<Section>();
+
+    public FoodMenu() {
+        // Required empty public constructor
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.food_menu, container, false);
+    }
 
-        setContentView(R.layout.food_menu);
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        //    initHeaderName();
 
-        initialiseDatesList();
+        initialiseDatesList(view);
 
-        initialiseFoodMenu();
+        initialiseFoodMenu(view);
 
+    }
+    private void initHeaderName() {
+        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.food_menu));
 
+    }
+    public void onHiddenChanged(boolean hidden) {
+        initHeaderName();
     }
 
 
-    public void initialiseDatesList() {
 
-        RecyclerView datesRecyclerView = (RecyclerView) findViewById(R.id.food_menu_dates_list);
+    public void initialiseDatesList(View view) {
+
+        RecyclerView datesRecyclerView = (RecyclerView) view.findViewById(R.id.food_menu_dates_list);
 
 
         List<TimeTableDateWiseModel> time_table_list = new ArrayList<>();
 
-        DividerItemDecoration itemDecorator = new DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL);
-        itemDecorator.setDrawable(ContextCompat.getDrawable(this, R.drawable.horisontal_space));
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), DividerItemDecoration.HORIZONTAL);
+        itemDecorator.setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.horisontal_space));
 
         datesRecyclerView.addItemDecoration(itemDecorator);
 
@@ -68,10 +90,10 @@ public class FoodMenu extends BaseActivity {
         time_table_list.add(new TimeTableDateWiseModel("06", "Fri", R.color.white, R.color.black));
         time_table_list.add(new TimeTableDateWiseModel("07", "Sat", R.color.white, R.color.black));
 
-        TimeTableDateWiseAdapter ttAdapter = new TimeTableDateWiseAdapter(time_table_list, this);
+        TimeTableDateWiseAdapter ttAdapter = new TimeTableDateWiseAdapter(time_table_list, getContext());
 
 
-        LinearLayoutManager horizontalLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager horizontalLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         datesRecyclerView.setLayoutManager(horizontalLayoutManager);
         datesRecyclerView.setAdapter(ttAdapter);
 
@@ -79,11 +101,11 @@ public class FoodMenu extends BaseActivity {
 
     }
 
-    public void initialiseFoodMenu() {
+    public void initialiseFoodMenu(View view) {
 
 
         ArrayList<Object> dataModels = new ArrayList<>();
-        GridView grid = (GridView) findViewById(R.id.food_menu_grid_view);
+        GridView grid = (GridView) view.findViewById(R.id.food_menu_grid_view);
 
 
         dataModels.add(new KeyValueDataModel("Breakfast", "", 0, 0, R.color.black, R.color.black, ROW_TYPE.HEADER));
@@ -121,7 +143,7 @@ public class FoodMenu extends BaseActivity {
 //
 //
 //        }
-        FoodMenuAdapter studentProfileAdapter = new FoodMenuAdapter(this, dataModels);
+        FoodMenuAdapter studentProfileAdapter = new FoodMenuAdapter(getContext(), dataModels);
 
         grid.setAdapter(studentProfileAdapter);
 

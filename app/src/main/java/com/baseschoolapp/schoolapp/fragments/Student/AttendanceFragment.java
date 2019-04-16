@@ -43,7 +43,7 @@ public class AttendanceFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_attendance, container, false);
 
         ButterKnife.bind(this, view);
-        initHeaderName();
+     //   initHeaderName();
 
         initialiseCalenderEvents(view);
 

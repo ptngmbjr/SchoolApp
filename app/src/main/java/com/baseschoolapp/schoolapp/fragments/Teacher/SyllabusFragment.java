@@ -48,14 +48,14 @@ public class SyllabusFragment extends BaseFragment {
         listView = (ListView) view.findViewById(R.id.syllabus_list);
 
         ButterKnife.bind(this, view);
-        initHeaderName();
+       // initHeaderName();
 
         initialiseSyllabus(view);
 
         return view;
     }
 
-    private void initHeaderName() {
+    public void initHeaderName() {
         ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.subject_and_syllabus));
 
     }

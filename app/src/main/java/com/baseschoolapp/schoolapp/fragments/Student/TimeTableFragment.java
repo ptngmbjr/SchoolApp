@@ -48,14 +48,14 @@ public class TimeTableFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.time_table_date, container, false);
 
         ButterKnife.bind(this, view);
-        initHeaderName();
+      //  initHeaderName();
 
 
         initialiseTimeTable(view);
 
         return view;
     }
-    private void initHeaderName() {
+    public void initHeaderName() {
         ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.time_table));
 
     }

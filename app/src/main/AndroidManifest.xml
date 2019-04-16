@@ -33,14 +33,15 @@
         <activity android:name=".Signup" />
         <activity android:name=".Otp" />
         <activity android:name=".Registration" />
-        <activity android:name=".StudentDashBoard" />
+
+        <activity android:name=".StudentDashBoard"/>
+
         <activity android:name=".fragments.Teacher.HomeWorkActivity" />
         <activity android:name=".fragments.Teacher.SyllabusDrillDownFragment" />
         <activity android:name=".fragments.Teacher.ApplyLeaveFragment" />
         <activity android:name=".fragments.Teacher.TimeTableFragment" />
         <activity android:name=".fragments.Student.UnitTestTimeTableSubjectWise" />
         <activity android:name=".SuccessLogin" />
-        <activity android:name=".fragments.Student.FoodMenu" />
         <activity android:name=".fragments.Student.StudentGradeActivity" />
 
     </application>

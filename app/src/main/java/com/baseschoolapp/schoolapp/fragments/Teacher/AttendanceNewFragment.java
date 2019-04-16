@@ -67,7 +67,7 @@ public class AttendanceNewFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_attendance_new, container, false);
 
         ButterKnife.bind(this, view);
-        initHeaderName();
+      //  initHeaderName();
 
         txt_attendance = (TextView) view.findViewById(R.id.txt_attendance_btn);
         txt_student_on_leave = (TextView) view.findViewById(R.id.txt_students_on_leave_btn);

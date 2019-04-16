@@ -15,17 +15,20 @@
         android:background="@color/chrome_grey"
         android:orientation="vertical">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:titleTextColor="@color/black">
+        <!--<android.support.v7.widget.Toolbar-->
+            <!--android:id="@+id/toolbar"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="?attr/actionBarSize"-->
+            <!--android:background="?attr/colorPrimary"-->
+            <!--app:layout_scrollFlags="scroll|enterAlways"-->
+            <!--app:titleTextColor="@color/black">-->
 
-        </android.support.v7.widget.Toolbar>
+        <!--</android.support.v7.widget.Toolbar>-->
 
-        <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
+
+        <include android:layout_width="match_parent"
+            layout="@layout/custom_title_bar"
+        android:layout_height="?attr/actionBarSize"/>
 
         <View
             android:layout_width="match_parent"

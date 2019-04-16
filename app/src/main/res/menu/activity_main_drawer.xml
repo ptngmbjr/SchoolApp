@@ -6,54 +6,66 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_dashboard"
-            android:icon="@drawable/ic_menu_camera"
+            android:iconTint="@color/white"
+            android:icon="@drawable/dashboard"
             android:title="Dashboard" />
         <item
             android:id="@+id/nav_profile"
+            android:iconTint="@color/white"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Profile" />
         <item
             android:id="@+id/nav_messages"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:iconTint="@color/white"
+            android:icon="@drawable/messages"
             android:title="Messages" />
         <item
             android:id="@+id/nav_attendance"
-            android:icon="@drawable/ic_menu_manage"
+            android:iconTint="@color/white"
+            android:icon="@drawable/attendance"
             android:title="Attendance" />
         <item
             android:id="@+id/nav_classes"
-            android:icon="@drawable/ic_menu_camera"
+            android:iconTint="@color/white"
+            android:icon="@drawable/classes"
             android:title="Classes" />
         <item
             android:id="@+id/nav_homework"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/homework"
+            android:iconTint="@color/white"
             android:title="Homework" />
         <item
             android:id="@+id/nav_timetable"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:iconTint="@color/white"
+            android:icon="@drawable/timetable"
             android:title="Timetable" />
         <item
             android:id="@+id/nav_exam_sched_results"
-            android:icon="@drawable/ic_menu_manage"
+            android:iconTint="@color/white"
+            android:icon="@drawable/exams"
             android:title="Exam Schedules and Results" />
         <item
             android:id="@+id/nav_transport"
-            android:icon="@drawable/ic_menu_camera"
+            android:iconTint="@color/white"
+            android:icon="@drawable/transport"
             android:title="Transport" />
         <item
             android:id="@+id/nav_track_school_bus"
-            android:icon="@drawable/ic_menu_gallery"
+            android:iconTint="@color/white"
+            android:icon="@drawable/trackbus"
             android:title="Track School Bus" />
         <item
             android:id="@+id/nav_food_menu"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/foodmenu"
             android:title="Food Menu" />
         <item
             android:id="@+id/nav_fee_details"
-            android:icon="@drawable/ic_menu_manage"
+            android:iconTint="@color/white"
+            android:icon="@drawable/feedetails"
             android:title="Fee Details" />
         <item
             android:id="@+id/nav_events"
+            android:iconTint="@color/white"
             android:icon="@drawable/ic_menu_manage"
             android:title="Events" />
     </group>

@@ -73,7 +73,7 @@ public class AllActivitiesTeacherFragment extends android.support.v4.app.Fragmen
 
         Bundle bundle = this.getArguments();
 
-        initHeaderName();
+      //  initHeaderName();
 
         tabLayout = (TabLayout) view.findViewById(R.id.all_act_teacher_tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Attendance"));

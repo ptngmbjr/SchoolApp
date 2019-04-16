@@ -69,7 +69,7 @@ public class StudentHomeWorkFragment extends BaseFragment {
 
 
         ButterKnife.bind(this, view);
-        initHeaderName();
+     //   initHeaderName();
 
 
         initialiseDatesList(view);
@@ -81,7 +81,7 @@ public class StudentHomeWorkFragment extends BaseFragment {
         return view;
     }
 
-    private void initHeaderName() {
+    public void initHeaderName() {
         ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.homework));
 
     }

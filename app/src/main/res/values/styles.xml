@@ -44,4 +44,11 @@
         <item name="android:dividerHeight">1dp</item>
     </style>
 
+
+    <!--<style name="LargeTitleTheme" parent="Theme.AppCompat">-->
+        <!--<item name="android:windowTitleSize">?attr/actionBarSize</item>-->
+        <!--<item name="android:windowNoTitle">false</item>-->
+
+    <!--</style>-->
+
 </resources>

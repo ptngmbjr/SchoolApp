@@ -47,7 +47,7 @@ public class MonthWiseAttendanceFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_monthly_attendance, container, false);
 
         ButterKnife.bind(this, view);
-        initHeaderName();
+     //   initHeaderName();
 
         initialiseDayWiseAttendance(view);
 

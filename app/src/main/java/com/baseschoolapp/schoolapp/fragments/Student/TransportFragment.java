@@ -1,4 +1,4 @@
-package com.baseschoolapp.schoolapp.fragments.Teacher;
+package com.baseschoolapp.schoolapp.fragments.Student;
 
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -45,7 +45,7 @@ public class TransportFragment extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        initHeaderName();
+       // initHeaderName();
 
         viewTrackSchoolBus(view);
 

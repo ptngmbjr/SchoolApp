@@ -16,7 +16,7 @@ import com.baseschoolapp.schoolapp.models.Student.DashBoardViewDataModel;
 
 import java.util.ArrayList;
 
-public class DashBoardViewAdapter extends ArrayAdapter<DashBoardViewDataModel> implements View.OnClickListener {
+public class DashBoardViewAdapter extends ArrayAdapter<DashBoardViewDataModel> {
 
     private ArrayList<DashBoardViewDataModel> dataSet;
     Context mContext;
@@ -24,7 +24,7 @@ public class DashBoardViewAdapter extends ArrayAdapter<DashBoardViewDataModel> i
 
     // define listener
     public interface AdapterListener {
-        void onClick(String name, int color);
+        void onClick(String name);
     }
 
     // set the listener. Must be called from the fragment
@@ -36,6 +36,7 @@ public class DashBoardViewAdapter extends ArrayAdapter<DashBoardViewDataModel> i
     private static class ViewHolder {
         ImageView image;
         TextView name;
+        LinearLayout ll;
     }
 
     public DashBoardViewAdapter(ArrayList<DashBoardViewDataModel> data, Context context) {
@@ -45,23 +46,10 @@ public class DashBoardViewAdapter extends ArrayAdapter<DashBoardViewDataModel> i
 
     }
 
-    @Override
-    public void onClick(View v) {
-
-        int position = (Integer) v.getTag();
-        DashBoardViewDataModel object = (DashBoardViewDataModel) getItem(position);
-
-        switch (v.getId()) {
-//            case R.id.subject_name:
-//                mListener.onClick(object.getSubjectName(), object.getBgColor());
-//                break;
-        }
-    }
-
     private int lastPosition = -1;
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
         DashBoardViewDataModel DashBoardViewDataModel = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
@@ -73,6 +61,7 @@ public class DashBoardViewAdapter extends ArrayAdapter<DashBoardViewDataModel> i
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.dashboard_new_row_item, parent, false);
 
+            viewHolder.ll = (LinearLayout) convertView.findViewById(R.id.dash_board_item_layout);
             viewHolder.name = (TextView) convertView.findViewById(R.id.tv_dashboard_item);
             viewHolder.image = (ImageView) convertView.findViewById(R.id.imag_dashboard_item);
 
@@ -86,6 +75,16 @@ public class DashBoardViewAdapter extends ArrayAdapter<DashBoardViewDataModel> i
         viewHolder.name.setText(DashBoardViewDataModel.getItem_name());
         viewHolder.image.setImageDrawable(mContext.getResources().getDrawable(DashBoardViewDataModel.getImage()));
 
+        viewHolder.ll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DashBoardViewDataModel DashBoardViewDataModel = getItem(position);
+
+                mListener.onClick(DashBoardViewDataModel.getItem_name());
+            }
+        });
+
         return convertView;
     }
+
 }

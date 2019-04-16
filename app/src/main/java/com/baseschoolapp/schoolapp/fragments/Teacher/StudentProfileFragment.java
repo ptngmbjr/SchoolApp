@@ -55,7 +55,7 @@ public class StudentProfileFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.student_profile, container, false);
 
         ButterKnife.bind(this, view);
-        initHeaderName();
+      //  initHeaderName();
 
         initialiseStudentProfileBtns(view);
 

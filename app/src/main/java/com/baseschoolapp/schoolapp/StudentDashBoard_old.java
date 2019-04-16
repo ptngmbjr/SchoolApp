@@ -28,7 +28,7 @@ import com.baseschoolapp.schoolapp.fragments.Student.FoodMenu;
 import com.baseschoolapp.schoolapp.fragments.Student.MoreFragment;
 import com.baseschoolapp.schoolapp.fragments.Teacher.AllActivitiesTeacherFragment;
 import com.baseschoolapp.schoolapp.fragments.Teacher.StudentHomeWorkFragment;
-import com.baseschoolapp.schoolapp.fragments.Teacher.TransportFragment;
+import com.baseschoolapp.schoolapp.fragments.Student.TransportFragment;
 import com.baseschoolapp.schoolapp.utils.FragmentHistory;
 import com.baseschoolapp.schoolapp.utils.USER;
 import com.baseschoolapp.schoolapp.utils.Utils;
@@ -45,7 +45,7 @@ public class StudentDashBoard_old extends BaseActivity implements NavigationView
     @BindView(R.id.content_frame)
     FrameLayout contentFrame;
 
-    @BindView(R.id.toolbar)
+//    @BindView(R.id.toolbar)
     Toolbar toolbar;
 
 

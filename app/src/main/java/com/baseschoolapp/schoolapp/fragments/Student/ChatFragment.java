@@ -59,7 +59,7 @@ public class ChatFragment extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        initHeaderName();
+   //     initHeaderName();
 
 //        btnClickMe.setOnClickListener(new View.OnClickListener() {
 //            @Override

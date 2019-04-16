@@ -29,7 +29,7 @@ public class MoreFragment extends BaseFragment{
         View view = inflater.inflate(R.layout.fragment_more, container, false);
 
         ButterKnife.bind(this, view);
-        initHeaderName();
+     //   initHeaderName();
 
 
         return view;

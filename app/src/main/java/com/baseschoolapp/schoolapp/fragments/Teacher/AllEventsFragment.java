@@ -11,6 +11,7 @@ import android.widget.ListView;
 
 import com.baseschoolapp.schoolapp.Adapters.Teacher.AllEventsAdapter;
 import com.baseschoolapp.schoolapp.R;
+import com.baseschoolapp.schoolapp.StudentDashBoard;
 import com.baseschoolapp.schoolapp.fragments.Student.BaseFragment;
 import com.baseschoolapp.schoolapp.models.Teacher.EventsDataModel;
 import com.baseschoolapp.schoolapp.utils.ROW_TYPE;
@@ -45,6 +46,15 @@ public class AllEventsFragment extends BaseFragment {
         // ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.exam_result));
 
         initialiseAllEvents(view);
+    }
+
+    public void initHeaderName() {
+        ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.events));
+
+    }
+
+    public void onHiddenChanged(boolean hidden) {
+        initHeaderName();
     }
 
 

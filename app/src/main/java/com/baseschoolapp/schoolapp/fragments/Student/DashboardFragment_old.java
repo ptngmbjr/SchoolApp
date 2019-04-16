@@ -82,7 +82,7 @@ public class DashboardFragment_old extends BaseFragment {
 
 
         ButterKnife.bind(this, view);
-        initHeaderName();
+     //   initHeaderName();
 
 
 //        Bundle args = getArguments();

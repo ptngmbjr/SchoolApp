@@ -1,5 +1,6 @@
 package com.baseschoolapp.schoolapp.fragments.Student;
 
+import android.app.Fragment;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -67,8 +68,8 @@ public class DashboardFragment extends BaseFragment {
         initHeaderName();
     }
 
-    private void initHeaderName() {
-       // ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.dashboard_head_title));
+    public void initHeaderName() {
+         ((StudentDashBoard) getActivity()).updateToolbarTitle(getResources().getString(R.string.dashboard_head_title));
 
     }
 
@@ -88,7 +89,7 @@ public class DashboardFragment extends BaseFragment {
 
 
         ButterKnife.bind(this, view);
-        initHeaderName();
+ //       initHeaderName();
 
 
 //        Bundle args = getArguments();
@@ -104,20 +105,24 @@ public class DashboardFragment extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-//
-//        initialiseAboutStudent(view);
-//
-//        initialiseNewsUpdates(view);
-//
-//        initialiseEvents(view);
-//
-//        initialiseStudentActivities(view);
-//
-//        initialiseClasses(view);
-//
-//        initialiseSchoolBus(view);
+        if (StudentDashBoard.user == USER.TEACHER) {
 
-        initialiseDashboardItems(view);
+            initialiseAboutStudent(view);
+
+            initialiseNewsUpdates(view);
+
+            initialiseEvents(view);
+
+            initialiseStudentActivities(view);
+
+            initialiseClasses(view);
+
+            initialiseSchoolBus(view);
+        } else if (StudentDashBoard.user == USER.STUDENT) {
+
+
+            initialiseDashboardItems(view);
+        }
 
     }
 
@@ -140,24 +145,45 @@ public class DashboardFragment extends BaseFragment {
 
         listView.setAdapter(studentProfileAdapter);
 
-//        adapter.setListener(new SyllabusAdapter.AdapterListener() {
-//            public void onClick(String name, int color) {
-//                // do something with the string here.
-//                if (mFragmentNavigation != null) {
-//
-//                    Bundle bundle = new Bundle();
-//                    bundle.putString("SUBJECT", name); // Put anything what you want
-//                    bundle.putInt("COLOR", color); // Put anything what you want
-//
-//                    SyllabusDrillDownFragment fragment = new SyllabusDrillDownFragment();
-//                    fragment.setArguments(bundle);
-//
-//
-//                    mFragmentNavigation.pushFragment(fragment);
-//                }
-//
-//            }
-//        });
+        studentProfileAdapter.setListener(new DashBoardViewAdapter.AdapterListener() {
+            public void onClick(String name) {
+                // do something with the string here.
+
+                BaseFragment fragment=null;
+
+                switch (name) {
+                    case "Attendance":
+                        fragment =  new AllMonthsAttendanceFragment();
+                        break;
+                    case "Classes":
+                        fragment = new TimeTableFragment();
+                        break;
+                    case "Track School Bus":
+                        fragment = new TransportFragment();
+                        break;
+                    case "Home Work":
+                        fragment = new StudentHomeWorkFragment();
+                        break;
+                    case "Exam Results":
+                        fragment = new ExamsAndResultsFragment();
+                        break;
+                    case "Food Menu":
+                        fragment = new FoodMenu();
+                        break;
+                    case "Fee Payment":
+                        fragment = new FeeFragment();
+                        break;
+                    default:
+                        break;
+
+                }
+                if (mFragmentNavigation != null) {
+
+                    mFragmentNavigation.pushFragment(fragment);
+                }
+
+            }
+        });
     }
 
     private void initialiseAboutStudent(View view) {

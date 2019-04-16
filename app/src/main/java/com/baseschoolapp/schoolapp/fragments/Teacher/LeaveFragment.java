@@ -62,7 +62,7 @@ public class LeaveFragment extends BaseFragment {
         background.setColor(color);
 
         ButterKnife.bind(this, view);
-        initHeaderName();
+      //  initHeaderName();
 
         applyLeave.setOnClickListener(new View.OnClickListener() {
             @Override

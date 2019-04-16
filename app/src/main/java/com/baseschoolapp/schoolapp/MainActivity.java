@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
         ArrayList<Integer> file_maps = new ArrayList<Integer>();
         file_maps.add(R.drawable.welcome);
         file_maps.add(R.drawable.track_school_bus);
-        file_maps.add(R.drawable.attendance);
+        file_maps.add(R.drawable.attendance_tour);
         file_maps.add(R.drawable.student_activities);
 
         for (Integer name : file_maps) {

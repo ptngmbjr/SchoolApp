@@ -40,7 +40,7 @@ public class MonthlyEventsFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.monthly_events, container, false);
 
         ButterKnife.bind(this, view);
-        initHeaderName();
+     //   initHeaderName();
 
 
         initMonths(view);
